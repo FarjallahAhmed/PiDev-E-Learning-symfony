@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Workshop
  *
  * @ORM\Table(name="workshop")
  * @ORM\Entity
+ * @UniqueEntity(fields={"nomevent"},message="Must Be unique,change it please")
  */
 class Workshop
 {
@@ -23,7 +26,12 @@ class Workshop
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      * @ORM\Column(name="nameCalendar", type="string", length=255, nullable=false)
      */
     private $namecalendar;
@@ -32,6 +40,12 @@ class Workshop
      * @var string
      *
      * @ORM\Column(name="nomEvent", type="string", length=30, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      */
     private $nomevent;
 
@@ -39,6 +53,8 @@ class Workshop
      * @var \DateTime|null
      *
      * @ORM\Column(name="dateDebut", type="date", nullable=true)
+     * @Assert\NotBlank(message="Must be filled")
+     *
      */
     private $datedebut;
 
@@ -67,12 +83,24 @@ class Workshop
      * @var string
      *
      * @ORM\Column(name="lieu", type="string", length=30, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     *  @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *      message="{{ value }} must be String "
+     * )
      */
     private $lieu;
 
     /**
      * @var int
-     *
+     * @Assert\Positive(message="Must Be upper than 0")
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[0-9]*$/",
+     *     htmlPattern = "^[0-9]*$",
+     *      message="{{ value }} must be a Number"
+     * )
      * @ORM\Column(name="nbParticipant", type="integer", nullable=false)
      */
     private $nbparticipant;
@@ -81,6 +109,7 @@ class Workshop
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=30, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
      */
     private $type;
 
@@ -88,6 +117,12 @@ class Workshop
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=30, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *      message="{{ value }} must be String "
+     * )
      */
     private $description;
 
@@ -95,6 +130,12 @@ class Workshop
      * @var float
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[0-9]/",
+     *     htmlPattern = "^[0-9]",
+     *     message="{{ value }} must be a Number"
+     * )
      */
     private $prix;
 
