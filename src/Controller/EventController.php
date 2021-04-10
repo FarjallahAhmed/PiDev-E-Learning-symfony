@@ -33,12 +33,20 @@ class EventController extends AbstractController
         $rdvs = [];
 
         foreach($events as $event){
+            if ($event->getType() == "Team building")
+                $event->setDescription("#FF5722");
+            else if ($event->getType() == "Soft Skills")
+                $event->setDescription("#933EC5");
+            else if ($event->getType() == "Conference")
+                $event->setDescription("#f3c30b");
+            else
+                $event->setDescription("#00BCD4");
             $rdvs[] = [
                 'id' => $event->getId(),
                 'start' => $event->getDatedebut()->format('Y-m-d H:i:s'),
                 'end' => $event->getDatefin()->format('Y-m-d H:i:s'),
                 'title' => $event->getNomevent(),
-                'description' => $event->getDescription(),
+                'color' => $event->getDescription(),
                 'type' => $event->getType(),
                 'prix' => $event->getPrix(),
                 'hfin' => $event->getHfin(),
@@ -69,40 +77,65 @@ class EventController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('event');
         }
+
         return $this->render('event/add.html.twig', [
             'formEvent' => $form->createView(),
         ]);
     }
     /**
-     * @Route("/", name="showEvent")
+     * @Route("/event/showEvent", name="showEvent")
      */
     public function showAllEvent(WorkshopRepository $calendar)
     {
         $events = $calendar->findAll();
-        $rdvs = [];
+        return $this->render('event/showEvent.html.twig', [
+            'events' => $events,
+        ]);
+    }
 
-        foreach($events as $event){
-            $rdvs[] = [
-                'id' => $event->getId(),
-                'start' => $event->getDatedebut()->format('Y-m-d H:i:s'),
-                'end' => $event->getDatefin()->format('Y-m-d H:i:s'),
-                'title' => $event->getNomevent(),
-                'description' => $event->getDescription(),
-                'type' => $event->getType(),
-                'prix' => $event->getPrix(),
-                'hfin' => $event->getHfin(),
-                'hdebut' => $event->getHdebut(),
-            ];
+    /**
+     * @Route("/event/newEvent", name="newEvent")
+     */
+    public function newEvent(Request $request): Response
+    {
+        $workshop = new Workshop();
+        $form = $this->createForm(WorkshopType::class,$workshop);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($workshop);
+            $em->flush();
+            return $this->redirectToRoute('showEvent');
         }
+        return $this->render('event/addEvent.html.twig', [
+            'formEvent' => $form->createView(),
+        ]);
+    }
+    /**
+     * @Route("/event/{id}/editEvent", name="edit")
+     */
+    public function edit(Request $request,WorkshopRepository $repo,$id): Response
+    {
+        $workshop = $repo->find($id);
+        $form = $this->createForm(WorkshopType::class,$workshop);
 
-        $data = json_encode($rdvs);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($workshop);
+            $em->flush();
+            return $this->redirectToRoute('showEvent');
+        }
+        return $this->render('event/addEvent.html.twig', [
+            'formEvent' => $form->createView(),
 
-        return $this->render('event/index.html.twig', compact('data'));
+        ]);
     }
     /**
      * @Route("/event/{id}/edit", name="eventEdit", methods={"PUT"})
      */
-    public function majEvent(?Workshop $calendar, Request $request)
+    public function editEvent(?Workshop $calendar, Request $request)
     {
         // On récupère les données
         $donnees = json_decode($request->getContent());
@@ -147,13 +180,13 @@ class EventController extends AbstractController
 
 
         return $this->render('event/index.html.twig', [
-            'controller_name' => 'ApiController',
+
         ]);
     }
     /**
      * @Route("/event/{id}/delete", name="deleteEvent", methods={"DELETE"})
      */
-    public function delete(Request $request, Workshop $calendar,WorkshopRepository $repo): Response
+    public function delete(Request $request,WorkshopRepository $repo): Response
     {
             $donnees = json_decode($request->getContent());
             $entityManager = $this->getDoctrine()->getManager();
@@ -163,5 +196,19 @@ class EventController extends AbstractController
 
 
         return $this->redirectToRoute('event');
+    }
+    /**
+     * @Route("/event/{id}/deleteEvent", name="delete")
+     */
+    public function deleteEvent(Request $request,WorkshopRepository $repo,$id): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $calendar = $repo->find($id);
+        $entityManager->remove($calendar);
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute('showEvent');
     }
 }

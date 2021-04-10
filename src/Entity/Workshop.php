@@ -54,6 +54,7 @@ class Workshop
      *
      * @ORM\Column(name="dateDebut", type="date", nullable=true)
      * @Assert\NotBlank(message="Must be filled")
+     * @Assert\NotBlank(message="Must be filled")
      *
      */
     private $datedebut;
@@ -62,20 +63,23 @@ class Workshop
      * @var \DateTime|null
      *
      * @ORM\Column(name="dateFin", type="date", nullable=true)
+     * @Assert\NotBlank(message="Must be filled")
      */
     private $datefin;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="hDebut", type="time", nullable=false)
+     * @ORM\Column(name="hDebut", type="time", nullable=true)
+     * @Assert\NotBlank(message="Must be filled")
      */
     private $hdebut;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="hFin", type="time", nullable=false)
+     * @ORM\Column(name="hFin", type="time", nullable=true)
+     * @Assert\NotBlank(message="Must be filled")
      */
     private $hfin;
 

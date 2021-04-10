@@ -31,9 +31,13 @@ class WorkshopType extends AbstractType
             ])
             ->add('hdebut',TimeType::class,[
                 'widget' => 'single_text',
+                'data' => new \DateTime(),
+
                 ])
             ->add('hfin',TimeType::class,[
                 'widget' => 'single_text',
+                'data' => new \DateTime(),
+
             ])
             ->add('lieu',TextType::class)
             ->add('nbparticipant',NumberType::class)

@@ -59,6 +59,7 @@
 
                     xhr.open("DELETE", url)
                     xhr.send(JSON.stringify(donnees))
+                    window.location.reload();
                 },
                 initialView: 'dayGridMonth',
                 locale: 'fr',
