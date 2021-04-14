@@ -1,0 +1,420 @@
+{% block monjs %}
+
+
+{% endblock %}
+{% extends 'base.html.twig' %}
+{% block body %}
+<body>
+    <style>
+        .rating {
+            display: inline-block;
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            font-size: 50px;
+        }
+
+        .rating label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .rating label:last-child {
+            position: static;
+        }
+
+        .rating label:nth-child(1) {
+            z-index: 5;
+        }
+
+        .rating label:nth-child(2) {
+            z-index: 4;
+        }
+
+        .rating label:nth-child(3) {
+            z-index: 3;
+        }
+
+        .rating label:nth-child(4) {
+            z-index: 2;
+        }
+
+        .rating label:nth-child(5) {
+            z-index: 1;
+        }
+
+        .rating label input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .rating label .icon {
+            float: left;
+            color: transparent;
+        }
+
+        .rating label:last-child .icon {
+            color: #000;
+        }
+
+        .rating:not(:hover) label input:checked ~ .icon,
+        .rating:hover label:hover input ~ .icon {
+            color: #09f;
+        }
+
+        .rating label input:focus:not(:checked) ~ .icon:last-child {
+            color: #000;
+            text-shadow: 0 0 5px #09f;
+        }
+    </style>
+    {{ block("header", "base.html.twig") }}
+
+
+<div class="page-title-area ptb-100">
+    <div class="container">
+        <div class="page-title-content">
+            <h1>Formations Details</h1>
+            <ul>
+                <li class="item"><a href="index.html">Home</a></li>
+                <li class="item"><a href="destination-details.html"><i class='bx bx-chevrons-right'></i>Destinations Details</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bg-image">
+        <img src="assets/img/page-title-area/destination-details.jpg" alt="Demo Image">
+    </div>
+</div>
+
+
+<section class="destinations-details-section pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>Welcome to our new Course</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="destination-details-desc mb-30">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="image mb-30">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="image mb-30">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content mb-20">
+                        <h3>{{ result.Objet }}.</h3>
+                        <p>
+                            {{ result.Objectif }}
+                        </p>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-sm-12">
+                            <div class="image mb-30">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <p class="mb-30">
+                            </p>
+                        </div>
+                    </div>
+                    <p class="mb-20">
+
+                    </p>
+                    <div class="info-content">
+                        <h3 class="sub-title">Some Information</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-map-alt'></i>
+                                    <h6><span>Country :</span> Tunis</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-book-reader'></i>
+                                    <h6><span>Categorie :</span> {{  result.categorie}}</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-notepad'></i>
+                                    <h6><span>Visa Requirments :</span> Yes</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-area'></i>
+                                    <h6><span>Area (km2) :</span> 1770.80 km2</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-user'></i>
+                                    <h6><span>Per Person :</span> {{ result.coutFin }} DT</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-group'></i>
+                                    <h6><span>Guide :</span> Local Guide Available</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-20">
+
+                    </p>
+                    <hr>
+
+                    <div class="comment-reply">
+                        <form id="commentForm" class="comment-form">
+
+
+                            <button type="submit" class="btn-primary">
+                                Add to chart
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <aside class="widget-area">
+                    <div class="widget widget-search mb-30">
+                        <form class="search-form search-top">
+                            <input type="search" class="form-control" placeholder="Search..." />
+                            <button type="submit" class="btn-text-only">
+                                <i class='bx bx-search-alt'></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="widget widget-video mb-30">
+                        <div class="video-image">
+                            <img src="assets/img/video-bg3.jpg" alt="video" />
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=QSwvg9Rv2EI" class="youtube-popup video-btn">
+                            <i class='bx bx-right-arrow'></i>
+                        </a>
+                    </div>
+                    <div class="widget widget-article mb-30">
+                        <h3 class="sub-title">Popular Places</h3>
+                        <article class="article-item">
+                            <div class="image">
+                                <img src="assets/img/destination6.jpg" alt="Demo Image" />
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class='bx bx-map'></i>95 Fleet, London</span>
+                                <h3>
+                                    <a href="destination-details.html">Venice The Dream Place.</a>
+                                </h3>
+                                <ul class="list">
+                                    <li><i class='bx bx-time'></i>3 Days</li>
+                                    <li>$1500</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="article-item">
+                            <div class="image">
+                                <img src="assets/img/destination7.jpg" alt="Demo Image" />
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
+                                <h3>
+                                    <a href="destination-details.html">Inca Trail Machu Picchu.</a>
+                                </h3>
+                                <ul class="list">
+                                    <li><i class='bx bx-time'></i>5 Days</li>
+                                    <li>$1200</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="article-item">
+                            <div class="image">
+                                <img src="assets/img/destination8.jpg" alt="Demo Image" />
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
+                                <h3>
+                                    <a href="destination-details.html">The Palace of Versailles.</a>
+                                </h3>
+                                <ul class="list">
+                                    <li><i class='bx bx-time'></i>7 Days</li>
+                                    <li>$2000</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="widget widget-gallery mb-30">
+                        <h3 class="sub-title">Instagram Post</h3>
+                        <ul class="instagram-post">
+                            <li>
+                                <img src="assets/img/instagram1.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram2.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram3.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram4.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram5.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram6.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+
+        <div class="comment-reply">
+            {{ form_start(form, {'attr': {'class': 'comment-form','id':'commentForm'}}) }}
+            <h3 class="sub-title">Ajouter une evaluation</h3>
+            <div class="row">
+
+
+                <div class="col-sm-12 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-icon textarea"><i class='bx bx-envelope'></i></div>
+                        {{  form_widget(form.rapport, {'attr': {'class': 'form-control','placeholder':"Ajouter une description",'name':'message'}}) }}
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="rating">
+                <label>
+                    <input type="radio" name="stars" onchange="getvalue(this)" value="1" />
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="stars" onchange="getvalue(this)"  value="2" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="stars" onchange="getvalue(this)"  value="3" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="stars" onchange="getvalue(this)"  value="4" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="stars" onchange="getvalue(this)"  value="5" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+
+            </div>
+            <br>
+            <input type="hidden" name="note" />
+            {{  form_widget(form.Submit, {'attr': {'class': 'btn-primary'}}) }}
+
+            {{ form_end(form) }}
+
+
+
+    </div>
+
+    </div>
+</div>
+
+</section>
+    <section id="testimonial" class="testimonial-section ptb-100">
+        <div class="container">
+            <div class="section-title">
+                <h2>What're Our Clients Say</h2>
+                <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="testimonial-slider owl-carousel">
+                        {% for x in evaluation %}
+                        <div class="slider-item">
+
+                            <div class="content">
+                                <div class="client-info">
+                                    <h3>Evaluation</h3>
+
+                                </div>
+                                <div class="quote">
+                                    <i class='bx bxs-quote-left'></i>
+                                </div>
+                                <p>
+                                   {{ x.rapport }}
+                                </p>
+                                <div class="review">
+                                    {% for i in range(1,x.note) %}
+                                    <i class='bx bxs-star'></i>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="shape">
+            <img src="{{ asset('/img/shape1.png') }}" alt="Background Shape">
+        </div>
+    </section>
+
+
+
+    {{ block("footer", "base.html.twig") }}
+    <script type="text/javascript">
+        function getvalue(radio) {
+            var nt = radio.value;
+            document.querySelector('[name=note]').value = nt;
+
+        }
+
+    </script>
+
+
+</body>
+
+
+
+{% endblock %}
