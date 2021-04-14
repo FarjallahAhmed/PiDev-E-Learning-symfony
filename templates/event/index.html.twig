@@ -1,3 +1,115 @@
 {% extends 'baseBack.html.twig' %}
+{% block title %}Event Calendrier{% endblock %}
+
+{% block content %}
+    <style>
+        #calendrier{
+            width: 80%;
+            margin: auto;
+            padding-top: 30px;
+        }
+        #btnEvent{
+            padding-top: 30px;
+
+        }
 
 
+
+    </style>
+
+
+        <div id="btnEvent">
+            <div class="sparkline11-list responsive-mg-b-30">
+                <div class="sparkline11-hd">
+                    <div class="main-sparkline11-hd">
+                        <h1>Gestion Evenement</h1>
+                    </div>
+                </div>
+                {{ include('event/add.html.twig')}}
+            </div>
+        </div>
+
+
+    <div id="calendrier">
+
+    </div>
+{% endblock %}
+
+{% block jsCalendar %}
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector("#calendrier")
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                dateClick: function(info) {
+                    alert('Clicked on: ' + info.dateStr);
+                    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                    alert('Current view: ' + info.view.type);
+                    // change the day's background color just for fun
+                    info.dayEl.style.backgroundColor = 'red';
+                },
+                eventClick: function(info) {
+                    let url = `/event/${info.event.id}/delete`
+
+                    let donnees = {
+                        "id": info.event.id,
+                    }
+
+                    let xhr = new XMLHttpRequest
+
+                    xhr.open("DELETE", url)
+                    xhr.send(JSON.stringify(donnees))
+                    window.location.reload();
+                },
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek'
+                },
+                events: 	{{ data|raw }},
+                editable: true,
+                eventResizableFromStart: true,
+            })
+
+            calendar.on('eventChange', (e) => {
+
+                let url = `/event/${e.event.id}/edit`
+
+                let donnees = {
+                    "title": e.event.title,
+                    "description": e.event.extendedProps.description,
+                    "start": e.event.start,
+                    "end": e.event.end,
+                    "backgroundColor": e.event.backgroundColor,
+                    "borderColor": e.event.borderColor,
+                    "textColor": e.event.textColor,
+                    "allDay": e.event.allDay
+                }
+
+                let xhr = new XMLHttpRequest
+
+                xhr.open("PUT", url)
+                xhr.send(JSON.stringify(donnees))
+            })
+            calendar.on('click', (e) => {
+
+                let url = `/event/${e.event.id}/delete`
+
+                let donnees = {
+                    "id": e.event.id,
+                }
+
+                let xhr = new XMLHttpRequest
+
+                xhr.open("DELETE", url)
+                xhr.send(JSON.stringify(donnees))
+            })
+
+            calendar.render()
+        }
+    </script>
+
+{% endblock %}
