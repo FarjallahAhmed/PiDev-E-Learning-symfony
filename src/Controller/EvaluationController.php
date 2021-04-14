@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EventController extends AbstractController
+class EvaluationController extends AbstractController
 {
     /**
-     * @Route("/event", name="event")
+     * @Route("/evaluation", name="evaluation")
      */
     public function index(): Response
     {
-        return $this->render('base.html.twig', [
-            'controller_name' => 'EventController',
+        return $this->render('evaluation/index.html.twig', [
+            'controller_name' => 'EvaluationController',
         ]);
     }
 }

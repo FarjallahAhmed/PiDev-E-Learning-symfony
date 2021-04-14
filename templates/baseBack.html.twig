@@ -38,6 +38,9 @@
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
+        <!-- dropzone CSS
+		============================================ -->
+        <link rel="stylesheet" href="{{ asset('backAssets/css/dropzone/dropzone.css') }}">
     <!-- educate icon CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('backAssets/css/educate-custon-icon.css') }}">
@@ -55,6 +58,9 @@
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('backAssets/css/calendar/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backAssets/css/calendar/fullcalendar.print.min.css') }}">
+        <!-- forms CSS
+		============================================ -->
+        <link rel="stylesheet" href="{{ asset('backAssets/css/form/all-type-forms.css') }}">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('backAssets/style.css') }}">
@@ -119,8 +125,8 @@
                     <li>
                         <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">All Courses</span></a></li>
-                            <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Add Course</span></a></li>
+                            <li><a title="All Courses" href="{{ path('allformations') }}"><span class="mini-sub-pro">All Courses</span></a></li>
+                            <li><a title="Add Courses" href="{{ path('formation_new') }}"><span class="mini-sub-pro">Add Course</span></a></li>
                             <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
                             <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a></li>
                             <li><a title="course Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a></li>
@@ -1073,6 +1079,15 @@
             </div>
         </div>
     </div>
+    {% if ajout is not null %}
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success!</strong> La formation a ete ajouter avec success
+    </div>
+    {% endif %}
+
     <div class="analytics-sparkle-area">
         <div class="container-fluid">
             <div class="row">
@@ -1617,69 +1632,92 @@
 
 <!-- jquery
     ============================================ -->
-    {% block js %}
-<script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<!-- bootstrap JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
-<!-- wow JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
-<!-- meanmenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
-<!-- sticky JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
-<!-- counterup JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
-<!-- mCustomScrollbar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-<!-- metisMenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
-<!-- calendar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/plugins.js') }}"></script>
-<!-- main JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/main.js') }}"></script>
-<!-- tawk chat JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
-{% endblock %}
+
 
 {% endblock %}
 </body>
+{% block js %}
+    <script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <!-- maskedinput JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.maskedinput.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/masking-active.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
+    <!-- datepicker JS
+		============================================ -->
+    <script src="{{ asset('backAssets/js/datepicker/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/datepicker/datepicker-active.js') }}"></script>
+    <!-- form validate JS
+		============================================ -->
+    <!-- form validate JS
+            ============================================ -->
+    <!-- dropzone JS
+       ============================================ -->
+    <script src="{{ asset('backAssets/js/dropzone/dropzone.js') }}"></script>
+    <!-- pdf JS
+		============================================ -->
+    <script src={{ asset('backAssets/js/pdf/jquery.media.js')}}></script>
+    <script src={{ asset('backAssets/js/pdf/pdf-active.js')}}></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="{{ asset('backAssets/js/tab.js') }}"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/plugins.js') }}"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/main.js') }}"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
+{% endblock %}
 
 </html>
