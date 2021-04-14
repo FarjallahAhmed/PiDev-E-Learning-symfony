@@ -94,6 +94,18 @@ class EventController extends AbstractController
     }
 
     /**
+     * @Route("/event/showEventFront", name="showEventFront")
+     */
+    public function showAllEventFront(WorkshopRepository $calendar)
+    {
+        $events = $calendar->findAll();
+
+        return $this->render('event/showEventFront.html.twig', [
+            'events' => $events,
+        ]);
+    }
+
+    /**
      * @Route("/event/newEvent", name="newEvent")
      */
     public function newEvent(Request $request): Response
