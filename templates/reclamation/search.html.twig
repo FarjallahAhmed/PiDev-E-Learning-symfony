@@ -1,0 +1,35 @@
+<div id="table">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Objet</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Modifer</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in reclamation %}
+            <tr>
+                <td>{{ r.id_reclamation }}</td>
+                {% for user in users %}
+                    {% if user.id == r.id_user %}
+                        <td>{{ user.nom }}</td>
+                    {% endif %}
+                {% endfor %}
+                <td>{{ r.objet }}</td>
+                {% for msg in msgs %}
+                    {% if r.id_message == msg.idMessage %}
+                        <td>{{ msg.contenu }}</td>
+                    {% endif %}
+                {% endfor %}
+                <td>{{ r.date | date }}</td>
+                <td><a href="{{ path('modifierReclamation', {'id': r.id_reclamation}) }}"><button>modifier</button></a></td>
+                <td><a href="{{ path('supprimerReclamation', {'id': r.id_reclamation}) }}"><button>Supprimer</button></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

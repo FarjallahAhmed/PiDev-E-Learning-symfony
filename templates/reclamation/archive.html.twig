@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReclamationController!{% endblock %}
+
+{% block body %}
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Objet</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in reclamation %}
+            <tr>
+                <td>{{ r.idReclamation }}</td>
+                <td>{{ r.idUser.nom }}</td>
+                <td>{{ r.objet }}</td>
+                <td>{{ r.idMessage.contenu }}</td>
+                <td>{{ r.date | date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('reclamation') }}">Liste des Reclamations</a> <br>
+
+{% endblock %}

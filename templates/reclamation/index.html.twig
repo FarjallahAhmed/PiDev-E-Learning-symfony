@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReclamationController!{% endblock %}
+
+{% block body %}
+    <input id="search" type="text" placeholder="Search">
+    <div id="table">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Objet</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Modifer</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for r in reclamation %}
+                <tr>
+                    <td>{{ r.idReclamation }}</td>
+                    <td>{{ r.idUser.nom }}</td>
+                    <td>{{ r.objet }}</td>
+                    <td>{{ r.idMessage.contenu }}</td>
+                    <td>{{ r.date | date }}</td>
+                    <td><a href="{{ path('modifierReclamation', {'id': r.idReclamation}) }}"><button>modifier</button></a></td>
+                    <td><a href="{{ path('supprimerReclamation', {'id': r.idReclamation}) }}"><button>Supprimer</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('ajouterReclamation') }}">Ajouter Reclamation</a> <br>
+    <a href="{{ path('archiveReclamation') }}">Archive</a> <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(function() {
+            $("#search").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchReaclamation') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+        })
+    </script>
+{% endblock %}

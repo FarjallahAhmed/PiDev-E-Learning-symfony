@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategorieController!{% endblock %}
+
+{% block body %}
+    <input id="search" type="text" placeholder="Search">
+    <div id="table">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Modifer</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in categorie %}
+                <tr>
+                    <td>{{ c.idCategorie }}</td>
+                    <td>{{ c.nom }}</td>
+                    <td>{{ c.type }}</td>
+                    <td>{{ c.description }}</td>
+                    <td><a href="{{ path('modifierCategorie', {'id': c.idCategorie}) }}"><button>modifier</button></a></td>
+                    <td><a href="{{ path('supprimerCategorie', {'id': c.idCategorie}) }}"><button>Supprimer</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('ajouterCategorie') }}">Ajouter Categorie</a> <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(function() {
+            $("#search").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchCategorie') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+        })
+    </script>
+{% endblock %}

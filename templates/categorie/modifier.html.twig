@@ -1,0 +1,6 @@
+<form action="{{ path('modifierCategorie', {'id': cat.idCategorie}) }}" method="post">
+    <input id="nom" type="text" name="nom" placeholder="Nom" required value="{{ cat.nom }}"> <br>
+    <input id="type" type="text" name="type" placeholder="Type" required value="{{ cat.type }}"> <br>
+    <textarea id="description" name="description" > {{ cat.description }}</textarea> <br>
+    <input type="submit" value="Ajouter">
+</form>

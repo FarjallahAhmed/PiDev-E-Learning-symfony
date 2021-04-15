@@ -1,0 +1,5 @@
+<form action="{{ path('modifierReclamation', {'id': rec.idReclamation}) }}" method="post">
+    <input id="objet" type="text" name="objet" placeholder="Objet" value="{{ rec.objet }}" required> <br>
+    <textarea id="message" name="message"> {{ rec.idMessage.contenu }} </textarea> <br>
+    <input type="submit" value="Modifier">
+</form>
