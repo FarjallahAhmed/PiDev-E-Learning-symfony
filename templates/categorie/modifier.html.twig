@@ -1,6 +1,51 @@
-<form action="{{ path('modifierCategorie', {'id': cat.idCategorie}) }}" method="post">
-    <input id="nom" type="text" name="nom" placeholder="Nom" required value="{{ cat.nom }}"> <br>
-    <input id="type" type="text" name="type" placeholder="Type" required value="{{ cat.type }}"> <br>
-    <textarea id="description" name="description" > {{ cat.description }}</textarea> <br>
-    <input type="submit" value="Ajouter">
-</form>
+{% extends 'baseBack.html.twig' %}
+
+{% block categorieActive %} class="active" {% endblock %}
+
+{% block content %}<br>
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="sparkline12-list">
+                    <div class="sparkline12-hd">
+                        <div class="main-sparkline12-hd">
+                            <h1>Modifier Categorie</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline12-graph">
+                        <div class="basic-login-form-ad">
+                            <div class="row">
+                                <form action="{{ path('modifierCategorie', {'id': cat.idCategorie}) }}" method="post">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">Nom Categorie</label>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input name="nom" placeholder="Nom" required type="text" value="{{ cat.nom }}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">Type</label>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" name="type" required placeholder="Type" value="{{ cat.type }}"  class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">Description</label>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" name="description" required placeholder="Description" value="{{ cat.description }}" class="form-control">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="submit" class="btn btn-sm btn-primary login-submit-cs" value="Modifier">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

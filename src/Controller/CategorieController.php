@@ -97,4 +97,14 @@ class CategorieController extends AbstractController
             'categorie' => $tab,
         ]);
     }
+
+    /**
+     * @Route("/testTMP", name="testTMP")
+     */
+    public function testTMP(): Response
+    {
+        return $this->render('categorie/testTMP.html.twig', [
+            'controller_name' => 'CategorieController',
+        ]);
+    }
 }

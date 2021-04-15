@@ -1,36 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseBack.html.twig' %}
 
-{% block title %}Hello CategorieController!{% endblock %}
+{% block categorieActive %} class="active" {% endblock %}
 
-{% block body %}
-    <input id="search" type="text" placeholder="Search">
-    <div id="table">
-        <table border="1">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Modifer</th>
-                <th>Supprimer</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for c in categorie %}
-                <tr>
-                    <td>{{ c.idCategorie }}</td>
-                    <td>{{ c.nom }}</td>
-                    <td>{{ c.type }}</td>
-                    <td>{{ c.description }}</td>
-                    <td><a href="{{ path('modifierCategorie', {'id': c.idCategorie}) }}"><button>modifier</button></a></td>
-                    <td><a href="{{ path('supprimerCategorie', {'id': c.idCategorie}) }}"><button>Supprimer</button></a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+{% block content %}
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="sparkline8-list">
+                        <div class="sparkline8-hd">
+                            <div class="main-sparkline8-hd">
+                                <h1>List Reclamation</h1>
+                                <input id="search" type="text" placeholder="Search">
+                            </div>
+                        </div>
+                        <div class="sparkline8-graph">
+                            <div class="static-table-list">
+                                <div id="table">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nom</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th>Modifer</th>
+                                            <th>Supprimer</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for c in categorie %}
+                                            <tr>
+                                                <td>{{ c.idCategorie }}</td>
+                                                <td>{{ c.nom }}</td>
+                                                <td>{{ c.type }}</td>
+                                                <td>{{ c.description }}</td>
+                                                <td><a href="{{ path('modifierCategorie', {'id': c.idCategorie}) }}"><button style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #933EC5;border-radius: 3px;outline:none;" class="ps-setting">Modifier</button></a></td>
+                                                <td><a href="{{ path('supprimerCategorie', {'id': c.idCategorie}) }}"><button style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #D80027;border-radius: 3px;outline:none;" class="ds-setting">Supprimer</button></a></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <a href="{{ path('ajouterCategorie') }}">Ajouter Categorie</a> <br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script >

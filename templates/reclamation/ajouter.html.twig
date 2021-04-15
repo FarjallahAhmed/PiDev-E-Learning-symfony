@@ -1,5 +1,45 @@
-<form action="{{ path('ajouterReclamation') }}" method="post">
-    <input id="objet" type="text" name="objet" placeholder="Objet" required> <br>
-    <textarea id="message" name="message" required> </textarea> <br>
-    <input type="submit" value="Ajouter">
-</form>
+{% extends 'baseBack.html.twig' %}
+
+{% block recalamationActive %} class="active" {% endblock %}
+
+{% block content %}<br>
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="sparkline12-list">
+                    <div class="sparkline12-hd">
+                        <div class="main-sparkline12-hd">
+                            <h1>Add Reclamation</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline12-graph">
+                        <div class="basic-login-form-ad">
+                            <div class="row">
+                                <form action="{{ path('ajouterReclamation') }}" method="post">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">Obejt Reclamation</label>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input name="objet" placeholder="Objet" required type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <label class="login2 pull-right pull-right-pro">Message</label>
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" name="message" required placeholder="Message" class="form-control">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <input type="submit" class="btn btn-sm btn-primary login-submit-cs" value="Ajouter">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
