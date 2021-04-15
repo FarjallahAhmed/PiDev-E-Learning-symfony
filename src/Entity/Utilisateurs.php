@@ -3,12 +3,26 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\InheritanceType;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\LengthValidator;
+
+
+
 
 /**
  * Utilisateurs
  *
  * @ORM\Table(name="utilisateurs")
  * @ORM\Entity
+ * 
+ * @InheritanceType("JOINED")
+ * @DiscriminatorColumn(name="idp", type="string")
+ * @DiscriminatorMap({"utilisateurs"="Utilisateurs","participants"="Participants","formateurs"="Formateurs"})
+
  */
 class Utilisateurs
 {
@@ -25,6 +39,12 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Nom Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="Your name must contain only letter"
+     * )
      */
     private $nom;
 
@@ -32,6 +52,12 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Prenom Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="Your name must contain only letter"
+     * )
      */
     private $prenom;
 
@@ -46,6 +72,18 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="cin", type="string", length=8, nullable=false)
+     * @Assert\NotBlank(message="CIN Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[1-9]/i",
+     *     htmlPattern = "^[1-9]+$",
+     *     message="Your CIN must contain only Number"
+     * ) 
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Your CIN Must Have Only 8 Numbers",
+     *      maxMessage = "Your CIN Must Have Only 8 Numbers",
+     * )
      */
     private $cin;
 
@@ -53,6 +91,8 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Email Is Required")
+     * @Assert\Email(message="The email '{{ value }}' is not Valid")
      */
     private $email;
 
@@ -60,6 +100,12 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="login", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Login Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z1-9]/i",
+     *     htmlPattern = "^[a-z1-9]+$",
+     *     message="Your Login must contain only Number and Letters"
+     * ) 
      */
     private $login;
 
@@ -67,6 +113,18 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="pwd", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Password Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z1-9]/i",
+     *     htmlPattern = "^[a-z1-9]+$",
+     *     message="Your Login must contain only Number and Letters"
+     * )
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Your CIN Must Have Only 8 Characteres",
+     *      maxMessage = "Your CIN Must Have Only 8 Characteres",
+     * ) 
      */
     private $pwd;
 
@@ -74,8 +132,27 @@ class Utilisateurs
      * @var string
      *
      * @ORM\Column(name="num", type="string", length=8, nullable=false)
+     * @Assert\NotBlank(message="Phone Number Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[1-9]/i",
+     *     htmlPattern = "^[1-9]",
+     *     message="Your Phone Number must contain only Number"
+     * ) 
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Your Phone Number Must Have Only 8 Numbers",
+     *      maxMessage = "Your Phone Number Must Have Only 8 Numbers",
+     * ) 
      */
     private $num;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=8, nullable=true)
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -174,6 +251,19 @@ class Utilisateurs
     public function setNum(string $num): self
     {
         $this->num = $num;
+
+        return $this;
+    }
+
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Participants
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="participants")
  * @ORM\Entity
  */
-class Participants
+class Participants extends Utilisateurs
 {
     /**
      * @var string
@@ -30,6 +31,7 @@ class Participants
      * @var string
      *
      * @ORM\Column(name="interessePar", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="About Is Required")
      */
     private $interessepar;
 
@@ -40,17 +42,7 @@ class Participants
      */
     private $nombredeformation;
 
-    /**
-     * @var \Utilisateurs
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Utilisateurs")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
+   
 
     public function getNiveauetude(): ?string
     {
@@ -100,17 +92,7 @@ class Participants
         return $this;
     }
 
-    public function getId(): ?Utilisateurs
-    {
-        return $this->id;
-    }
-
-    public function setId(?Utilisateurs $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+ 
 
 
 }
