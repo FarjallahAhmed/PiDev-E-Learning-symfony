@@ -3,13 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Formation
  *
  * @ORM\Table(name="formation")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\FormationRepository")
  */
+
 class Formation
 {
     /**
@@ -23,7 +25,11 @@ class Formation
 
     /**
      * @var string|null
-     *
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} n'est pas un caractere "
+     * )
      * @ORM\Column(name="Objet", type="string", length=255, nullable=true)
      */
     private $objet;
@@ -32,12 +38,17 @@ class Formation
      * @var string|null
      *
      * @ORM\Column(name="Type", type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} n'est pas un caractere "
+     * )
      */
     private $type;
 
     /**
      * @var string|null
-     *
+
      * @ORM\Column(name="Objectif", type="string", length=255, nullable=true)
      */
     private $objectif;
@@ -51,7 +62,11 @@ class Formation
 
     /**
      * @var float|null
-     *
+     * @Assert\Regex(
+     *     pattern     = "/^[0-9]/",
+     *     htmlPattern = "^[0-9]",
+     *     message="{{ value }} must be a Number"
+     * )
      * @ORM\Column(name="cout_hj", type="float", precision=10, scale=0, nullable=true)
      */
     private $coutHj;
@@ -67,13 +82,22 @@ class Formation
      * @var float|null
      *
      * @ORM\Column(name="cout_fin", type="float", precision=10, scale=0, nullable=true)
+     ** @Assert\Regex(
+     *     pattern     = "/^[0-9]/",
+     *     htmlPattern = "^[0-9]",
+     *     message="{{ value }} must be a Number"
+     * )
      */
     private $coutFin;
 
     /**
      * @var \DateTime|null
-     *
      * @ORM\Column(name="date_reelle", type="date", nullable=true)
+     *  @Assert\Date()
+     * @Assert\Expression(
+     *     "this.getDatePrevu() > this.getDateReelle()",
+     *     message="La date fin ne doit pas être antérieure à la date début"
+     * )
      */
     private $dateReelle;
 
@@ -95,12 +119,30 @@ class Formation
      * @var string|null
      *
      * @ORM\Column(name="categorie", type="string", length=255, nullable=true)
+
      */
+
     private $categorie;
+    /**
+     * @var int |null
+     *
+     * @ORM\Column(name="id_formateur", type="integer", length=255, nullable=true)
+     */
+    private  $id_formateur;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function getIdformateur(): ?int
+    {
+        return $this->id_formateur;
+    }
+    public function setidformateur(?int  $id_formateur): self
+    {
+        $this->id_formateur = $id_formateur;
+
+        return $this;
     }
 
     public function getObjet(): ?string

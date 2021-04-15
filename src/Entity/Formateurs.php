@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\LengthValidator;
 
 /**
  * Formateurs
@@ -10,12 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="formateurs")
  * @ORM\Entity
  */
-class Formateurs
+class Formateurs extends Utilisateurs
 {
     /**
      * @var string
      *
      * @ORM\Column(name="specialite", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Specialite Is Required")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="Your Specialty must contain only letter"
+     * )
      */
     private $specialite;
 
@@ -23,6 +32,7 @@ class Formateurs
      * @var string
      *
      * @ORM\Column(name="justificatif", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Justificatif Is Required")
      */
     private $justificatif;
 
@@ -33,17 +43,7 @@ class Formateurs
      */
     private $etat = '0';
 
-    /**
-     * @var \Utilisateurs
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Utilisateurs")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
+    
 
     public function getSpecialite(): ?string
     {
@@ -81,17 +81,6 @@ class Formateurs
         return $this;
     }
 
-    public function getId(): ?Utilisateurs
-    {
-        return $this->id;
-    }
-
-    public function setId(?Utilisateurs $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
+   
 
 }

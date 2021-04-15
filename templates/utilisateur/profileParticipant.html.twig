@@ -1,0 +1,196 @@
+{% extends 'baseU.html.twig' %}
+
+
+
+
+
+{% block body %}
+
+{{ block("header", "base.html.twig") }}
+
+
+<div class="main-form ptb-100">
+<div class="container">
+<div class="row flex-lg-nowrap">
+  
+
+  <div class="col">
+    <div class="row">
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+              </ul>
+
+              <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                 
+
+                  {{ form_start(form, {'attr': {'class': 'form','novalidate': 'novalidate'}}) }}
+                  <div class="e-profile">
+              <div class="row">
+
+                <div class="col-12 col-sm-auto mb-3">
+                  <div class="mx-auto" style="width: 140px;">
+                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                     {% if participants.image == null %}
+                       <img src="{{ asset('uploads/pictures/user.png') }}" alt="" />
+                       {% endif %}
+                    {% if participants.image != null %}
+                       <img src="{{ asset('uploads/pictures/' ~ participants.image) }}" alt="" />
+                       {% endif %}
+
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                {% if message is not empty %}
+                    <div class="alert alert-success" >{{ message }}</div>
+                {% endif %}
+                </div>
+                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                  <div class="text-center text-sm-left mb-2 mb-sm-0">
+                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{ participants.nom }} {{ participants.prenom }}</h4>
+                    <div class="text-muted"><small>Last seen Now</small></div>
+                    <div class="mt-2">
+                      {{form_widget(form.imageFile) }}
+                    </div>
+                    
+
+                  </div>
+                  <div class="text-center text-sm-right">
+                    <span class="badge badge-secondary">{{ participants.niveauetude }}</span>
+                    <div class="text-muted"><small>Joined 09 Dec 2017</small></div>
+                  </div>
+                </div>
+              </div>
+                    <div class="row">
+                      <div class="col">
+                                <center><div class="mb-2"><b>Personal Information</b></div></center>
+                                <div class="mb-2">UserName</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                                {{form_widget(form.login, {'attr': {'class': 'form-control','placeholder':"UserName"}}) }}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="content">
+                        {% if form_errors(form.login) is not empty %}
+                            <div class="alert alert-danger" >{{ form_errors(form.login) }}</div>
+                        {% endif %}
+                        </div>
+                                    <div class="mb-2">Email</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                            {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email"}}) }}
+                             
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="content">
+                        {% if form_errors(form.email) is not empty %}
+                            <div class="alert alert-danger" >{{ form_errors(form.email) }}</div>
+                        {% endif %}
+                        </div>
+
+                                      <div class="mb-2">Study Level </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                               {{form_widget(form.niveauetude, {'attr': {'class': 'form-control','placeholder':"Niveau"}}) }}                             
+                            </div>
+                          </div>
+                        </div>
+                                <div class="mb-2">About</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                           {{form_widget(form.interessepar, {'attr': {'class': 'form-control', 'rows':5,'placeholder':"Interesse"}}) }}
+                             
+                            </div>
+                          </div>
+                        </div>
+                   <div class="content">
+                        {% if form_errors(form.interessepar) is not empty %}
+                            <div class="alert alert-danger" >{{ form_errors(form.interessepar) }}</div>
+                        {% endif %}
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col">
+                        <center><div class="mb-2"><b>Change Password</b></div></center>
+
+                                    <div class="mb-2">Current Password</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                            {{form_widget(form.pwd, {'attr': {'class': 'form-control','value':participants.pwd ,'placeholder':"Password"}}) }}
+                     
+                            </div>
+                          </div>
+                        </div>
+                   <div class="content">
+                        {% if form_errors(form.pwd) is not empty %}
+                            <div class="alert alert-danger" >{{ form_errors(form.pwd) }}</div>
+                        {% endif %}
+                        </div>
+                                    <div class="mb-2">New Password</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+
+                              <input class="form-control" type="password" placeholder="••••••">
+                            </div>
+                          </div>
+                        </div>
+                                    <div class="mb-2">Phone Number</div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                           
+                              {{form_widget(form.num, {'attr': {'class': 'form-control','placeholder':"Numero"}}) }}
+                              </div>
+                          </div>
+                        </div>                        
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                     
+                        {{  form_widget(form.Modifier, {'attr': {'class': 'btn btn-primary'}}) }}
+                      </div>
+                    </div>
+
+                  {{ form_end(form) }}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+</div>
+{% endblock %}
+

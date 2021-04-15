@@ -1,0 +1,253 @@
+{#  {{ form_start(formEvent) }}
+    {{ form_row(formEvent.nomevent, {
+        'label': 'Event Name',
+        'label_attr': {'class': 'login2'},
+        'attr':{
+            'class':'form-group-inner ',
+            'placeholder' : 'Ex: Lear Java'
+        }
+    }) }}
+    {{ form_row(formEvent,{'attr':{'class':'form-group-inner '}}) }}
+
+<button class="btn btn-sm btn-primary login-submit-cs" >{{ button_label|default('Save') }}</button>
+{{ form_end(formEvent) }}
+#}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="basic-login-inner modal-basic-inner">
+            <h3 style="color: #0a6aa1">Create Event </h3>
+
+            {{ form_start(formEvent,{'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="form-group-inner">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                                {{ form_label(formEvent.nomevent,'Event Name',{
+                                    'label_attr': {'class': 'login2'}
+                                    })
+                                }}
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            {{ form_widget(formEvent.nomevent,{
+                                'attr' : { 'placeholder' : 'Ex: Lear Java',
+                                    'class' : 'form-control'
+                                }
+                            })
+                            }}
+                            <div style="color: red; size: 15px; font-family: bold;">
+                                {{ form_errors(formEvent.nomevent) }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.namecalendar ,'Calendar Name ',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.namecalendar,{
+                            'attr' : { 'placeholder' : 'Ex: Classe 3A14',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.namecalendar) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.type,'Type',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.type,{
+                            'attr':{
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.type) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.lieu,'lieu',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.lieu,{
+                            'attr' : { 'placeholder' : 'Ex: Tunis',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.lieu) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.description,'Description',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.description,{
+                            'attr' : { 'placeholder' : 'this evet ....',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.description) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.nbparticipant,'Participants Number',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.nbparticipant,{
+                            'attr' : { 'placeholder' : 'Ex: 50',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.nbparticipant) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.prix,'Price',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.prix,{
+                            'attr' : { 'placeholder' : 'Ex: 51.4',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formEvent.prix) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="date-picker-inner">
+                        <div class="form-group data-custon-pick data-custom-mg" id="data_5">
+                            <label class="login2">Date range</label>
+                            <div class="input-daterange input-group" id="datepicker">
+                                {{ form_widget(formEvent.datedebut,{
+                                    'attr' : {
+                                        'class' : 'form-control',
+
+                                    }
+                                })
+                                }}
+                                <span class="input-group-addon">to</span>
+                                {{ form_widget(formEvent.datefin,{
+                                    'attr' : {
+                                        'class' : 'form-control'
+                                    }
+                                })
+                                }}
+
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.hdebut,'Start Time',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.hdebut,{
+                            'attr' : {
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formEvent.hfin,'End Time',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formEvent.hfin,{
+                            'attr' : {
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="login-horizental">
+                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">{{ button_label|default('Save') }}</button>
+                    </div>
+                </div>
+            </div>
+
+            {{ form_end(formEvent) }}
+        </div>
+    </div>
+</div>
