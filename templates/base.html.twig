@@ -8,6 +8,7 @@
         <title>{% block title %} E-Learning{% endblock %}</title>
 
         {% block stylesheets %}
+
         <link rel="stylesheet" href="{{  asset('css/bootstrap.min.css')}}" />
 
         <link rel="stylesheet" href="{{  asset('css/fontawesome.css')}}" />
@@ -31,14 +32,14 @@
         <link rel="stylesheet" href="{{  asset('css/responsive.css')}}" />
 
         <link rel="icon" href="{{  asset('img/favicon.png" type="image/png')}}" />
-        {% endblock %}
+        {% endblock %}-
 
 
 
 
     </head>
     <body>
-        {% block body %}
+
 
 
           
@@ -46,8 +47,13 @@
             <div id="loading">
                 <div class="loader"></div>
             </div>
+<<<<<<< HEAD
 
 {% block header %}
+=======
+            {% block header %}
+
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
             <header class="header-area">
 
                 <div class="top-header-area">
@@ -138,7 +144,7 @@
                                 </div>
                                 <div class="cart responsive">
                                     <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                                        <span class="badge">0</span>
+                                        <span class="badge"></span>
                                     </a>
                                 </div>
                             </div>
@@ -208,10 +214,10 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link toggle">Destinations<i class='bx bxs-chevron-down'></i></a>
+                                            <a href="#" class="nav-link toggle">Formations<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="destinations.html" class="nav-link">Destinations</a>
+                                                    <a href="destinations.html" class="nav-link">Formations</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="destination-details.html" class="nav-link">Destinations Details</a>
@@ -263,9 +269,20 @@
                 </div>
 
             </header>
+<<<<<<< HEAD
      {% endblock %}
 
         {% block banner %}
+=======
+<<<<<<< HEAD
+            {% block content %}
+                {% endblock %}
+
+
+=======
+            {% endblock %}
+
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
             <div id="home" class="home-banner-area home-style-three">
                 <div class="container-fluid p-0">
                     <div class="banner-slider-three owl-carousel">
@@ -279,7 +296,7 @@
                                     <p>
                                         Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
                                     </p>
-                                    <a href="destination-details.html" class="btn-primary">Destinations</a>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
                                 </div>
                             </div>
                         </div>
@@ -293,7 +310,7 @@
                                     <p>
                                         Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
                                     </p>
-                                    <a href="destination-details.html" class="btn-primary">Destinations</a>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +324,7 @@
                                     <p>
                                         Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
                                     </p>
-                                    <a href="destination-details.html" class="btn-primary">Destinations</a>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
                                 </div>
                             </div>
                         </div>
@@ -375,50 +392,15 @@
                 </div>
             </div>
 
+>>>>>>> 2c4ec4f780345baad67f63e909ec99991847ab99
 
-            <section class="features-section pt-100 pb-70">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="item-single mb-30">
-                                <i class='bx bx-calendar'></i>
-                                <h3><a href="#">Reservation</a></h3>
-                                <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                                <div class="cta-btn">
-                                    <a href="#" class="btn-primary">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="item-single mb-30">
-                                <i class='bx bxs-plane-take-off'></i>
-                                <h3><a href="#">Tour Pack</a></h3>
-                                <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
-                                <div class="cta-btn">
-                                    <a href="#" class="btn-primary">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 m-auto">
-                            <div class="item-single mb-30">
-                                <i class='bx bx-money'></i>
-                                <h3><a href="#">Payment</a></h3>
-                                <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                                <div class="cta-btn">
-                                    <a href="#" class="btn-primary">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
 
             <section id="destination" class="destination-section pt-100 pb-70 bg-light">
                 <div class="container">
                     <div class="section-title">
-                        <h2>Destinations</h2>
-                        <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
+                        <h2>Formations</h2>
+                        <p>E-learning has helped us to understand the meaning of life and it has helped us become better people. Each time we study, we see the world with new eyes.</p>
                     </div>
                     <div class="row">
                         <div class="col-md-8 m-auto">
@@ -427,181 +409,79 @@
                                 <ul id="control" class="list-control">
                                     <li class="active" data-filter="all">All</li>
                                     <li data-filter="1">Budget-Friendly</li>
-                                    <li data-filter="2">Royal</li>
-                                    <li data-filter="3">Recommended</li>
+
+                                    <li data-filter="3">Recommended </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="row filtr-container">
+                        {% for x in result %}
                         <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
                             <div class="item-single mb-30">
                                 <div class="image">
-                                    <img src="assets/img/destination1.jpg" alt="Demo Image">
+                                    <img src="{{ asset('/img/destination1.jpg') }}" alt="Demo Image">
+
                                 </div>
                                 <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Hvar, Croatia</span>
+                                    <span class="location"><i class='bx bx-map'></i>Tunis</span>
                                     <h3>
-                                        <a href="destination-details.html">Piazza Castello</a>
+                                        <a href="{{ path('formationdetails',{id:x.id}) }}">{{ x.Objet }}</a>
                                     </h3>
                                     <div class="review">
                                         <i class='bx bx-smile'></i>
-                                        <span>8.5</span>
-                                        <span>Superb</span>
+
                                     </div>
                                     <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
+                                        {{ x.Type }}
                                     </p>
                                     <hr>
                                     <ul class="list">
-                                        <li><i class='bx bx-time'></i>3 Days</li>
-                                        <li><i class='bx bx-group'></i>160+</li>
-                                        <li>$500</li>
+                                        <li><i class='bx bx-time'></i>{{x.datePrevu|date("m/d/Y") }}</li>
+                                        <li><i class='bx bx-group'></i>{{ x.nbParticipants }}</li>
+                                        <li>{{ x.coutFin }} DT</li>
                                     </ul>
                                 </div>
                                 <div class="spacer"></div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 1" data-sort="value">
+                        {% endfor %}
+                        {% for x in evaluation %}
+                        <div class="col-lg-4 col-md-6 filtr-item" data-category="3" data-sort="value">
                             <div class="item-single mb-30">
                                 <div class="image">
-                                    <img src="assets/img/destination2.jpg" alt="Demo Image">
+                                    <img src="{{ asset('/img/destination1.jpg') }}" alt="Demo Image">
+
                                 </div>
                                 <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Santorini, Oia ,Greece</span>
+                                    <span class="location"><i class='bx bx-map'></i>Tunis</span>
                                     <h3>
-                                        <a href="destination-details.html">Santorini, Oia ,Greece</a>
+                                        <a href="{{ path('formationdetails',{id:x.id}) }}">{{ x.objet }}</a>
                                     </h3>
                                     <div class="review">
                                         <i class='bx bx-smile'></i>
-                                        <span>9</span>
+                                        <span>{{ x.moy|number_format(1, '.') }}</span>
                                         <span>Superb</span>
                                     </div>
                                     <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
+                                        {{ x.type }}
                                     </p>
                                     <hr>
                                     <ul class="list">
-                                        <li><i class='bx bx-time'></i>7 Days</li>
-                                        <li><i class='bx bx-group'></i>65+</li>
-                                        <li>$2000</li>
+                                        <li><i class='bx bx-time'></i>{{x.datePrevu|date("m/d/Y") }}</li>
+                                        <li><i class='bx bx-group'></i>{{ x.nbParticipants }}</li>
+                                        <li>{{ x.coutFin }} DT</li>
                                     </ul>
                                 </div>
                                 <div class="spacer"></div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/destination3.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Rialto Bridge, Italy</span>
-                                    <h3>
-                                        <a href="destination-details.html">Rialto Bridge</a>
-                                    </h3>
-                                    <div class="review">
-                                        <i class='bx bx-smile'></i>
-                                        <span>7.5</span>
-                                        <span>Superb</span>
-                                    </div>
-                                    <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
-                                    </p>
-                                    <hr>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>5 Days</li>
-                                        <li><i class='bx bx-group'></i>96+</li>
-                                        <li>$2100</li>
-                                    </ul>
-                                </div>
-                                <div class="spacer"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 3" data-sort="value">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/destination4.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Santorini, Oia ,Greece</span>
-                                    <h3>
-                                        <a href="destination-details.html">Santorini, Oia ,Greece</a>
-                                    </h3>
-                                    <div class="review">
-                                        <i class='bx bx-smile'></i>
-                                        <span>9</span>
-                                        <span>Superb</span>
-                                    </div>
-                                    <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
-                                    </p>
-                                    <hr>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>7 Days</li>
-                                        <li><i class='bx bx-group'></i>65+</li>
-                                        <li>$2000</li>
-                                    </ul>
-                                </div>
-                                <div class="spacer"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 filtr-item" data-category="1, 3" data-sort="value">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/destination5.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
-                                    <h3>
-                                        <a href="destination-details.html">Greek Cottage, Greece</a>
-                                    </h3>
-                                    <div class="review">
-                                        <i class='bx bx-smile'></i>
-                                        <span>8.5</span>
-                                        <span>Superb</span>
-                                    </div>
-                                    <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
-                                    </p>
-                                    <hr>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>3 Days</li>
-                                        <li><i class='bx bx-group'></i>160+</li>
-                                        <li>$1500</li>
-                                    </ul>
-                                </div>
-                                <div class="spacer"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 filtr-item" data-category="3, 1" data-sort="value">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/destination6.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
-                                    <h3>
-                                        <a href="destination-details.html">Metropolitan City</a>
-                                    </h3>
-                                    <div class="review">
-                                        <i class='bx bx-smile'></i>
-                                        <span>8.5</span>
-                                        <span>Superb</span>
-                                    </div>
-                                    <p>
-                                        A wonderful little cottage right on the seashore - perfect for exploring.
-                                    </p>
-                                    <hr>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>3 Days</li>
-                                        <li><i class='bx bx-group'></i>160+</li>
-                                        <li>$1500</li>
-                                    </ul>
-                                </div>
-                                <div class="spacer"></div>
-                            </div>
-                        </div>
+                        {% endfor %}
+
+
+
+
+
                     </div>
                 </div>
             </section>
@@ -673,265 +553,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="shape shape-1"><img src="assets/img/shape1.png" alt="Background Shape"></div>
-                <div class="shape shape-2"><img src="assets/img/shape2.png" alt="Background Shape"></div>
-                <div class="shape shape-3"><img src="assets/img/shape3.png" alt="Background Shape"></div>
-                <div class="shape shape-4"><img src="assets/img/shape4.png" alt="Background Shape"></div>
+                <div class="shape shape-1"><img src="{{ asset('/img/shape1.png') }}" alt="Background Shape"></div>
+                <div class="shape shape-2"><img src="{{ asset('/img/shape2.png') }}" alt="Background Shape"></div>
+                <div class="shape shape-3"><img src="{{ asset('/img/shape3.png') }}" alt="Background Shape"></div>
+                <div class="shape shape-4"><img src="{{ asset('/img/shape4.png') }}" alt="Background Shape"></div>
             </section>
 
 
-            <section id="offers" class="offers-section pt-100 pb-70 bg-light">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>Special Offers & Discount</h2>
-                        <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/offer1.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <div class="review">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <span>39 Review</span>
-                                    </div>
-                                    <div class="title">
-                                        <h3>
-                                            <a href="tours.html">Asia Tour</a>
-                                        </h3>
-                                        <span>$2000</span>
-                                    </div>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>7 Days</li>
-                                        <li><i class='bx bx-group'></i>60+</li>
-                                        <li>$1500</li>
-                                    </ul>
-                                </div>
-                                <div class="discount">
-                                    <span>Discount</span>
-                                    <span>30%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/offer2.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <div class="review">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <span>19 Review</span>
-                                    </div>
-                                    <div class="title">
-                                        <h3>
-                                            <a href="tours.html">Russia Tour of Couple</a>
-                                        </h3>
-                                        <span>$1600</span>
-                                    </div>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>5 Days</li>
-                                        <li><i class='bx bx-group'></i>130+</li>
-                                        <li>$1200</li>
-                                    </ul>
-                                </div>
-                                <div class="discount">
-                                    <span>Discount</span>
-                                    <span>29%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 m-auto">
-                            <div class="item-single mb-30">
-                                <div class="image">
-                                    <img src="assets/img/offer3.jpg" alt="Demo Image">
-                                </div>
-                                <div class="content">
-                                    <div class="review">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <span>35 Review</span>
-                                    </div>
-                                    <div class="title">
-                                        <h3>
-                                            <a href="tours.html">Campfire In Australia</a>
-                                        </h3>
-                                        <span>$2600</span>
-                                    </div>
-                                    <ul class="list">
-                                        <li><i class='bx bx-time'></i>3 Days</li>
-                                        <li><i class='bx bx-group'></i>91+</li>
-                                        <li>$2200</li>
-                                    </ul>
-                                </div>
-                                <div class="discount">
-                                    <span>Discount</span>
-                                    <span>16%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
 
-            <section id="testimonial" class="testimonial-section ptb-100">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>What're Our Clients Say</h2>
-                        <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-8 m-auto">
-                            <div class="testimonial-slider owl-carousel">
-                                <div class="slider-item">
-                                    <div class="client-img">
-                                        <img src="assets/img/client1.jpg" alt="client-1" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="client-info">
-                                            <h3>Jordan Alin</h3>
-                                            <span>Bloger & Youtuber</span>
-                                        </div>
-                                        <div class="quote">
-                                            <i class='bx bxs-quote-left'></i>
-                                        </div>
-                                        <p>
-                                            The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                        </p>
-                                        <div class="review">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="client-img">
-                                        <img src="assets/img/client2.jpg" alt="client-1" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="client-info mb-30">
-                                            <h3>David Milan</h3>
-                                            <span>Photographer</span>
-                                        </div>
-                                        <div class="quote">
-                                            <i class='bx bxs-quote-left'></i>
-                                        </div>
-                                        <p>
-                                            The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                        </p>
-                                        <div class="review mt-15">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="client-img">
-                                        <img src="assets/img/client3.jpg" alt="client-1" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="client-info mb-30">
-                                            <h3>Thomas Alva</h3>
-                                            <span>Journalist</span>
-                                        </div>
-                                        <div class="quote">
-                                            <i class='bx bxs-quote-left'></i>
-                                        </div>
-                                        <p>
-                                            The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                        </p>
-                                        <div class="review mt-15">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="client-img">
-                                        <img src="assets/img/client4.jpg" alt="client-1" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="client-info mb-30">
-                                            <h3>Emma Watson</h3>
-                                            <span>Actress & Model</span>
-                                        </div>
-                                        <div class="quote">
-                                            <i class='bx bxs-quote-left'></i>
-                                        </div>
-                                        <p>
-                                            The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                        </p>
-                                        <div class="review mt-15">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-item">
-                                    <div class="client-img">
-                                        <img src="assets/img/client5.jpg" alt="client-1" />
-                                    </div>
-                                    <div class="content">
-                                        <div class="client-info mb-30">
-                                            <h3>Jordan Alin</h3>
-                                            <span>Bloger & Youtuber</span>
-                                        </div>
-                                        <div class="quote">
-                                            <i class='bx bxs-quote-left'></i>
-                                        </div>
-                                        <p>
-                                            The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                        </p>
-                                        <div class="review mt-15">
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                            <i class='bx bxs-star'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='clients-img'>
-                        <img class="image image-1" src="assets/img/client1.jpg" alt="Demo Image">
-                        <img class="image image-2" src="assets/img/client2.jpg" alt="Demo Image">
-                        <img class="image image-3" src="assets/img/client3.jpg" alt="Demo Image">
-                        <img class="image image-4" src="assets/img/client4.jpg" alt="Demo Image">
-                        <img class="image image-5" src="assets/img/client5.jpg" alt="Demo Image">
-                    </div>
-                </div>
-                <div class="shape">
-                    <img src="assets/img/shape1.png" alt="Background Shape">
-                </div>
-            </section>
+
+
+
 
 
             <div id="video" class="video-section video-style-two">
@@ -1064,9 +697,7 @@
                                     </div>
                                 </div>
                                 <div class="slider-item">
-                                    <div class="image">
-                                        <img src="assets/img/tour/tour5.jpg" alt="Demo Image" />
-                                    </div>
+
                                     <div class="content">
                                         <div class="review">
                                             <i class='bx bxs-star'></i>
@@ -1105,7 +736,7 @@
                         <div class="col-lg-6">
                             <div class="item-single item-big mb-30">
                                 <div class="image">
-                                    <img src="assets/img/blog/blog-lg1.jpg" alt="Demo Image" />
+
                                 </div>
                                 <div class="content">
                                     <ul class="info-list">
@@ -1121,7 +752,7 @@
                                     <ul class="list">
                                         <li>
                                             <div class="author">
-                                                <img src="assets/img/blog/author1.jpg" alt="Demo Image">
+
                                                 <span>By - Envy Jeqlin</span>
                                             </div>
                                         </li>
@@ -1137,7 +768,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="item-single mb-30">
                                         <div class="image">
-                                            <img src="assets/img/blog/blog1.jpg" alt="Demo Image" />
+
                                         </div>
                                         <div class="content">
                                             <ul class="info-list">
@@ -1150,7 +781,7 @@
                                             <ul class="list">
                                                 <li>
                                                     <div class="author">
-                                                        <img src="assets/img/blog/author2.jpg" alt="Demo Image">
+
                                                         <span>By - David Stiffen</span>
                                                     </div>
                                                 </li>
@@ -1161,7 +792,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="item-single mb-30">
                                         <div class="image">
-                                            <img src="assets/img/blog/blog2.jpg" alt="Demo Image" />
+
                                         </div>
                                         <div class="content">
                                             <ul class="info-list">
@@ -1174,7 +805,7 @@
                                             <ul class="list">
                                                 <li>
                                                     <div class="author">
-                                                        <img src="assets/img/blog/author3.jpg" alt="Demo Image">
+
                                                         <span>By - David Milan</span>
                                                     </div>
                                                 </li>
@@ -1236,6 +867,7 @@
                 </div>
             </section>
 
+            {% block footer %}
 
             <footer class="footer-area">
                 <div class="container">
@@ -1348,40 +980,64 @@
                     </div>
                 </div>
             </footer>
+<<<<<<< HEAD
        
 
         {% endblock %}
 
          {% block js %}
+=======
+<<<<<<< HEAD
+
+
+
+        {% block js %}
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
             <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
-
-            <script src="{{  asset('js/jquery.min.js')}}"></script>
-
-            <script src="{{  asset('js/popper.min.js')}}"></script>
-
-            <script src="{{  asset('js/bootstrap.min.js')}}"></script>
-
-            <script src="{{  asset('js/bootstrap-datepicker.min.js')}}"></script>
-
-            <script src="{{  asset('js/jquery.nice-select.min.js')}}"></script>
-
-            <script src="{{  asset('js/jquery.magnific-popup.min.js')}}"></script>
-
-            <script src="{{  asset('js/jquery.filterizr.min.js')}}"></script>
-
-            <script src="{{  asset('js/owl.carousel.min.js')}}"></script>
-
-            <script src="{{  asset('js/meanmenu.min.js')}}"></script>
-
-            <script src="{{  asset('js/form-validator.min.js')}}"></script>
-
-            <script src="{{  asset('js/contact-form-script.js')}}"></script>
-
-            <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
-
-            <script src="{{  asset('js/script.js')}}"></script>
+=======
+            {% endblock %}
 
         {% endblock %}
     </body>
+    {% block js %}
+>>>>>>> 2c4ec4f780345baad67f63e909ec99991847ab99
+
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+
+        <script src="{{  asset('js/jquery.min.js')}}"></script>
+
+        <script src="{{  asset('js/popper.min.js')}}"></script>
+
+        <script src="{{  asset('js/bootstrap.min.js')}}"></script>
+
+        <script src="{{  asset('js/bootstrap-datepicker.min.js')}}"></script>
+
+        <script src="{{  asset('js/jquery.nice-select.min.js')}}"></script>
+
+        <script src="{{  asset('js/jquery.magnific-popup.min.js')}}"></script>
+
+        <script src="{{  asset('js/jquery.filterizr.min.js')}}"></script>
+
+        <script src="{{  asset('js/owl.carousel.min.js')}}"></script>
+
+        <script src="{{  asset('js/meanmenu.min.js')}}"></script>
+
+        <script src="{{  asset('js/form-validator.min.js')}}"></script>
+
+        <script src="{{  asset('js/contact-form-script.js')}}"></script>
+
+<<<<<<< HEAD
+=======
+        <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
+
+<<<<<<< HEAD
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
+        {% endblock %}
+    </body>
+=======
+        <script src="{{  asset('js/script.js')}}"></script>
+
+    {% endblock %}
+>>>>>>> 2c4ec4f780345baad67f63e909ec99991847ab99
 </html>

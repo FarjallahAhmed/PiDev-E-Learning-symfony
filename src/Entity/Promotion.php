@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Promotion
@@ -27,7 +29,28 @@ class Promotion
      * @ORM\Column(name="id_formation", type="integer", nullable=false)
      */
     private $idFormation;
+    /**
+     * @var
+     * @Assert\NotBlank(message="Must be filled")
+     */
+    private $Formation;
 
+    /**
+     *
+     * @param mixed $Formation
+     */
+    public function setFormation($Formation): void
+    {
+        $this->Formation = $Formation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormation()
+    {
+        return $this->Formation;
+    }
     /**
      * @var \DateTime
      *
@@ -44,6 +67,12 @@ class Promotion
 
     /**
      * @var float
+     *  @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[0-9]/",
+     *     htmlPattern = "^[0-9]",
+     *     message="{{ value }} must be a Number"
+     * )
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
      */

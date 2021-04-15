@@ -554,10 +554,7 @@
 				{
 					required: 'Please enter head of department'
 				},
-				email:
-				{
-					required: 'Please enter email'
-				},
+
 				email:
 				{
 					required: 'Please enter your email address',
