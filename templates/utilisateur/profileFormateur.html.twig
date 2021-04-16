@@ -1,119 +1,7 @@
-<!doctype html>
-<html class="no-js" lang="en">
+{% extends "baseBackU.html.twig" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %} backEnd {% endblock %}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fonts
-    ============================================ -->
-  
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
-    {% block stylesheet %}
-<<<<<<< HEAD
-        <!-- favicon
-            ============================================ -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
-
-        <!-- Bootstrap CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/bootstrap.min.css') }}">
-        <!-- Bootstrap CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/font-awesome.min.css') }}">
-        <!-- owl.carousel CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/owl.carousel.css') }}">
-        <link rel="stylesheet" href="{{ asset('backAssets/css/owl.theme.css') }}">
-        <link rel="stylesheet" href="{{ asset('backAssets/css/owl.transitions.css') }}">
-        <!-- animate CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/animate.css') }}">
-        <!-- normalize CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/normalize.css') }}">
-        <!-- meanmenu icon CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/meanmenu.min.css') }}">
-        <!-- main CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
-=======
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
-    
-
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/bootstrap.min.css') }}">
- 
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.transitions.css') }}">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/animate.css') }}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/normalize.css') }}">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/meanmenu.min.css') }}">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-        <!-- dropzone CSS
-		============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/dropzone/dropzone.css') }}">
-        <!-- educate icon CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/educate-custon-icon.css') }}">
-        <!-- morrisjs CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/morrisjs/morris.css') }}">
-        <!-- mCustomScrollbar CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
-        <!-- metisMenu CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/metisMenu/metisMenu.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('backAssets/css/metisMenu/metisMenu-vertical.css') }}">
-        <!-- calendar CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/modals.css') }}">
-        <link rel="stylesheet" href="{{ asset('backAssets/css/calendar/fullcalendar.print.min.css') }}">
-        <!-- forms CSS
-		============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/form/all-type-forms.css') }}">
-        <!-- style CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/style.css') }}">
-        <!-- responsive CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset('backAssets/css/responsive.css') }}">
-        <!-- modernizr JS
-            ============================================ -->
-        <script src="{{ asset('backAssets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
-    {% endblock %}
-</head>
-
-<body>
 {% block body %}
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <!-- Start Header menu area -->
-    <div class="left-sidebar-pro">
+<div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
@@ -122,11 +10,11 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        <li class="active">
+                        <li>
                             <a class="has-arrow" href="index.html">
-                                <span class="educate-icon educate-home icon-wrap"></span>
-                                <span class="mini-click-non">Education</span>
-                            </a>
+								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="mini-click-non">Education</span>
+								</a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
                                 <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
@@ -136,17 +24,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a  class="has-arrow" title="Landing Page" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Calendrier" href="{{ path('event') }}"><span class="mini-sub-pro">Calendrier</span></a></li>
-                                <li><a title="All Event" href="{{ path('showEvent') }}"><span class="mini-sub-pro">List Evenement</span></a></li>
-
-                            </ul>
+                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
                         </li>
-                        <li>
-                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Promotions</span></a>
+                        <li class="active">
+                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="{{ path('promotion') }}"><span class="mini-sub-pro">list promotion</span></a></li>
+                                <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
+                                
                             </ul>
                         </li>
                         <li>
@@ -161,8 +45,8 @@
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="{{ path('allformations') }}"><span class="mini-sub-pro">All Courses</span></a></li>
-                                <li><a title="Add Courses" href="{{ path('formation_new') }}"><span class="mini-sub-pro">Add Course</span></a></li>
+                                <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">All Courses</span></a></li>
+                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Add Course</span></a></li>
                                 <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
                                 <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a></li>
                                 <li><a title="course Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a></li>
@@ -262,7 +146,7 @@
             </div>
         </nav>
     </div>
-    <!-- End Header menu area -->
+    <!-- End Left menu area -->
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         <div class="container-fluid">
@@ -284,8 +168,8 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                <i class="educate-icon educate-nav"></i>
-                                            </button>
+													<i class="educate-icon educate-nav"></i>
+												</button>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
@@ -437,10 +321,10 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                        <img src="img/product/pro4.jpg" alt="" />
-                                                        <span class="admin-name">Prof.Anderson</span>
-                                                        <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-                                                    </a>
+															<img src="img/product/pro4.jpg" alt="" />
+															<span class="admin-name">Prof.Anderson</span>
+															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
                                                         </li>
@@ -454,6 +338,8 @@
                                                         </li>
                                                     </ul>
                                                 </li>
+
+               
                                                 <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>
 
                                                     <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
@@ -465,6 +351,7 @@
                                                             <li><a data-toggle="tab" href="#Settings">Settings</a>
                                                             </li>
                                                         </ul>
+                                                        
 
                                                         <div class="tab-content custom-bdr-nt">
                                                             <div id="Notes" class="tab-pane fade in active">
@@ -780,9 +667,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
                                                                                             <label class="onoffswitch-label" for="example">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -796,9 +683,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
                                                                                             <label class="onoffswitch-label" for="example3">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -812,9 +699,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
                                                                                             <label class="onoffswitch-label" for="example4">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -828,9 +715,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
                                                                                             <label class="onoffswitch-label" for="example7">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -844,9 +731,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
                                                                                             <label class="onoffswitch-label" for="example2">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -860,9 +747,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
                                                                                             <label class="onoffswitch-label" for="example6">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -876,9 +763,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
                                                                                             <label class="onoffswitch-label" for="example5">
-                                                                                                <span class="onoffswitch-inner"></span>
-                                                                                                <span class="onoffswitch-switch"></span>
-                                                                                            </label>
+																									<span class="onoffswitch-inner"></span>
+																									<span class="onoffswitch-switch"></span>
+																								</label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1085,171 +972,223 @@
                     </div>
                 </div>
             </div>
-            {% block content %}
-
-
-            {% endblock %}
-
             <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Professor Profile</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                                                <div class="content">
+                {% if message is not empty %}
+                    <div class="alert alert-success" >{{ message }}</div>
+                {% endif %}
+                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="profile-info-inner">
+                            <div class="profile-img">
+                            {% if formateur.image == null %}
+                                <img src="{{ asset('uploads/pictures/user.png') }}" alt="" />
+                            {% endif %}
+
+                            {% if formateur.image != null %}
+                                <img src="{{ asset('uploads/pictures/' ~ formateur.image) }}" alt="" />
+                            {% endif %}
+                            </div>
+                            <div class="profile-details-hr">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr">
+                                            <p><b>Name</b><br /> {{formateur.nom}}  {{formateur.prenom}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                            <p><b>Specialite</b><br /> {{formateur.specialite}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr">
+                                            <p><b>Email ID</b><br /> {{formateur.email}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                            <p><b>Phone</b><br /> {{formateur.num}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="address-hr">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <h3>0</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="address-hr">
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <h3>0</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="address-hr">
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <h3>0</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li ><a href="#description">Projects</a></li>
+                                <li><a href="#reviews"> Courses</a></li>
+                                <li class="active"><a href="#INFORMATION">Update Details</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="reviews">
+                                    
+                                </div>
+                                <div class="product-tab-list tab-pane fade active in" id="INFORMATION">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="row">
+                                                   {{ form_start(form,{'attr': {'class': 'form','novalidate': 'novalidate'}}) }}
+                                                    <div class="col-lg-6">
+                                                    <label> User Name </label>
+                                                        <div class="form-group">
+                                                         {{form_widget(form.login, {'attr': {'class': 'form-control','placeholder':"UserName"}}) }}
+                                                         <div class="content">
+                                                            {% if form_errors(form.login) is not empty %}
+                                                                <div class="alert alert-danger" >{{ form_errors(form.login) }}</div>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+
+                                                        <label> Email </label>
+                                                        <div class="form-group">
+                                                            {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email"}}) }}
+                                                            <div class="content">
+                                                            {% if form_errors(form.email) is not empty %}
+                                                                <div class="alert alert-danger" >{{ form_errors(form.email) }}</div>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <label> Phone Number </label>
+                                                        <div class="form-group">
+                                                             {{form_widget(form.num, {'attr': {'class': 'form-control','placeholder':"Number"}}) }}
+                                                             <div class="content">
+                                                            {% if form_errors(form.num) is not empty %}
+                                                                <div class="alert alert-danger" >{{ form_errors(form.num) }}</div>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        
+                                                        
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                    <label> Specialite </label>
+                                                        <div class="form-group sm-res-mg-15 tbpf-res-mg-15">
+                                                            {{form_widget(form.specialite, {'attr': {'class': 'form-control','placeholder':"Specialite"}}) }}
+                                                            <div class="content">
+                                                            {% if form_errors(form.specialite) is not empty %}
+                                                                <div class="alert alert-danger" >{{ form_errors(form.specialite) }}</div>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        
+                                                       <label> Password </label>
+                                                        <div class="form-group">
+                                                            {{form_widget(form.pwd, {'attr': {'class': 'form-control','value':formateur.pwd ,'placeholder':"Password"}}) }}
+                                                            <div class="content">
+                                                            {% if form_errors(form.pwd) is not empty %}
+                                                                <div class="alert alert-danger" >{{ form_errors(form.pwd) }}</div>
+                                                            {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <label> Change Profile Image </label>    
+                                                        <div class="form-group">
+                                                             {{form_widget(form.imageFile,{'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
+                                                        </div>
+
+
+                                                       
+                                                       
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="payment-adress mg-t-15">
+                                                        {{  form_widget(form.Submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{ form_end(form) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- jquery
-        ============================================ -->
 
 
-
-
-
-<<<<<<< HEAD
-    <!-- jquery
-        ============================================ -->
-=======
-<!-- jquery
-    ============================================ -->
-   
 {% endblock %}
-{% block jsCalendar %}
-{% endblock %}
-
- {% block js %}
-<script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<!-- bootstrap JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
-<!-- wow JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
-<!-- meanmenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
-<!-- sticky JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
-<!-- counterup JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
-<!-- mCustomScrollbar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-<!-- metisMenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
-<!-- calendar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/plugins.js') }}"></script>
-<!-- main JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/main.js') }}"></script>
-<!-- tawk chat JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
-<<<<<<< HEAD
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
-=======
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
-{% endblock %}
-{% endblock %}
-{% block jsCalendar %}
->>>>>>> ad3313ef7ac1f7ffe6f676fb546ae5809b48e9cd
->>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
-{% endblock %}
-</body>
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-{% block js %}
-    <script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
-    <!-- bootstrap JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
-    <!-- wow JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
-    <!-- price-slider JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
-    <!-- meanmenu JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
-    <!-- owl.carousel JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
-    <!-- sticky JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
-    <!-- scrollUp JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
-    <!-- counterup JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
-    <!-- mCustomScrollbar JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-    <!-- metisMenu JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
-    <!-- morrisjs JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
-    <script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
-    <!-- morrisjs JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-    <script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
-    <!-- calendar JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
-    <!-- plugins JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/plugins.js') }}"></script>
-    <!-- main JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/main.js') }}"></script>
-    <!-- tawk chat JS
-        ============================================ -->
-    <script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
-{% endblock %}
-{% endblock %}
-{% block jsCalendar %}
-{% endblock %}
-</body>
-
-
-</html>

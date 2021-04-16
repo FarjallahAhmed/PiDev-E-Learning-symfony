@@ -6,6 +6,7 @@
         <meta name="description" content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap" />
 
         <title>{% block title %} E-Learning{% endblock %}</title>
+
         {% block stylesheets %}
 
         <link rel="stylesheet" href="{{  asset('css/bootstrap.min.css')}}" />
@@ -39,6 +40,7 @@
     </head>
     <body>
 
+<<<<<<< HEAD
     <header class="header-area">
 
         <div class="top-header-area">
@@ -49,6 +51,42 @@
                             <div class="content">
                                 <i class='bx bx-phone'></i>
                                 <a href="tel:+0123456987">+0123 456 987</a>
+=======
+
+
+          
+
+            <div id="loading">
+                <div class="loader"></div>
+            </div>
+<<<<<<< HEAD
+
+{% block header %}
+=======
+            {% block header %}
+
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
+            <header class="header-area">
+
+                <div class="top-header-area">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="contact-info">
+                                    <div class="content">
+                                        <i class='bx bx-phone'></i>
+                                        <a href="tel:+0123456987">+0123 456 987</a>
+                                    </div>
+                                    <div class="content">
+                                        <i class='bx bx-envelope'></i>
+                                        <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#3e565b5252517e545f4b504a105d5153"><span class="__cf_email__" data-cfemail="cba3aea7a7a48ba1aabea5bfe5a8a4a6">[email&#160;protected]</span></a>
+                                    </div>
+                                    <div class="content">
+                                        <i class='bx bx-map'></i>
+                                        <a href="#">Mon-Fri: 8 AM – 7 PM</a>
+                                    </div>
+                                </div>
+>>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
                             </div>
                             <div class="content">
                                 <i class='bx bx-envelope'></i>
@@ -205,6 +243,7 @@
                                             <a href="{{ path('showEventFront') }}" class="nav-link active">Evenements</a>
                                         </li>
 
+<<<<<<< HEAD
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
@@ -245,6 +284,129 @@
                             </div>
                         </div>
                     </nav>
+=======
+            </header>
+<<<<<<< HEAD
+     {% endblock %}
+
+        {% block banner %}
+=======
+<<<<<<< HEAD
+            {% block content %}
+                {% endblock %}
+
+
+=======
+            {% endblock %}
+
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
+            <div id="home" class="home-banner-area home-style-three">
+                <div class="container-fluid p-0">
+                    <div class="banner-slider-three owl-carousel">
+                        <div class="slider-item item-one">
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="sub-title">Amazing Places</span>
+                                    <h1>
+                                        Make Your Trip Fun & Noted
+                                    </h1>
+                                    <p>
+                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
+                                    </p>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-item item-two">
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="sub-title">Amazing Places</span>
+                                    <h1>
+                                        Make Your Trip Fun & Noted
+                                    </h1>
+                                    <p>
+                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
+                                    </p>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-item item-three">
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="sub-title">Amazing Places</span>
+                                    <h1>
+                                        Make Your Trip Fun & Noted
+                                    </h1>
+                                    <p>
+                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
+                                    </p>
+                                    <a href="destination-details.html" class="btn-primary">Formations</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+        {% endblock %}
+
+                    <div class="search-form">
+                        <form id="searchForm">
+                            <div class="row align-items-center">
+                                <div class="col-lg-11">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="select-box">
+                                                <i class='bx bx-map-alt'></i>
+                                                <select class="form-control">
+                                                    <option data-display='Destination'>Nothing</option>
+                                                    <option value="1">North America</option>
+                                                    <option value="2">Spain Madrid</option>
+                                                    <option value="3">Japan Tokyo</option>
+                                                    <option value="4">Europe City</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="select-box">
+                                                <i class='bx bx-calendar'></i>
+                                                <input type="text" class="date-select form-control" placeholder="Depart Date" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="select-box">
+                                                <i class='bx bx-package'></i>
+                                                <select class="form-control">
+                                                    <option data-display='Travel Type'>Travel Type</option>
+                                                    <option value="1">City Tour</option>
+                                                    <option value="2">Family Tours</option>
+                                                    <option value="3">Seasonal Tours</option>
+                                                    <option value="4">Outdoor Activities</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="select-box">
+                                                <i class='bx bx-time'></i>
+                                                <select class="form-control">
+                                                    <option data-display='Tour Duration'>Nothing</option>
+                                                    <option value="1">5 Days</option>
+                                                    <option value="2">12 Days</option>
+                                                    <option value="3">21 Days</option>
+                                                    <option value="4">30 Days</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="btn-search">
+                                        <i class='bx bx-search-alt'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+>>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
                 </div>
             </div>
         </div>
@@ -740,6 +902,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
             <hr>
             <div class="copy-right-area">
@@ -756,6 +919,28 @@
             </div>
         </div>
     </footer>
+=======
+            </footer>
+<<<<<<< HEAD
+       
+
+        {% endblock %}
+
+         {% block js %}
+=======
+<<<<<<< HEAD
+
+
+
+        {% block js %}
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
+            <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+=======
+            {% endblock %}
+
+        {% endblock %}
+    </body>
+>>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
     {% block js %}
 
         <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
@@ -783,8 +968,18 @@
 
         <script src="{{  asset('js/contact-form-script.js')}}"></script>
 
+<<<<<<< HEAD
+=======
         <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
+        {% endblock %}
+    </body>
+=======
+>>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
         <script src="{{  asset('js/script.js')}}"></script>
     {% endblock %}
 
