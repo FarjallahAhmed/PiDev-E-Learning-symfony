@@ -48,4 +48,16 @@ class PromotionRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function affectPromo()
+    {
+        $em=$this->getEntityManager();
+        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.id ,p.prix 
+              FROM App\Entity\Formation u INNER JOIN App\Entity\Promotion p with u.id=p.idFormation';
+
+
+        $query=$em->createQuery($commande);
+        $result = $query->getResult();
+
+        return $result;
+    }
 }

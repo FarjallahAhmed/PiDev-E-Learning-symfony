@@ -20,9 +20,7 @@ class EventController extends AbstractController
      */
     public function index(Request $request,WorkshopRepository $calendar): Response
     {
-<<<<<<< HEAD
-        return $this->render('base.html.twig', [
-=======
+
         $workshop = new Workshop();
         $form = $this->createForm(WorkshopType::class,$workshop);
         $form->handleRequest($request);
@@ -30,6 +28,7 @@ class EventController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($workshop);
             $em->flush();
+            $this->addFlash('success', 'Event Ajouter avec sucess!');
             return $this->redirectToRoute('event');
         }
         $events = $calendar->findAll();
@@ -59,7 +58,6 @@ class EventController extends AbstractController
 
         $data = json_encode($rdvs);
         return $this->render('event/index.html.twig', [
->>>>>>> ad3313ef7ac1f7ffe6f676fb546ae5809b48e9cd
             'controller_name' => 'EventController',
             'formEvent' => $form->createView(),
             'data'=> $data,
@@ -122,6 +120,8 @@ class EventController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($workshop);
             $em->flush();
+            $this->addFlash('success', 'Event Ajouter avec sucess!');
+
             return $this->redirectToRoute('showEvent');
         }
         return $this->render('event/addEvent.html.twig', [
@@ -141,6 +141,7 @@ class EventController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($workshop);
             $em->flush();
+            $this->addFlash('success', 'Edit avec sucess!');
             return $this->redirectToRoute('showEvent');
         }
         return $this->render('event/addEvent.html.twig', [
@@ -214,7 +215,7 @@ class EventController extends AbstractController
         return $this->redirectToRoute('event');
     }
     /**
-     * @Route("/event/{id}/deleteEvent", name="delete")
+     * @Route("/event/{id}/deleteEvent", name="deleteEv")
      */
     public function deleteEvent(Request $request,WorkshopRepository $repo,$id): Response
     {
@@ -223,6 +224,7 @@ class EventController extends AbstractController
         $calendar = $repo->find($id);
         $entityManager->remove($calendar);
         $entityManager->flush();
+        $this->addFlash('success', 'Delete avec sucess!');
 
 
         return $this->redirectToRoute('showEvent');
