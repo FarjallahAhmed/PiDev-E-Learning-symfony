@@ -1,0 +1,142 @@
+{% extends "baseBackU.html.twig" %}
+
+{% block body %}
+
+<div class="error-pagewrap">
+		<div class="error-page-int">
+        <div class="content">
+{% if message is not empty %}
+    <div class="alert alert-success" >{{ message }}</div>
+{% endif %}
+</div>
+			<div class="text-center custom-login">
+				<h3>Registration</h3>
+				<p>Welcome To Formateur Space!</p>
+			</div>
+			<div class="content-error">
+				<div class="hpanel">
+                    <div class="panel-body">
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div class="row">
+
+                                <div class="form-group col-lg-12">
+                                    <label>First Nom</label>
+                                    {{form_widget(form.nom, {'attr': {'class': 'form-control','placeholder':"First Name"}}) }}
+                                     <div class="content">
+                                    {% if form_errors(form.nom) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.nom) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                               
+                                
+                                <div class="form-group col-lg-12">
+                                    <label>Last Name </label>
+                                    {{form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder':"Last Name"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.prenom) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.prenom) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                 
+
+                                <div class="form-group col-lg-12">
+                                    <label>Birthday Date</label>
+                                    {{form_widget(form.datenaissance, {'attr': {'class': 'form-control','placeholder':"Date De Naissance"}}) }}
+                                </div>
+                                
+                                <div class="form-group col-lg-12">
+                                    <label>CIN</label>
+                                    {{form_widget(form.cin, {'attr': {'class': 'form-control','placeholder':"CIN"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.cin) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.cin) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+                                 
+
+                                <div class="form-group col-lg-12">
+                                    <label>Email</label>
+                                    {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email Adress"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.email) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.email) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label>Username</label>
+                                    {{form_widget(form.login, {'attr': {'class': 'form-control','placeholder':"UserName"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.login) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.login) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-lg-12">
+                                    <label>Password</label>
+                                    {{form_widget(form.pwd, {'attr': {'class': 'form-control','placeholder':"Password"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.pwd) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.pwd) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-lg-12">
+                                    <label>Number</label>
+                                    {{form_widget(form.num, {'attr': {'class': 'form-control','placeholder':"Number"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.num) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.num) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-lg-12">
+                                    <label>Specialite</label>
+                                    {{form_widget(form.specialite, {'attr': {'class': 'form-control','placeholder':"Specliate"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.specialite) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.specialite) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-lg-12">
+                                    <label>Justificatif</label>
+                                    {{form_widget(form.justificatif, {'attr': {'class': 'form-control','placeholder':"Justificatif"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.justificatif) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.justificatif) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                
+                                <div class="checkbox col-lg-12">
+                                    <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter
+                                </div>
+                            </div>
+                            <div class="text-center">
+                            {{form_widget(form.Submit, {'attr': {'class': 'btn btn-success loginbtn','placeholder':"Justificatif"}}) }}
+                               
+                                <button class="btn btn-default">Cancel</button>
+                            </div>
+                       {{ form_end(form) }}
+                    </div>
+                </div>
+			</div>
+			<div class="text-center login-footer">
+				<p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+			</div>
+		</div>   
+    </div>
+
+{% endblock %}

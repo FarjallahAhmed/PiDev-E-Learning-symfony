@@ -1,0 +1,64 @@
+{% extends 'baseformation.html.twig' %}
+{% block affichageformations %}
+    {% for x in result %}
+        <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
+            <div class="item-single mb-30">
+                <div class="image">
+                    <img src="{{ asset('/img/destination1.jpg') }}" alt="Demo Image">
+
+                </div>
+                <div class="content">
+                    <span class="location"><i class='bx bx-map'></i>Tunis</span>
+                    <h3>
+                        <a href="{{ path('formationdetails',{id:x.id}) }}">{{ x.Objet }}</a>
+                    </h3>
+                    <div class="review">
+                        <i class='bx bx-smile'></i>
+
+                    </div>
+                    <p>
+                        {{ x.Type }}
+                    </p>
+                    <hr>
+                    <ul class="list">
+                        <li><i class='bx bx-time'></i>{{x.datePrevu|date("m/d/Y") }}</li>
+                        <li><i class='bx bx-group'></i>{{ x.nbParticipants }}</li>
+                        <li>{{ x.coutFin }} DT</li>
+                    </ul>
+                </div>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    {% endfor %}
+    {% for x in evaluation %}
+        <div class="col-lg-4 col-md-6 filtr-item" data-category="3" data-sort="value">
+            <div class="item-single mb-30">
+                <div class="image">
+                    <img src="{{ asset('/img/destination1.jpg') }}" alt="Demo Image">
+
+                </div>
+                <div class="content">
+                    <span class="location"><i class='bx bx-map'></i>Tunis</span>
+                    <h3>
+                        <a href="{{ path('formationdetails',{id:x.id}) }}">{{ x.objet }}</a>
+                    </h3>
+                    <div class="review">
+                        <i class='bx bx-smile'></i>
+                        <span>{{ x.moy|number_format(1, '.') }}</span>
+                        <span>Superb</span>
+                    </div>
+                    <p>
+                        {{ x.type }}
+                    </p>
+                    <hr>
+                    <ul class="list">
+                        <li><i class='bx bx-time'></i>{{x.datePrevu|date("m/d/Y") }}</li>
+                        <li><i class='bx bx-group'></i>{{ x.nbParticipants }}</li>
+                        <li>{{ x.coutFin }} DT</li>
+                    </ul>
+                </div>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

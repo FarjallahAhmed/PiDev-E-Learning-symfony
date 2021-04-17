@@ -27,6 +27,12 @@
                 </div>
                 {{ include('event/add.html.twig')}}
             </div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
         </div>
 
 
@@ -59,6 +65,7 @@
 
                     xhr.open("DELETE", url)
                     xhr.send(JSON.stringify(donnees))
+                    window.location.reload();
                 },
                 initialView: 'dayGridMonth',
                 locale: 'fr',

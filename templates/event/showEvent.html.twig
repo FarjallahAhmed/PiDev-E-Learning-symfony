@@ -1,0 +1,97 @@
+{% extends 'baseBack.html.twig' %}
+{% block content %}
+    <style>
+
+        #cont{
+            padding-top: 60px;
+
+        }
+
+    </style>
+
+    <div class="product-status mg-b-15" id="cont">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+                        <h4>Event List</h4>
+                        <div class="add-product">
+                            <a href="{{  path('newEvent') }}">Add Event</a>
+                        </div>
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+
+                        <div class="asset-inner">
+
+                            <table>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Event Calendar</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Price</th>
+                                    <th>Participants</th>
+                                    <th>Type</th>
+                                    <th>Setting</th>
+                                </tr>
+                                {% for event in events  %}
+                                <tr>
+                                    <td>{{ event.nomevent }}</td>
+                                    <td>{{ event.namecalendar }}</td>
+                                    <td>{{ event.datedebut | date("m/d/Y") }}</td>
+                                    <td>{{ event.datefin | date("m/d/Y") }}</td>
+                                    <td>{{ event.hdebut | date('H:i:s') }}</td>
+                                    <td>{{ event.hfin | date('H:i:s') }}</td>
+                                    <td>{{ event.prix }}</td>
+                                    <td>{{ event.nbparticipant }}</td>
+                                    {% if event.type == 'Soft Skills'  %}
+                                        {% set class = '#933EC5' %}
+                                    {% elseif event.type == 'Team building' %}
+                                        {% set class = '#FF5722' %}
+                                    {% elseif event.type == 'Conference' %}
+                                        {% set class = '#f3c30b' %}
+                                    {% elseif event.type == 'Seminaire' %}
+                                        {% set class = '#00BCD4' %}
+                                    {% endif %}
+                                    <td>
+                                        <button style="background-color: {{ class }}; color: white;">{{ event.type }}</button>
+                                    </td>
+
+
+                                    <td>
+                                        <a href="{{  path('edit', {id: event.id}) }}">
+                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                        </a>
+                                        <a href="{{  path('deleteEv', {id: event.id}) }}">
+                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
