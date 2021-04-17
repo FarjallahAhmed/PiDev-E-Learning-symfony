@@ -2,13 +2,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Workshop;
+use App\Form\CommentType;
 use DateTime;
 
 use App\Form\WorkshopType;
 use App\Repository\WorkshopRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -228,5 +232,43 @@ class EventController extends AbstractController
 
 
         return $this->redirectToRoute('showEvent');
+    }
+
+    /**
+     * @Route("/news/{id}/heart", name="event_heart", methods={"POST"})
+     */
+    public function toggleArticleHeart(Workshop $event,EntityManagerInterface $em)
+    {
+        $event->setHearts($event->getHearts() + 1);
+        $em->flush();
+        return new JsonResponse(['hearts' => $event->getHearts()]);
+    }
+
+
+    /**
+     * @Route("/event/{id}/showDetailsEventFront", name="showDetailsEventFront")
+     */
+    public function detailsEvent(WorkshopRepository $calendar,$id,Request $request)
+    {
+        $event = $calendar->find($id);
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class,$comment);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $comment->setWorkshop($event);
+            $em->persist($comment);
+            $em->flush();
+
+            return $this->redirectToRoute('showDetailsEventFront',['id' => $id]);
+        }
+
+
+        return $this->render('event/detailsEventFront.html.twig', [
+            'event' => $event,
+            'formComment' => $form->createView(),
+
+        ]);
     }
 }

@@ -1,989 +1,794 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap" />
 
-        <title>{% block title %} E-Learning{% endblock %}</title>
+    <title>{% block title %} E-Learning{% endblock %}</title>
+    {% block stylesheets %}
 
-        {% block stylesheets %}
+<link rel="stylesheet" href="{{  asset('css/bootstrap.min.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/fontawesome.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/fontawesome.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/boxicons.min.css')}}">
 
-        <link rel="stylesheet" href="{{  asset('css/boxicons.min.css')}}">
+<link rel="stylesheet" href="{{  asset('css/animate.min.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/animate.min.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/bootstrap-datepicker.min.css')}}">
 
-        <link rel="stylesheet" href="{{  asset('css/bootstrap-datepicker.min.css')}}">
+<link rel="stylesheet" href="{{  asset('css/nice-select.css')}}">
 
-        <link rel="stylesheet" href="{{  asset('css/nice-select.css')}}">
+<link rel="stylesheet" href="{{  asset('css/magnific-popup.min.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/magnific-popup.min.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/owl.carousel.min.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/owl.carousel.min.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/meanmenu.min.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/meanmenu.min.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/style.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/style.css')}}" />
+<link rel="stylesheet" href="{{  asset('css/responsive.css')}}" />
 
-        <link rel="stylesheet" href="{{  asset('css/responsive.css')}}" />
-
-        <link rel="icon" href="{{  asset('img/favicon.png" type="image/png')}}" />
-        {% endblock %}-
-
+<link rel="icon" href="{{  asset('img/favicon.png" type="image/png')}}" />
+    {% endblock %}-
 
 
 
-    </head>
-    <body>
 
-<<<<<<< HEAD
-    <header class="header-area">
+</head>
+<body>
 
-        <div class="top-header-area">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="contact-info">
-                            <div class="content">
-                                <i class='bx bx-phone'></i>
-                                <a href="tel:+0123456987">+0123 456 987</a>
-=======
+<header class="header-area">
 
-
-          
-
-            <div id="loading">
-                <div class="loader"></div>
-            </div>
-<<<<<<< HEAD
-
-{% block header %}
-=======
-            {% block header %}
-
->>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
-            <header class="header-area">
-
-                <div class="top-header-area">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-xl-6 col-lg-7">
-                                <div class="contact-info">
-                                    <div class="content">
-                                        <i class='bx bx-phone'></i>
-                                        <a href="tel:+0123456987">+0123 456 987</a>
-                                    </div>
-                                    <div class="content">
-                                        <i class='bx bx-envelope'></i>
-                                        <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#3e565b5252517e545f4b504a105d5153"><span class="__cf_email__" data-cfemail="cba3aea7a7a48ba1aabea5bfe5a8a4a6">[email&#160;protected]</span></a>
-                                    </div>
-                                    <div class="content">
-                                        <i class='bx bx-map'></i>
-                                        <a href="#">Mon-Fri: 8 AM – 7 PM</a>
-                                    </div>
-                                </div>
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-                            </div>
-                            <div class="content">
-                                <i class='bx bx-envelope'></i>
-                                <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#9af2fff6f6f5daf0fbeff4eeb4f9f5f7"><span class="__cf_email__" data-cfemail="2b434e4747446b414a5e455f05484446">[email&#160;protected]</span></a>
-                            </div>
-                            <div class="content">
-                                <i class='bx bx-map'></i>
-                                <a href="#">Mon-Fri: 8 AM – 7 PM</a>
-                            </div>
+    <div class="top-header-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-7">
+                    <div class="contact-info">
+                        <div class="content">
+                            <i class='bx bx-phone'></i>
+                            <a href="tel:+0123456987">+0123 456 987</a>
+                        </div>
+                        <div class="content">
+                            <i class='bx bx-envelope'></i>
+                            <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#9af2fff6f6f5daf0fbeff4eeb4f9f5f7"><span class="__cf_email__" data-cfemail="2b434e4747446b414a5e455f05484446">[email&#160;protected]</span></a>
+                        </div>
+                        <div class="content">
+                            <i class='bx bx-map'></i>
+                            <a href="#">Mon-Fri: 8 AM – 7 PM</a>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-5">
-                        <div class="side-option">
-                            <div class="item">
-                                <div class="language">
-                                    <a href="#language" id="languageButton" class="btn-secondary">
-                                        Language <i class='bx bxs-chevron-down'></i>
-                                    </a>
-                                    <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-uk.png" alt="flag">
-                                                English
-                                            </a>
-                                        </li>
-                                        <li class="menu-item"><a href="#" class="menu-link">
-                                                <img src="assets/img/flag-germany.png" alt="flag">
-                                                Deutsch</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-jordan.png" alt="flag">
-                                                العربية
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-china.png" alt="flag">
-                                                中文
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="btn-secondary">
-                                    Login <i class='bx bx-log-in-circle'></i>
+                </div>
+                <div class="col-xl-6 col-lg-5">
+                    <div class="side-option">
+                        <div class="item">
+                            <div class="language">
+                                <a href="#language" id="languageButton" class="btn-secondary">
+                                    Language <i class='bx bxs-chevron-down'></i>
                                 </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="#" class="menu-link">
+                                            <img src="assets/img/flag-uk.png" alt="flag">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li class="menu-item"><a href="#" class="menu-link">
+                                            <img src="assets/img/flag-germany.png" alt="flag">
+                                            Deutsch</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#" class="menu-link">
+                                            <img src="assets/img/flag-jordan.png" alt="flag">
+                                            العربية
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#" class="menu-link">
+                                            <img src="assets/img/flag-china.png" alt="flag">
+                                            中文
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="item">
-                                <a href="#searchBox" id="searchButton" class="btn-search" data-effect="mfp-zoom-in">
-                                    <i class='bx bx-search-alt'></i>
-                                </a>
-                                <div id="searchBox" class="search-box mfp-with-anim mfp-hide">
-                                    <form class="search-form">
-                                        <input class="search-input" name="search" placeholder="Search" type="text">
-                                        <button class="btn-search">
-                                            <i class='bx bx-search-alt'></i>
-                                        </button>
-                                    </form>
-                                </div>
+                        </div>
+                        <div class="item">
+                            <a href="#" class="btn-secondary">
+                                Login <i class='bx bx-log-in-circle'></i>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#searchBox" id="searchButton" class="btn-search" data-effect="mfp-zoom-in">
+                                <i class='bx bx-search-alt'></i>
+                            </a>
+                            <div id="searchBox" class="search-box mfp-with-anim mfp-hide">
+                                <form class="search-form">
+                                    <input class="search-input" name="search" placeholder="Search" type="text">
+                                    <button class="btn-search">
+                                        <i class='bx bx-search-alt'></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div class="main-navbar-area">
-            <div class="main-responsive-nav">
-                <div class="container">
-                    <div class="main-responsive-menu">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="assets/img/logo1.png" alt="logo">
-                            </a>
-                        </div>
-                        <div class="cart responsive">
+    <div class="main-navbar-area">
+        <div class="main-responsive-nav">
+            <div class="container">
+                <div class="main-responsive-menu">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo1.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="cart responsive">
+                        <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
+                            <span class="badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo1.png" alt="Logo">
+                    </a>
+                    <div class="collapse navbar-collapse mean-menu">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link toggle">Home<i class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="index.html" class="nav-link">Home Demo - 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="index-2.html" class="nav-link">Home Demo - 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="index-3.html" class="nav-link">Home Demo - 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link toggle">Pages<i class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="team.html" class="nav-link">Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="booking.html" class="nav-link">Booking</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="cart.html" class="nav-link">Cart</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="faq.html" class="nav-link">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="error-404.html" class="nav-link">404 Error</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="coming-soon.html" class="nav-link">Coming Soon</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="login.html" class="nav-link">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="register.html" class="nav-link">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="forgot-password.html" class="nav-link">Forgot Password</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link toggle active">Evenements<i class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ path('showEventFront') }}" class="nav-link active">Evenements</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ path('promotionFront') }}" class="nav-link">Promotions</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about-us.html" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link toggle">Blog<i class='bx bxs-chevron-down'></i></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="blog-style-1.html" class="nav-link">Blog Style One</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="blog-style-2.html" class="nav-link">Blog Style Two</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="blog-style-3.html" class="nav-link">Blog Style Three</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="blog-details.html" class="nav-link">Blog Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+                        <div class="cart">
                             <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
                                 <span class="badge">0</span>
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="main-nav">
-                <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/img/logo1.png" alt="Logo">
-                        </a>
-                        <div class="collapse navbar-collapse mean-menu">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link toggle">Home<i class='bx bxs-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="index.html" class="nav-link">Home Demo - 1</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link">Home Demo - 2</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-3.html" class="nav-link">Home Demo - 3</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link toggle">Pages<i class='bx bxs-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="team.html" class="nav-link">Team</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="booking.html" class="nav-link">Booking</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="cart.html" class="nav-link">Cart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="faq.html" class="nav-link">FAQ</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="error-404.html" class="nav-link">404 Error</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="login.html" class="nav-link">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="register.html" class="nav-link">Register</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="forgot-password.html" class="nav-link">Forgot Password</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link toggle active">Evenements<i class='bx bxs-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ path('showEventFront') }}" class="nav-link active">Evenements</a>
-                                        </li>
-
-<<<<<<< HEAD
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{ path('promotionFront') }}" class="nav-link">Promotions</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="about-us.html" class="nav-link">About</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link toggle">Blog<i class='bx bxs-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="blog-style-1.html" class="nav-link">Blog Style One</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-style-2.html" class="nav-link">Blog Style Two</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-style-3.html" class="nav-link">Blog Style Three</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="blog-details.html" class="nav-link">Blog Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">Contact</a>
-                                </li>
-                            </ul>
-                            <div class="cart">
-                                <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                                    <span class="badge">0</span>
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-=======
-            </header>
-<<<<<<< HEAD
-     {% endblock %}
-
-        {% block banner %}
-=======
-<<<<<<< HEAD
-            {% block content %}
-                {% endblock %}
-
-
-=======
-            {% endblock %}
-
->>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
-            <div id="home" class="home-banner-area home-style-three">
-                <div class="container-fluid p-0">
-                    <div class="banner-slider-three owl-carousel">
-                        <div class="slider-item item-one">
-                            <div class="container">
-                                <div class="banner-content">
-                                    <span class="sub-title">Amazing Places</span>
-                                    <h1>
-                                        Make Your Trip Fun & Noted
-                                    </h1>
-                                    <p>
-                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
-                                    </p>
-                                    <a href="destination-details.html" class="btn-primary">Formations</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item item-two">
-                            <div class="container">
-                                <div class="banner-content">
-                                    <span class="sub-title">Amazing Places</span>
-                                    <h1>
-                                        Make Your Trip Fun & Noted
-                                    </h1>
-                                    <p>
-                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
-                                    </p>
-                                    <a href="destination-details.html" class="btn-primary">Formations</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item item-three">
-                            <div class="container">
-                                <div class="banner-content">
-                                    <span class="sub-title">Amazing Places</span>
-                                    <h1>
-                                        Make Your Trip Fun & Noted
-                                    </h1>
-                                    <p>
-                                        Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
-                                    </p>
-                                    <a href="destination-details.html" class="btn-primary">Formations</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-        {% endblock %}
-
-                    <div class="search-form">
-                        <form id="searchForm">
-                            <div class="row align-items-center">
-                                <div class="col-lg-11">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div class="select-box">
-                                                <i class='bx bx-map-alt'></i>
-                                                <select class="form-control">
-                                                    <option data-display='Destination'>Nothing</option>
-                                                    <option value="1">North America</option>
-                                                    <option value="2">Spain Madrid</option>
-                                                    <option value="3">Japan Tokyo</option>
-                                                    <option value="4">Europe City</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="select-box">
-                                                <i class='bx bx-calendar'></i>
-                                                <input type="text" class="date-select form-control" placeholder="Depart Date" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="select-box">
-                                                <i class='bx bx-package'></i>
-                                                <select class="form-control">
-                                                    <option data-display='Travel Type'>Travel Type</option>
-                                                    <option value="1">City Tour</option>
-                                                    <option value="2">Family Tours</option>
-                                                    <option value="3">Seasonal Tours</option>
-                                                    <option value="4">Outdoor Activities</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="select-box">
-                                                <i class='bx bx-time'></i>
-                                                <select class="form-control">
-                                                    <option data-display='Tour Duration'>Nothing</option>
-                                                    <option value="1">5 Days</option>
-                                                    <option value="2">12 Days</option>
-                                                    <option value="3">21 Days</option>
-                                                    <option value="4">30 Days</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-1">
-                                    <button type="button" class="btn-search">
-                                        <i class='bx bx-search-alt'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-                </div>
+                </nav>
             </div>
         </div>
+    </div>
 
-    </header>
-
-
-
+</header>
 
 
-    {% block content %}
-    {% endblock %}
 
-    <section class="features-section pt-100 pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <i class='bx bx-calendar'></i>
-                        <h3><a href="#">Reservation</a></h3>
-                        <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
+
+
+{% block content %}
+{% endblock %}
+
+<section class="features-section pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="item-single mb-30">
+                    <i class='bx bx-calendar'></i>
+                    <h3><a href="#">Reservation</a></h3>
+                    <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
+                    <div class="cta-btn">
+                        <a href="#" class="btn-primary">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <i class='bx bxs-plane-take-off'></i>
-                        <h3><a href="#">Tour Pack</a></h3>
-                        <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="item-single mb-30">
+                    <i class='bx bxs-plane-take-off'></i>
+                    <h3><a href="#">Tour Pack</a></h3>
+                    <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
+                    <div class="cta-btn">
+                        <a href="#" class="btn-primary">Read More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 m-auto">
-                    <div class="item-single mb-30">
-                        <i class='bx bx-money'></i>
-                        <h3><a href="#">Payment</a></h3>
-                        <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 m-auto">
+                <div class="item-single mb-30">
+                    <i class='bx bx-money'></i>
+                    <h3><a href="#">Payment</a></h3>
+                    <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
+                    <div class="cta-btn">
+                        <a href="#" class="btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <section id="destination" class="destination-section ptb-100 bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>Destinations</h2>
-                <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
+<section id="destination" class="destination-section ptb-100 bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Destinations</h2>
+            <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-8 m-auto">
+                <div class="filter-group">
+
+                    <ul id="control" class="list-control">
+                        <li class="active" data-filter="all">All</li>
+                        <li data-filter="1">Budget-Friendly</li>
+                        <li data-filter="2">Royal</li>
+                        <li data-filter="3">Recommended</li>
+                    </ul>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-8 m-auto">
-                    <div class="filter-group">
+        </div>
+        <div class="row filtr-container">
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination1.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Hvar, Croatia</span>
+                        <h3>
+                            <a href="destination-details.html">Piazza Castello</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>8.5</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>3 Days</li>
+                            <li><i class='bx bx-group'></i>160+</li>
+                            <li>$500</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 1" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination2.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
+                        <h3>
+                            <a href="destination-details.html">Santorini, Oia, Greece</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>9</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>7 Days</li>
+                            <li><i class='bx bx-group'></i>65+</li>
+                            <li>$2000</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination3.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Rialto Bridge, Italy</span>
+                        <h3>
+                            <a href="destination-details.html">Rialto Bridge</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>7.5</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>5 Days</li>
+                            <li><i class='bx bx-group'></i>96+</li>
+                            <li>$2100</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 3" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination4.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
+                        <h3>
+                            <a href="destination-details.html">Santorini, Oia, Greece</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>9</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>7 Days</li>
+                            <li><i class='bx bx-group'></i>65+</li>
+                            <li>$2000</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="1, 3" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination5.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
+                        <h3>
+                            <a href="destination-details.html">Greek Cottage, Greece</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>8.5</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>3 Days</li>
+                            <li><i class='bx bx-group'></i>160+</li>
+                            <li>$1500</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 filtr-item" data-category="3, 1" data-sort="value">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="assets/img/destination6.jpg" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
+                        <h3>
+                            <a href="destination-details.html">Metropolitan City</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>8.5</span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>3 Days</li>
+                            <li><i class='bx bx-group'></i>160+</li>
+                            <li>$1500</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination text-center">
+                    <span class="page-numbers current" aria-current="page">1</span>
+                    <a href="#" class="page-numbers">2</a>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                        <ul id="control" class="list-control">
-                            <li class="active" data-filter="all">All</li>
-                            <li data-filter="1">Budget-Friendly</li>
-                            <li data-filter="2">Royal</li>
-                            <li data-filter="3">Recommended</li>
+
+<section id="testimonial" class="testimonial-section ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>What're Our Clients Say</h2>
+            <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 m-auto">
+                <div class="testimonial-slider owl-carousel">
+                    <div class="slider-item">
+                        <div class="client-img">
+                            <img src="assets/img/client1.jpg" alt="client-1" />
+                        </div>
+                        <div class="content">
+                            <div class="client-info">
+                                <h3>Jordan Alin</h3>
+                                <span>Bloger & Youtuber</span>
+                            </div>
+                            <div class="quote">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <p>
+                                The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
+                            </p>
+                            <div class="review">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="client-img">
+                            <img src="assets/img/client2.jpg" alt="client-1" />
+                        </div>
+                        <div class="content">
+                            <div class="client-info mb-30">
+                                <h3>David Milan</h3>
+                                <span>Photographer</span>
+                            </div>
+                            <div class="quote">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <p>
+                                The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
+                            </p>
+                            <div class="review mt-15">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="client-img">
+                            <img src="assets/img/client3.jpg" alt="client-1" />
+                        </div>
+                        <div class="content">
+                            <div class="client-info mb-30">
+                                <h3>Thomas Alva</h3>
+                                <span>Journalist</span>
+                            </div>
+                            <div class="quote">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <p>
+                                The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
+                            </p>
+                            <div class="review mt-15">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="client-img">
+                            <img src="assets/img/client4.jpg" alt="client-1" />
+                        </div>
+                        <div class="content">
+                            <div class="client-info mb-30">
+                                <h3>Emma Watson</h3>
+                                <span>Actress & Model</span>
+                            </div>
+                            <div class="quote">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <p>
+                                The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
+                            </p>
+                            <div class="review mt-15">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-item">
+                        <div class="client-img">
+                            <img src="assets/img/client5.jpg" alt="client-1" />
+                        </div>
+                        <div class="content">
+                            <div class="client-info mb-30">
+                                <h3>Jordan Alin</h3>
+                                <span>Bloger & Youtuber</span>
+                            </div>
+                            <div class="quote">
+                                <i class='bx bxs-quote-left'></i>
+                            </div>
+                            <p>
+                                The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
+                            </p>
+                            <div class="review mt-15">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='clients-img'>
+            <img class="image image-1" src="assets/img/client1.jpg" alt="Demo Image">
+            <img class="image image-2" src="assets/img/client2.jpg" alt="Demo Image">
+            <img class="image image-3" src="assets/img/client3.jpg" alt="Demo Image">
+            <img class="image image-4" src="assets/img/client4.jpg" alt="Demo Image">
+            <img class="image image-5" src="assets/img/client5.jpg" alt="Demo Image">
+        </div>
+    </div>
+    <div class="shape">
+        <img src="assets/img/shape1.png" alt="Background Shape">
+    </div>
+</section>
+
+
+<footer class="footer-area">
+    <div class="container">
+        <div class="footer-top pt-100 pb-70">
+            <div class="row">
+                <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                    <div class="footer-widget">
+                        <div class="navbar-brand">
+                            <a href="index.html">
+                                <img src="assets/img/logo2.png" alt="Logo" />
+                            </a>
+                        </div>
+                        <p>You can dream, create, design, and build the most wonderful place.</p>
+                        <div class="contact-info">
+                            <div class="content">
+                                <a href="tel:+0123456987"><i class='bx bx-phone'></i>+0123 456 987</a>
+                            </div>
+                            <div class="content">
+                                <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#7f171a1313103f151e0a110b511c1012"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="e9818c858586a983889c879dc78a8684">[email&#160;protected]</span></a>
+                            </div>
+                            <div class="content">
+                                <a href="#"><i class='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-5 col-sm-6 col-12">
+                    <div class="footer-widget">
+                        <h5>Latest News</h5>
+                        <ul class="footer-news">
+                            <li class="content">
+                                <a href="blog-details.html">Surrounded by the peaceful waters of Lake Victoria.</a>
+                                <span>October 05, 2020</span>
+                                <hr>
+                            </li>
+                            <li class="content">
+                                <a href="blog-details.html">Morning came very early today. The alarm went off at 4 am</a>
+                                <span>October 05, 2020</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-5 col-sm-6 col-12">
+                    <div class="footer-widget">
+                        <h5>Quick Links</h5>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="about-us.html">About Us</a>
+                            </li>
+                            <li>
+                                <a href="destinations.html">Destinations</a>
+                            </li>
+                            <li>
+                                <a href="blog-style-1.html">Latest Blog</a>
+                            </li>
+                            <li>
+                                <a href="team.html">Our Team</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-6 col-12">
+                    <div class="footer-widget">
+                        <h5>Instagram Post</h5>
+                        <ul class="instagram-post">
+                            <li>
+                                <img src="assets/img/instagram1.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram2.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram3.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram4.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram5.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
+                            <li>
+                                <img src="assets/img/instagram6.jpg" alt="Demo Image">
+                                <i class='bx bxl-instagram'></i>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row filtr-container">
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination1.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Hvar, Croatia</span>
-                            <h3>
-                                <a href="destination-details.html">Piazza Castello</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>3 Days</li>
-                                <li><i class='bx bx-group'></i>160+</li>
-                                <li>$500</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination2.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
-                            <h3>
-                                <a href="destination-details.html">Santorini, Oia, Greece</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>9</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>7 Days</li>
-                                <li><i class='bx bx-group'></i>65+</li>
-                                <li>$2000</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination3.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Rialto Bridge, Italy</span>
-                            <h3>
-                                <a href="destination-details.html">Rialto Bridge</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>7.5</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>5 Days</li>
-                                <li><i class='bx bx-group'></i>96+</li>
-                                <li>$2100</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="2, 3" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination4.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Santorini, Oia, Greece</span>
-                            <h3>
-                                <a href="destination-details.html">Santorini, Oia, Greece</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>9</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>7 Days</li>
-                                <li><i class='bx bx-group'></i>65+</li>
-                                <li>$2000</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="1, 3" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination5.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Oia, Greece</span>
-                            <h3>
-                                <a href="destination-details.html">Greek Cottage, Greece</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>3 Days</li>
-                                <li><i class='bx bx-group'></i>160+</li>
-                                <li>$1500</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 filtr-item" data-category="3, 1" data-sort="value">
-                    <div class="item-single mb-30">
-                        <div class="image">
-                            <img src="assets/img/destination6.jpg" alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>Venice, Italy</span>
-                            <h3>
-                                <a href="destination-details.html">Metropolitan City</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>8.5</span>
-                                <span>Superb</span>
-                            </div>
-                            <p>
-                                A wonderful little cottage right on the seashore - perfect for exploring.
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>3 Days</li>
-                                <li><i class='bx bx-group'></i>160+</li>
-                                <li>$1500</li>
-                            </ul>
-                        </div>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <div class="pagination text-center">
-                        <span class="page-numbers current" aria-current="page">1</span>
-                        <a href="#" class="page-numbers">2</a>
-                        <a href="#" class="page-numbers">3</a>
-                        <a href="#" class="page-numbers">Next</a>
-                    </div>
+        </div>
+        <hr>
+        <div class="copy-right-area">
+            <div class="container">
+                <div class="copy-right-content">
+                    <p>
+                        Copyright @2020 Jaunt. Designed By
+                        <a href="https://hibootstrap.com/" target="_blank">
+                            HiBootstrap.com
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</footer>
+{% block js %}
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 
-    <section id="testimonial" class="testimonial-section ptb-100">
-        <div class="container">
-            <div class="section-title">
-                <h2>What're Our Clients Say</h2>
-                <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 m-auto">
-                    <div class="testimonial-slider owl-carousel">
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="assets/img/client1.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info">
-                                    <h3>Jordan Alin</h3>
-                                    <span>Bloger & Youtuber</span>
-                                </div>
-                                <div class="quote">
-                                    <i class='bx bxs-quote-left'></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                </p>
-                                <div class="review">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="assets/img/client2.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>David Milan</h3>
-                                    <span>Photographer</span>
-                                </div>
-                                <div class="quote">
-                                    <i class='bx bxs-quote-left'></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="assets/img/client3.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Thomas Alva</h3>
-                                    <span>Journalist</span>
-                                </div>
-                                <div class="quote">
-                                    <i class='bx bxs-quote-left'></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="assets/img/client4.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Emma Watson</h3>
-                                    <span>Actress & Model</span>
-                                </div>
-                                <div class="quote">
-                                    <i class='bx bxs-quote-left'></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-item">
-                            <div class="client-img">
-                                <img src="assets/img/client5.jpg" alt="client-1" />
-                            </div>
-                            <div class="content">
-                                <div class="client-info mb-30">
-                                    <h3>Jordan Alin</h3>
-                                    <span>Bloger & Youtuber</span>
-                                </div>
-                                <div class="quote">
-                                    <i class='bx bxs-quote-left'></i>
-                                </div>
-                                <p>
-                                    The Personal Travel Agents Academy is a 12-month training programme allowing anyone with no previous travel experience to start their own travel business. This is an advanced course to help build knowledge in travel and develop sales skills.
-                                </p>
-                                <div class="review mt-15">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='clients-img'>
-                <img class="image image-1" src="assets/img/client1.jpg" alt="Demo Image">
-                <img class="image image-2" src="assets/img/client2.jpg" alt="Demo Image">
-                <img class="image image-3" src="assets/img/client3.jpg" alt="Demo Image">
-                <img class="image image-4" src="assets/img/client4.jpg" alt="Demo Image">
-                <img class="image image-5" src="assets/img/client5.jpg" alt="Demo Image">
-            </div>
-        </div>
-        <div class="shape">
-            <img src="assets/img/shape1.png" alt="Background Shape">
-        </div>
-    </section>
+    <script src="{{  asset('js/jquery.min.js')}}"></script>
 
+    <script src="{{  asset('js/popper.min.js')}}"></script>
 
-    <footer class="footer-area">
-        <div class="container">
-            <div class="footer-top pt-100 pb-70">
-                <div class="row">
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <div class="navbar-brand">
-                                <a href="index.html">
-                                    <img src="assets/img/logo2.png" alt="Logo" />
-                                </a>
-                            </div>
-                            <p>You can dream, create, design, and build the most wonderful place.</p>
-                            <div class="contact-info">
-                                <div class="content">
-                                    <a href="tel:+0123456987"><i class='bx bx-phone'></i>+0123 456 987</a>
-                                </div>
-                                <div class="content">
-                                    <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#7f171a1313103f151e0a110b511c1012"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="e9818c858586a983889c879dc78a8684">[email&#160;protected]</span></a>
-                                </div>
-                                <div class="content">
-                                    <a href="#"><i class='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Latest News</h5>
-                            <ul class="footer-news">
-                                <li class="content">
-                                    <a href="blog-details.html">Surrounded by the peaceful waters of Lake Victoria.</a>
-                                    <span>October 05, 2020</span>
-                                    <hr>
-                                </li>
-                                <li class="content">
-                                    <a href="blog-details.html">Morning came very early today. The alarm went off at 4 am</a>
-                                    <span>October 05, 2020</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Quick Links</h5>
-                            <ul class="footer-links">
-                                <li>
-                                    <a href="about-us.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="destinations.html">Destinations</a>
-                                </li>
-                                <li>
-                                    <a href="blog-style-1.html">Latest Blog</a>
-                                </li>
-                                <li>
-                                    <a href="team.html">Our Team</a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Instagram Post</h5>
-                            <ul class="instagram-post">
-                                <li>
-                                    <img src="assets/img/instagram1.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram2.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram3.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram4.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram5.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram6.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-<<<<<<< HEAD
-            </div>
-            <hr>
-            <div class="copy-right-area">
-                <div class="container">
-                    <div class="copy-right-content">
-                        <p>
-                            Copyright @2020 Jaunt. Designed By
-                            <a href="https://hibootstrap.com/" target="_blank">
-                                HiBootstrap.com
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-=======
-            </footer>
-<<<<<<< HEAD
-       
+    <script src="{{  asset('js/bootstrap.min.js')}}"></script>
 
-        {% endblock %}
+    <script src="{{  asset('js/bootstrap-datepicker.min.js')}}"></script>
 
-         {% block js %}
-=======
-<<<<<<< HEAD
+    <script src="{{  asset('js/jquery.nice-select.min.js')}}"></script>
 
+    <script src="{{  asset('js/jquery.magnific-popup.min.js')}}"></script>
 
+    <script src="{{  asset('js/jquery.filterizr.min.js')}}"></script>
 
-        {% block js %}
->>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
-            <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-=======
-            {% endblock %}
+    <script src="{{  asset('js/owl.carousel.min.js')}}"></script>
 
-        {% endblock %}
-    </body>
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-    {% block js %}
+    <script src="{{  asset('js/meanmenu.min.js')}}"></script>
 
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{  asset('js/form-validator.min.js')}}"></script>
 
+    <script src="{{  asset('js/contact-form-script.js')}}"></script>
 
-        <script src="{{  asset('js/jquery.min.js')}}"></script>
+    <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
 
-        <script src="{{  asset('js/popper.min.js')}}"></script>
+    <script src="{{  asset('js/script.js')}}"></script>
+{% endblock %}
 
-        <script src="{{  asset('js/bootstrap.min.js')}}"></script>
-
-        <script src="{{  asset('js/bootstrap-datepicker.min.js')}}"></script>
-
-        <script src="{{  asset('js/jquery.nice-select.min.js')}}"></script>
-
-        <script src="{{  asset('js/jquery.magnific-popup.min.js')}}"></script>
-
-        <script src="{{  asset('js/jquery.filterizr.min.js')}}"></script>
-
-        <script src="{{  asset('js/owl.carousel.min.js')}}"></script>
-
-        <script src="{{  asset('js/meanmenu.min.js')}}"></script>
-
-        <script src="{{  asset('js/form-validator.min.js')}}"></script>
-
-        <script src="{{  asset('js/contact-form-script.js')}}"></script>
-
-<<<<<<< HEAD
-=======
-        <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ee5ef02794d1a628613e0b76ac7ab937ca2a7383
-        {% endblock %}
-    </body>
-=======
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
-        <script src="{{  asset('js/script.js')}}"></script>
-    {% endblock %}
-
-    </body>
+</body>
 
 
 
