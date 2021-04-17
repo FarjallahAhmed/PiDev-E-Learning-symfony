@@ -18,11 +18,12 @@ class EventController extends AbstractController
     /**
      * @Route("/event", name="event")
      */
+
     public function index(Request $request,WorkshopRepository $calendar): Response
     {
-<<<<<<< HEAD
-        return $this->render('base.html.twig', [
-=======
+
+
+
         $workshop = new Workshop();
         $form = $this->createForm(WorkshopType::class,$workshop);
         $form->handleRequest($request);
@@ -59,7 +60,7 @@ class EventController extends AbstractController
 
         $data = json_encode($rdvs);
         return $this->render('event/index.html.twig', [
->>>>>>> ad3313ef7ac1f7ffe6f676fb546ae5809b48e9cd
+
             'controller_name' => 'EventController',
             'formEvent' => $form->createView(),
             'data'=> $data,
