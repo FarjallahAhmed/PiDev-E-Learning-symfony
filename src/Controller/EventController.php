@@ -47,7 +47,7 @@ class EventController extends AbstractController
         }
 
         $data = json_encode($rdvs);
-        return $this->render('event/index.html.twig', [
+        return $this->render('event/panier.html.twig', [
             'controller_name' => 'EventController',
             'formEvent' => $form->createView(),
             'data'=> $data,
@@ -97,7 +97,7 @@ class EventController extends AbstractController
 
         $data = json_encode($rdvs);
 
-        return $this->render('event/index.html.twig', compact('data'));
+        return $this->render('event/panier.html.twig', compact('data'));
     }
     /**
      * @Route("/event/{id}/edit", name="eventEdit", methods={"PUT"})
@@ -146,7 +146,7 @@ class EventController extends AbstractController
         }
 
 
-        return $this->render('event/index.html.twig', [
+        return $this->render('event/panier.html.twig', [
             'controller_name' => 'ApiController',
         ]);
     }

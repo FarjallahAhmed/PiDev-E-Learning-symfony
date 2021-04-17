@@ -97,10 +97,26 @@ class Formation
      * @ORM\Column(name="categorie", type="string", length=255, nullable=true)
      */
     private $categorie;
+    /**
+     * @var int |null
+     *
+     * @ORM\Column(name="id_formateur", type="integer", length=255, nullable=true)
+     */
+    private  $id_formateur;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function getIdformateur(): ?int
+    {
+        return $this->id_formateur;
+    }
+    public function setidformateur(?int  $id_formateur): self
+    {
+        $this->id_formateur = $id_formateur;
+
+        return $this;
     }
 
     public function getObjet(): ?string
