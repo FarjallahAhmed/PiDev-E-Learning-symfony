@@ -36,7 +36,7 @@ class FormationController extends AbstractController
     {       $em=$this->getDoctrine()->getManager();
             $result=$em->getRepository(Formation::class)->findAll();
             $al=$em->getRepository(Formation::class)->getformationeval();
-        return $this->render('base.html.twig', [
+        return $this->render('baseformation.html.twig', [
             'controller_name' => 'FormationController',
             'result'=>$result,
             'evaluation'=>$al
