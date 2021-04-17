@@ -18,6 +18,12 @@
                         <div class="add-product">
                             <a href="{{  path('newEvent') }}">Add Event</a>
                         </div>
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
 
                         <div class="asset-inner">
 
@@ -62,7 +68,7 @@
                                         <a href="{{  path('edit', {id: event.id}) }}">
                                             <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{  path('delete', {id: event.id}) }}">
+                                        <a href="{{  path('deleteEv', {id: event.id}) }}">
                                         <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         </a>
                                     </td>

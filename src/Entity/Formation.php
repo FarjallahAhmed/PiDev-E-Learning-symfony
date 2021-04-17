@@ -123,12 +123,7 @@ class Formation
      */
 
     private $categorie;
-    /**
-     * @var int |null
-     *
-     * @ORM\Column(name="id_formateur", type="integer", length=255, nullable=true)
-     */
-    private  $id_formateur;
+
 
     public function getId(): ?int
     {

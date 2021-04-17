@@ -53,6 +53,7 @@ class WorkshopType extends AbstractType
             ])
             ->add('description',TextareaType::class)
             ->add('prix',NumberType::class)
+
         ;
     }
 
