@@ -1,45 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Author: HiBootstrap, Category: Tourism, Multipurpose, HTML, SASS, Bootstrap" />
+{% extends 'baseformation.html.twig' %}
 
-    <title>{% block title %} E-Learning{% endblock %}</title>
-    {% block stylesheets %}
-
-<link rel="stylesheet" href="{{  asset('css/bootstrap.min.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/fontawesome.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/boxicons.min.css')}}">
-
-<link rel="stylesheet" href="{{  asset('css/animate.min.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/bootstrap-datepicker.min.css')}}">
-
-<link rel="stylesheet" href="{{  asset('css/nice-select.css')}}">
-
-<link rel="stylesheet" href="{{  asset('css/magnific-popup.min.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/owl.carousel.min.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/meanmenu.min.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/style.css')}}" />
-
-<link rel="stylesheet" href="{{  asset('css/responsive.css')}}" />
-
-<link rel="icon" href="{{  asset('img/favicon.png" type="image/png')}}" />
-    {% endblock %}-
-
-
-
-
-</head>
-
-
-
+{% block body %}
 <body>
 
 <header class="header-area">
@@ -55,7 +16,7 @@
                         </div>
                         <div class="content">
                             <i class='bx bx-envelope'></i>
-                            <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#9af2fff6f6f5daf0fbeff4eeb4f9f5f7"><span class="__cf_email__" data-cfemail="2b434e4747446b414a5e455f05484446">[email&#160;protected]</span></a>
+                            <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#08606d6464674862697d667c266b6765"><span class="__cf_email__" data-cfemail="056d6069696a456f64706b712b666a68">[email&#160;protected]</span></a>
                         </div>
                         <div class="content">
                             <i class='bx bx-map'></i>
@@ -129,21 +90,12 @@
                         <a href="index.html">
                             <img src="assets/img/logo1.png" alt="logo">
                         </a>
-
                     </div>
                     <div class="cart responsive">
                         <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                            <span class="badge">0</span>
+                            <span class="badge"></span>
                         </a>
                     </div>
-
-                    </div>
-                    <div class="cart responsive">
-                        <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                            <span class="badge">0</span>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -170,7 +122,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link toggle">Pages<i class='bx bxs-chevron-down'></i></a>
+                                <a href="#" class="nav-link toggle active">Pages<i class='bx bxs-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="team.html" class="nav-link">Team</a>
@@ -182,7 +134,7 @@
                                         <a href="booking.html" class="nav-link">Booking</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="cart.html" class="nav-link">Cart</a>
+                                        <a href="cart.html" class="nav-link active">Cart</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="faq.html" class="nav-link">FAQ</a>
@@ -211,32 +163,24 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link toggle active">Evenements<i class='bx bxs-chevron-down'></i></a>
+                                <a href="#" class="nav-link toggle">Destinations<i class='bx bxs-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-
-
+                                        <a href="destinations.html" class="nav-link">Destinations</a>
                                     </li>
-
+                                    <li class="nav-item">
+                                        <a href="destination-details.html" class="nav-link">Destinations Details</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
+                            <li class="nav-item"><a href="#" class="nav-link toggle">Tours<i class='bx bxs-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-
-
-                                        <a href="{{ path('showEventFront') }}" class="nav-link active">Evenements</a>
+                                        <a href="tours.html" class="nav-link">Tours</a>
                                     </li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
-                                <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="{{ path('promotionFront') }}" class="nav-link">Promotions</a>
-
+                                        <a href="special-offers.html" class="nav-link">Trip Offers</a>
                                     </li>
-
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -264,7 +208,7 @@
                         </ul>
                         <div class="cart">
                             <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                                <span class="badge">0</span>
+                                <span class="badge">{{ affichagepanier|length }}</span>
                             </a>
                         </div>
                     </div>
@@ -273,109 +217,121 @@
         </div>
     </div>
 
-
 </header>
 
 
+<div class="page-title-area ptb-100">
+    <div class="container">
+        <div class="page-title-content">
+            <h1>Cart</h1>
+            <ul>
+                <li class="item"><a href="index.html">Home</a></li>
+                <li class="item"><a href="cart.html"><i class='bx bx-chevrons-right'></i>Cart</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bg-image">
+        <img src="assets/img/page-title-area/cart.jpg" alt="Demo Image">
+    </div>
+</div>
 
-</header>
 
-
-
-{% block content %}
-{% endblock %}
-
-
-
-
-<section class="features-section pt-100 pb-70">
+<section id="cart" class="cart-section pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="item-single mb-30">
-                    <i class='bx bx-calendar'></i>
-                    <h3><a href="#">Reservation</a></h3>
-                    <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                    <div class="cta-btn">
-                        <a href="#" class="btn-primary">Read More</a>
-                    </div>
+            <div class="col-lg-8">
+                <div class="cart-table-container">
+                    <table class="table table-cart">
+                        <thead>
+                        <tr>
+                            <th class="product-col">Formation</th>
+                            <th class="price-col">Type</th>
+                            <th>prix</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for x in affichagepanier %}
+                        <tr class="product-row">
+                            <td class="product-col">
+                                <figure class="product-image-container">
+                                    <a href="#" class="product-image">
+                                        <img src="{{ asset('/img/cart1.jpg')}}" alt="product">
+                                    </a>
+                                </figure>
+                                <h3 class="product-title">
+                                    <a href="#">{{ x.objet }}</a>
+                                </h3>
+                            </td>
+                            <td>{{ x.type }}</td>
+
+                            <td>{{ x.prix }}TND</td>
+                        </tr>
+                        <tr class="product-action-row">
+                            <td colspan="4" class="clearfix">
+                                <div class="float-left">
+                                    <a href="#" class="btn-move">Move to Wishlist</a>
+                                </div>
+                                <div class="float-right">
+
+                                    <a href="{{ path('supprimercommande',{id:x.id}) }}" class="btn-remove"><i class='bx bx-x'></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="4" class="clearfix">
+                                <div class="float-left">
+                                    <a href="{{ path('formationfront') }}" class="btn btn-outline-secondary">Continue Shopping</a>
+                                </div>
+                                <div class="float-right">
+                                    <a href="{{ path('viderpanier') }}" class="btn btn-outline-secondary btn-clear-cart">Clear Shopping Cart</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-update-cart">Update Shopping Cart</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="item-single mb-30">
-                    <i class='bx bxs-plane-take-off'></i>
-                    <h3><a href="#">Tour Pack</a></h3>
-                    <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
-                    <div class="cta-btn">
-                        <a href="#" class="btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 m-auto">
-                <div class="item-single mb-30">
-                    <i class='bx bx-money'></i>
-                    <h3><a href="#">Payment</a></h3>
-                    <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                    <div class="cta-btn">
-                        <a href="#" class="btn-primary">Read More</a>
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h3>Summary</h3>
+                    <table class="table table-totals">
+                        <tbody>
+                        <tr>
+                            <td>Subtotal</td>
+                            {% if panier.prixTotal is not defined %}
+                                <td>0TND</td>
+                            {% else %}
+                                <td>{{ panier.prixTotal}}TND</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>Tax</td>
+                            <td>0.00TND</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td>Order Total</td>
+                            {% if panier.prixTotal is not defined %}
+                            <td>0TND</td>
+                            {% else %}
+                            <td>{{ panier.prixTotal}}TND</td>
+                            {% endif %}
+                        </tr>
+                        </tfoot>
+                    </table>
+                    <div class="checkout-methods">
+                        <a href="#" class="btn btn-block btn-sm btn-primary">Checkout</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
-<section id="destination" class="destination-section ptb-100 bg-light">
-    <div class="container">
-        <div class="section-title">
-            <h2>Destinations</h2>
-            <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
-        </div>
-        <div class="row">
-            <div class="col-md-8 m-auto">
-                <div class="filter-group">
-
-                    <ul id="control" class="list-control">
-                        <li class="active" data-filter="all">All</li>
-                        <li data-filter="1">Budget-Friendly</li>
-                        <li data-filter="2">Royal</li>
-                        <li data-filter="3">Recommended</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row filtr-container">
-
-
-
-
-
-
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="pagination text-center">
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="#" class="page-numbers">2</a>
-                    <a href="#" class="page-numbers">3</a>
-                    <a href="#" class="page-numbers">Next</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
 
 
 <footer class="footer-area">
@@ -395,7 +351,7 @@
                                 <a href="tel:+0123456987"><i class='bx bx-phone'></i>+0123 456 987</a>
                             </div>
                             <div class="content">
-                                <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#7f171a1313103f151e0a110b511c1012"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="e9818c858586a983889c879dc78a8684">[email&#160;protected]</span></a>
+                                <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#345c5158585b745e55415a401a575b59"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="721a171e1e1d321813071c065c111d1f">[email&#160;protected]</span></a>
                             </div>
                             <div class="content">
                                 <a href="#"><i class='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
@@ -441,7 +397,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-5 col-sm-6 col-12">
                     <div class="footer-widget">
                         <h5>Instagram Post</h5>
@@ -490,52 +445,5 @@
         </div>
     </div>
 </footer>
-{% block js %}
-
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-
-
-
-    <script src="{{  asset('js/jquery.min.js')}}"></script>
-
-    <script src="{{  asset('js/popper.min.js')}}"></script>
-
-    <script src="{{  asset('js/bootstrap.min.js')}}"></script>
-
-    <script src="{{  asset('js/bootstrap-datepicker.min.js')}}"></script>
-
-    <script src="{{  asset('js/jquery.nice-select.min.js')}}"></script>
-
-    <script src="{{  asset('js/jquery.magnific-popup.min.js')}}"></script>
-
-    <script src="{{  asset('js/jquery.filterizr.min.js')}}"></script>
-
-    <script src="{{  asset('js/owl.carousel.min.js')}}"></script>
-
-    <script src="{{  asset('js/meanmenu.min.js')}}"></script>
-
-    <script src="{{  asset('js/form-validator.min.js')}}"></script>
-
-    <script src="{{  asset('js/contact-form-script.js')}}"></script>
-
-    <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
-
-    <script src="{{  asset('js/script.js')}}"></script>
-{% endblock %}
-
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
-
+{% endblock %}

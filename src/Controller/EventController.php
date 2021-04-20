@@ -22,8 +22,13 @@ class EventController extends AbstractController
     /**
      * @Route("/event", name="event")
      */
+
     public function index(Request $request,WorkshopRepository $calendar): Response
     {
+
+
+
+
 
         $workshop = new Workshop();
         $form = $this->createForm(WorkshopType::class,$workshop);
@@ -63,6 +68,7 @@ class EventController extends AbstractController
 
         $data = json_encode($rdvs);
         return $this->render('event/index.html.twig', [
+
             'controller_name' => 'EventController',
             'formEvent' => $form->createView(),
             'data'=> $data,
@@ -226,11 +232,11 @@ class EventController extends AbstractController
      */
     public function delete(Request $request,WorkshopRepository $repo): Response
     {
-            $donnees = json_decode($request->getContent());
-            $entityManager = $this->getDoctrine()->getManager();
-            $calendar = $repo->find($donnees->id);
-            $entityManager->remove($calendar);
-            $entityManager->flush();
+        $donnees = json_decode($request->getContent());
+        $entityManager = $this->getDoctrine()->getManager();
+        $calendar = $repo->find($donnees->id);
+        $entityManager->remove($calendar);
+        $entityManager->flush();
 
 
         return $this->redirectToRoute('event');
