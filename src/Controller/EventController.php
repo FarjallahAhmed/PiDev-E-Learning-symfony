@@ -30,6 +30,7 @@ class EventController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($workshop);
             $em->flush();
             $this->addFlash('success', 'Event Ajouter avec sucess!');
@@ -91,9 +92,10 @@ class EventController extends AbstractController
     /**
      * @Route("/event/showEvent", name="showEvent")
      */
-    public function showAllEvent(WorkshopRepository $calendar)
+    public function showAllEvent(WorkshopRepository $calendar,Request $request)
     {
-        $events = $calendar->findAll();
+        $search = $request->query->get("search");
+        $events = $calendar->findAllWithSearch($search);
         return $this->render('event/showEvent.html.twig', [
             'events' => $events,
         ]);
@@ -102,9 +104,24 @@ class EventController extends AbstractController
     /**
      * @Route("/event/showEventFront", name="showEventFront")
      */
-    public function showAllEventFront(WorkshopRepository $calendar)
+    public function showAllEventFront(WorkshopRepository $calendar,Request $request)
     {
-        $events = $calendar->findAll();
+        //$events = $calendar->findAll();
+
+        $filters = $request->get("type");
+
+
+        // On récupère les annonces de la page en fonction du filtre
+
+        // On récupère le nombre total d'annonces
+        $events = $calendar->getTotalEvent($filters);
+        //dd($events);
+        // On vérifie si on a une requête Ajax
+        if($request->get('ajax')){
+            return new JsonResponse([
+                'content' => $this->renderView('event/_contentFront.html.twig', compact('events'))
+            ]);
+        }
 
         return $this->render('event/showEventFront.html.twig', [
             'events' => $events,
@@ -270,5 +287,49 @@ class EventController extends AbstractController
             'formComment' => $form->createView(),
 
         ]);
+    }
+
+    /**
+     * @Route("/event/stats",name="statsEvent")
+     */
+    public function stats(WorkshopRepository $repo){
+
+        $events = $repo->findAll();
+
+        $eventType = [];
+        $eventCount = [];
+        $eventCountHearts = [];
+        $eventColor = [];
+
+        foreach ($events as $event){
+            //$eventType[] = $event->getType();
+            $eventCount[] = $event->getHearts();
+           if ($event->getType() == 'Soft Skills')
+               $eventColor[] = '#933EC5' ;
+             elseif ($event->getType() == 'Team building')
+             $eventColor[] = '#FF5722';
+             elseif ($event->getType() == 'Conference')
+             $eventColor[] = '#f3c30b';
+            elseif ($event->getType() == 'Seminaire')
+            $eventColor[] = '#00BCD4';
+
+        }
+        $eventByDate = $repo->countByDate();
+
+
+        $eventByLike = $repo->countByLike();
+        foreach ($eventByLike as $event){
+            $eventType[] = $event['typeW'];
+            $eventCountHearts[] = $event['count'];
+        }
+
+
+        return $this->render('event/stats.html.twig',[
+            'eventType' => json_encode($eventType),
+            'eventCount' => json_encode($eventCount),
+            'eventColor' => json_encode($eventColor),
+            'like' => json_encode($eventCountHearts),
+        ]);
+
     }
 }

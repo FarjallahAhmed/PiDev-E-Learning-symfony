@@ -1,0 +1,83 @@
+{% extends 'baseBack.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+{% endblock %}
+{% block content %}
+    <style>
+
+        #cont{
+            padding-top: 60px;
+
+        }
+
+    </style>
+
+    <div class="container-fluid" id="cont">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="charts-single-pro">
+                <div class="alert-title">
+                    <h2>La Moyenne de Promotion Pour Les type de formation</h2>
+                    <p></p>
+                </div>
+
+                <canvas id="linechartmultiaxis"></canvas>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+
+    <script>
+        var ctx = document.getElementById("linechartmultiaxis");
+        var linechartmultiaxis = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ formationType | raw }},
+                datasets: [{
+                    label: "Moy Pourcentage",
+                    fill: false,
+                    backgroundColor: 'rgb(76, 175, 80)',
+                    borderColor: 'rgb(76, 175, 80)',
+                    data: {{ promotionsMoy | raw }},
+                    yAxisID: "y-axis-1"
+                },{
+                    label: "Max Pourcentage",
+                    fill: false,
+                    backgroundColor: '#933EC5',
+                    borderColor: '#933EC5',
+                    data: {{ maxPourcentage|raw }},
+                    yAxisID: "y-axis-2"
+                }]
+            },
+            options: {
+                responsive: true,
+                hoverMode: 'index',
+                stacked: false,
+                title:{
+                    display: true,
+                    text:'Moyenne De pourcentage Pour Chaque Type De formations'
+                },
+                scales: {
+                    yAxes: [{
+                        type: "linear",
+                        display: true,
+                        position: "left",
+                        id: "y-axis-1",
+                    },  {
+                        type: "linear",
+                        display: true,
+                        position: "right",
+                        id: "y-axis-2",
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+    </script>
+{% endblock %}

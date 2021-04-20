@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Formation;
 use App\Entity\Promotion;
 use App\Entity\Workshop;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -60,4 +61,32 @@ class PromotionRepository extends ServiceEntityRepository
 
         return $result;
     }
+
+    public function statisPromo(){
+
+        $query = $this->createQueryBuilder('p')
+            ->select('AVG(p.prix) as moy ,Max(p.prix) as maxPourcentage,f.type')
+            ->innerJoin(Formation::class,'f')
+
+            ->andWhere('f.id = p.idFormation ')
+            ->groupBy('f.type')
+            ;
+        return $query->getQuery()->getResult();
+    }
+
+
+    public function findAllWithSearch(?string $term)
+    {
+        $qb = $this->createQueryBuilder('p');
+        if ($term) {
+            $qb->andWhere('p.prix LIKE :term')
+                ->setParameter('term', '%' . $term . '%')
+            ;
+        }
+        return $qb
+        ->getQuery()
+        ->getResult();
+
+    }
+
 }

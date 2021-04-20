@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
     {% block stylesheet %}
-<<<<<<< HEAD
         <!-- favicon
             ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
@@ -41,7 +40,6 @@
         <!-- main CSS
             ============================================ -->
         <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
-=======
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
@@ -71,7 +69,6 @@
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
         <!-- dropzone CSS
 		============================================ -->
         <link rel="stylesheet" href="{{ asset('backAssets/css/dropzone/dropzone.css') }}">
@@ -140,6 +137,7 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Calendrier" href="{{ path('event') }}"><span class="mini-sub-pro">Calendrier</span></a></li>
                                 <li><a title="All Event" href="{{ path('showEvent') }}"><span class="mini-sub-pro">List Evenement</span></a></li>
+                                <li><a title="All Event" href="{{ path('statsEvent') }}"><span class="mini-sub-pro">Statistique</span></a></li>
 
                             </ul>
                         </li>
@@ -147,6 +145,8 @@
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Promotions</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Professors" href="{{ path('promotion') }}"><span class="mini-sub-pro">list promotion</span></a></li>
+                                <li><a title="All Professors" href="{{ path('statsPromo') }}"><span class="mini-sub-pro">Statistique</span></a></li>
+
                             </ul>
                         </li>
                         <li>

@@ -15,9 +15,12 @@ class PromotionController extends AbstractController
     /**
      * @Route("/promotion", name="promotion")
      */
-    public function index(PromotionRepository $repo): Response
+    public function index(PromotionRepository $repo,Request $request): Response
     {
-        $promotions = $repo->findAll();
+        //$promotions = $repo->findAll();
+
+        $q = $request->query->get('search');
+        $promotions = $repo->findAllWithSearch($q);
         return $this->render('promotion/index.html.twig', [
             'controller_name' => 'PromotionController',
             'promotions' => $promotions,
@@ -102,5 +105,29 @@ class PromotionController extends AbstractController
             'controller_name' => 'PromotionController',
             'promotions' => $promotions,
         ]);
+    }
+
+    /**
+     * @Route("/promotion/stats",name="statsPromo")
+     */
+    public function stats(PromotionRepository $repo){
+
+        $promotions = $repo->statisPromo();
+        $promotionsMoy = [];
+        $formationType = [];
+        $maxPourcentage = [];
+        foreach ($promotions as $event){
+            $formationType[] = $event['type'];
+            $promotionsMoy[] = $event['moy'];
+            $maxPourcentage[] = $event['maxPourcentage'];
+        }
+
+
+        return $this->render('promotion/stats.html.twig',[
+            'formationType' => json_encode($formationType),
+            'promotionsMoy' => json_encode($promotionsMoy),
+            'maxPourcentage' => json_encode($maxPourcentage),
+        ]);
+
     }
 }
