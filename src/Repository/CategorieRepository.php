@@ -60,4 +60,14 @@ class CategorieRepository extends ServiceEntityRepository
 
         return $stmt->fetchAll();
     }
+
+    public function sort() {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = "SELECT id_categorie as idCategorie, nom, type, description FROM categorie ORDER BY nom ASC ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

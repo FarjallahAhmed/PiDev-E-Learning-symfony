@@ -11,6 +11,7 @@
                             <div class="main-sparkline8-hd">
                                 <h1>List Reclamation</h1>
                                 <input id="search" type="text" placeholder="Search">
+                                <button id="sort" style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #0070a5;border-radius: 3px;outline:none;">Tri</button>
                             </div>
                         </div>
                         <div class="sparkline8-graph">
@@ -44,12 +45,15 @@
                                 </table>
                                 </div>
                             </div>
+                            <a  href="{{ path('pdfReclamation') }}" target="_blank">Generate PDF</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
+    <br><br><br>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script >
@@ -59,6 +63,17 @@
                     url : "{{ path('searchReaclamation') }}",
                     type: "get",
                     data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+
+            $("#sort").click(function () {
+                $.ajax({
+                    url : "{{ path('triReaclamation') }}",
+                    type: "get"
                 }).done(function (response) {
                     var tableau = $(response).find("table");
                     $('#table').empty();

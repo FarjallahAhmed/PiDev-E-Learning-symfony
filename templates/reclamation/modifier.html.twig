@@ -30,7 +30,7 @@
                                             <input type="text" name="message" required value="{{ rec.idMessage.contenu }}" placeholder="Message" class="form-control">
                                         </div>
                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                            <input type="submit" class="btn btn-sm btn-primary login-submit-cs" value="Modifier">
+                                            <button onclick="btnClick()" class="btn btn-sm btn-primary login-submit-cs" >Modifier</button>
                                         </div>
                                     </div>
                                 </form>
@@ -41,5 +41,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function btnClick() {
+            var form = document.getElementById("form");
+            var objet = document.getElementById("obj");
+            var msg = document.getElementById("msg");
+
+            if(objet.value != "" && msg.value != "") {
+                form.submit();
+            }
+            else {
+                alert("empty filed");
+            }
+        }
+    </script>
 {% endblock %}
 

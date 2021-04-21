@@ -12,6 +12,7 @@
                             <div class="main-sparkline8-hd">
                                 <h1>List Reclamation</h1>
                                 <input id="search" type="text" placeholder="Search">
+                                <button id="sort" style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #0070a5;border-radius: 3px;outline:none;">Tri</button>
                             </div>
                         </div>
                         <div class="sparkline8-graph">
@@ -58,6 +59,17 @@
                     url : "{{ path('searchCategorie') }}",
                     type: "get",
                     data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+
+            $( "#sort" ).click(function() {
+                $.ajax({
+                    url : "{{ path('triCategorie') }}",
+                    type: "get"
                 }).done(function (response) {
                     var tableau = $(response).find("table");
                     $('#table').empty();

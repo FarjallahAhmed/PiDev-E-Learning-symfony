@@ -59,4 +59,14 @@ class ReclamationRepository extends ServiceEntityRepository
 
         return $stmt->fetchAll();
     }
+
+    public function sort() {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = "SELECT * FROM reclamation ORDER BY date DESC ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

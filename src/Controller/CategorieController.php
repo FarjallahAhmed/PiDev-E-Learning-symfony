@@ -99,6 +99,19 @@ class CategorieController extends AbstractController
     }
 
     /**
+     * @Route("/cat7azazd1a", name="triCategorie")
+     */
+    public function sort(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tab = $em->getRepository(Categorie::class)->sort();
+        return $this->render('categorie/index.html.twig', [
+            'controller_name' => 'CategorieController',
+            'categorie' => $tab,
+        ]);
+    }
+
+    /**
      * @Route("/testTMP", name="testTMP")
      */
     public function testTMP(): Response
