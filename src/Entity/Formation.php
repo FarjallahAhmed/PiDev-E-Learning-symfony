@@ -130,6 +130,7 @@ class Formation
      */
     private  $id_formateur;
 
+
     public function getId(): ?int
     {
         return $this->id;

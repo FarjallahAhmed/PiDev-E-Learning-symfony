@@ -19,6 +19,51 @@ class WorkshopRepository extends ServiceEntityRepository
         parent::__construct($registry, Workshop::class);
     }
 
+    public function countByDate(){
+        $query = $this->createQueryBuilder('a')
+            ->select('SUBSTRING(a.datedebut,1,10) as dateD , count(a) as count' )
+            ->groupBy('dateD')
+            ;
+        return $query->getQuery()->getResult();
+
+    }
+
+    public function countByLike(){
+        $query = $this->createQueryBuilder('a')
+            ->select('a.type as typeW , count(a) as count' )
+            ->groupBy('typeW')
+        ;
+        return $query->getQuery()->getResult();
+
+    }
+
+    public function findAllWithSearch(?string $term)
+    {
+        $qb = $this->createQueryBuilder('e');
+        if ($term) {
+            $qb->andWhere('e.nomevent LIKE :term OR e.type LIKE :term')
+                ->setParameter('term', '%' . $term . '%')
+            ;
+        }
+        return $qb
+            ->getQuery()
+            ->getResult();
+
+    }
+
+    public function getTotalEvent($filters = null){
+        $query = $this->createQueryBuilder('a')
+                ->select("a")
+            ;
+        // On filtre les données
+        if($filters != null){
+            $query->andWhere('a.type IN(:type)')
+                ->setParameter(':type', array_values($filters));
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Calendar[] Returns an array of Calendar objects
     //  */

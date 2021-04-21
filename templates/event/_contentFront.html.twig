@@ -1,0 +1,41 @@
+{% for event in events %}
+    <div class="col-lg-4 col-md-6">
+        <div class="item-single mb-30">
+            {% if event.type == 'Soft Skills'  %}
+                {% set class = 'img/softskills.jpg' %}
+            {% elseif event.type == 'Team building' %}
+                {% set class = 'img/teambuilding.jpg' %}
+            {% elseif event.type == 'Conference' %}
+                {% set class = 'img/conference.jpg' %}
+            {% elseif event.type == 'Seminaire' %}
+                {% set class = 'img/seminaire.png' %}
+            {% endif %}
+            <div class="image">
+                <img src=" {{ asset( class ) }} " alt="Demo Image">
+            </div>
+            <div class="content">
+                <span class="location"><i class='bx bx-map'></i>{{ event.lieu }}</span>
+                <h3>
+                    <a href="{{ path('showDetailsEventFront',{'id':event.id}) }}">{{ event.nomevent }}</a>
+                </h3>
+                <div class="review">
+                    <i class='bx bx-smile'></i>
+                    <span>{{ event.nbparticipant }}</span>
+                    <span>{{ event.type }}</span>
+                </div>
+                <p>
+                    {{ event.description }}
+                </p>
+                <hr>
+                <span class="js-like-event-count">{{ event.hearts }}</span>
+                <a href="{{ path('event_heart',{id: event.id}) }}" class="far fa-heart js-like-event"></a>
+
+                <ul class="list">
+                    <li><i class='bx bx-time'></i>{{ event.datedebut |date("m/d/Y")  }}</li>
+                    <li><i class='bx bx-time'></i>{{ event.datefin |date("m/d/Y") }}</li>
+                    <li>{{ event.prix  }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endfor %}

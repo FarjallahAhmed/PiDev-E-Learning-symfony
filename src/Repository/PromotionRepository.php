@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Formation;
 use App\Entity\Promotion;
 use App\Entity\Workshop;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -48,4 +49,44 @@ class PromotionRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function affectPromo()
+    {
+        $em=$this->getEntityManager();
+        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.id ,p.prix 
+              FROM App\Entity\Formation u INNER JOIN App\Entity\Promotion p with u.id=p.idFormation';
+
+
+        $query=$em->createQuery($commande);
+        $result = $query->getResult();
+
+        return $result;
+    }
+
+    public function statisPromo(){
+
+        $query = $this->createQueryBuilder('p')
+            ->select('AVG(p.prix) as moy ,Max(p.prix) as maxPourcentage,f.type')
+            ->innerJoin(Formation::class,'f')
+
+            ->andWhere('f.id = p.idFormation ')
+            ->groupBy('f.type')
+            ;
+        return $query->getQuery()->getResult();
+    }
+
+
+    public function findAllWithSearch(?string $term)
+    {
+        $qb = $this->createQueryBuilder('p');
+        if ($term) {
+            $qb->andWhere('p.prix LIKE :term')
+                ->setParameter('term', '%' . $term . '%')
+            ;
+        }
+        return $qb
+        ->getQuery()
+        ->getResult();
+
+    }
+
 }
