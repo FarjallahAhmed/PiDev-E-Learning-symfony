@@ -1,5 +1,7 @@
 {% extends "baseBackU.html.twig" %}
 
+
+
 {% block body %}
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
@@ -16,7 +18,10 @@
 								   <span class="mini-click-non">Education</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="All Courses" href="{{ path('homeformateur') }}"><span class="mini-sub-pro">Home</span></a></li>
+
+                             <li><a title="All Courses" href="{{ path('homeformateur') }}"><span class="mini-sub-pro">Home</span></a></li>
+                                
+                               
                             </ul>
                         </li>
                         <li>
@@ -878,192 +883,5 @@
             </div>
         </div>
   
-         <div class="content">
-                {% if message is not empty %}
-                    <div class="alert alert-success" >{{ message }}</div>
-                {% endif %}
-                </div>
-        <!-- Single pro tab review Start-->
-        <div class="single-pro-review-area mt-t-30 mg-b-15">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="profile-info-inner">
-                            <div class="profile-img">
-                            {% if formateur.image == null %}
-                                <img src="{{ asset('uploads/pictures/user.png') }}" alt="" />
-                            {% endif %}
 
-                            {% if formateur.image != null %}
-                                <img src="{{ asset('uploads/pictures/' ~ formateur.image) }}" alt="" />
-                            {% endif %}
-                            </div>
-                            <div class="profile-details-hr">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Name</b><br /> {{formateur.nom}}  {{formateur.prenom}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Specialite</b><br /> {{formateur.specialite}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Email ID</b><br /> {{formateur.email}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Phone</b><br /> {{formateur.num}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
-                            <ul id="myTabedu1" class="tab-review-design">
-                                <li ><a href="#description">Projects</a></li>
-                                <li><a href="#reviews"> Courses</a></li>
-                                <li class="active"><a href="#INFORMATION">Update Details</a></li>
-                            </ul>
-                            <div id="myTabContent" class="tab-content custom-product-edit">
-                                <div class="product-tab-list tab-pane fade active in" id="description">
-                                    
-                                </div>
-                                <div class="product-tab-list tab-pane fade" id="reviews">
-                                    
-                                </div>
-                                <div class="product-tab-list tab-pane fade active in" id="INFORMATION">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="review-content-section">
-                                                <div class="row">
-                                                   {{ form_start(form,{'attr': {'class': 'form','novalidate': 'novalidate'}}) }}
-                                                    <div class="col-lg-6">
-                                                    <label> User Name </label>
-                                                        <div class="form-group">
-                                                         {{form_widget(form.login, {'attr': {'class': 'form-control','placeholder':"UserName"}}) }}
-                                                         <div class="content">
-                                                            {% if form_errors(form.login) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.login) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-
-                                                        <label> Email </label>
-                                                        <div class="form-group">
-                                                            {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.email) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.email) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        <label> Phone Number </label>
-                                                        <div class="form-group">
-                                                             {{form_widget(form.num, {'attr': {'class': 'form-control','placeholder':"Number"}}) }}
-                                                             <div class="content">
-                                                            {% if form_errors(form.num) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.num) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                       
-                                                        
-                                                        
-                                                    </div>
-
-                                                    <div class="col-lg-6">
-                                                    <label> Specialite </label>
-                                                        <div class="form-group sm-res-mg-15 tbpf-res-mg-15">
-                                                            {{form_widget(form.specialite, {'attr': {'class': 'form-control','placeholder':"Specialite"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.specialite) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.specialite) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        
-                                                       <label> Password </label>
-                                                        <div class="form-group">
-                                                            {{form_widget(form.pwd, {'attr': {'class': 'form-control','value':formateur.pwd ,'placeholder':"Password"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.pwd) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.pwd) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        <label> Change Profile Image </label>    
-                                                        <div class="form-group">
-                                                             {{form_widget(form.imageFile,{'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
-                                                        </div>
-
-
-                                                       
-                                                       
-                                                    </div>
-                                                  
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="payment-adress mg-t-15">
-                                                        {{  form_widget(form.Submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {{ form_end(form) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-{% endblock %}
+{% endblock %}    

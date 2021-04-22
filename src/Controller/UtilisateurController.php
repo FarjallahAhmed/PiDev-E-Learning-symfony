@@ -7,12 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Participants;
 use App\Entity\Formateurs;
+
 use App\Form\ParticipantsType;
 use App\Form\FormateursType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\EditParticipantType;
 use App\Form\EditFormateurType;
+use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
@@ -45,7 +47,7 @@ class UtilisateurController extends AbstractController
             ]);
 
         }
-
+        
         $message ="";
         return $this->render('utilisateur/addParticipant.html.twig', [
             'controller_name' => 'UtilisateurController',
@@ -60,10 +62,12 @@ class UtilisateurController extends AbstractController
 
     public function listBack(): Response
     {
+        $notif ="";
         $em=$this->getDoctrine()->getManager();
         $result=$em->getRepository(Participants::class)->findAll();
         return $this->render('utilisateur/participantlistback.html.twig', [
             'participant' => $em->getRepository(Participants::class)->findAll(),
+            'notif' => $notif,
         ]);
     }
 
@@ -292,9 +296,6 @@ class UtilisateurController extends AbstractController
                'form' => $form->createView(),
                'message' => $message,
            ]);
-            
-         
-
         }
             $message ="";
         return $this->render('utilisateur/profileFormateur.html.twig', [
@@ -302,6 +303,103 @@ class UtilisateurController extends AbstractController
             'formateur' => $formateur,
             'form' => $form->createView(),
           
+        ]);
+    }
+
+     /**
+     * @Route("contacterparticipant/{id}", name="contacterparticipant", methods={"GET","POST"})
+     */
+
+    public function Contacter(Request $request, Participants $participant): Response
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted())
+        
+        {
+            $formData = $form->getData();
+            $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+            ->setUsername('highriseshighrises@gmail.com')
+            ->setPassword('highrises123');
+            $mailer = new \Swift_Mailer($transport);
+            $message = (new \Swift_Message($formData['object']))
+            ->setFrom('highriseshighrises@gmail.com')
+            ->setTo($formData['email'])
+            ->setBody($formData['contenu']);
+            /* @var $mailer \Swift_Mailer */
+            $mailer->send($message);
+            $notif = "Email Sent";
+            return $this->render('utilisateur/participantlistback.html.twig', [
+                'participant' => $em->getRepository(Participants::class)->findAll(),
+                'notif' => $notif,
+            ]);    
+        }
+
+        return $this->render('utilisateur/contacterParticipant.html.twig', [    
+            'form' => $form->createView(),
+            'participant' => $participant,
+        ]);
+    }
+
+
+
+     /**
+     * @Route("bloquerformateur/{id}", name="bloquerformateur")
+     */
+    public function bloquerFormateur($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $formateurs = $em->getRepository(Formateurs::class)->find($id);       
+        $formateurs->setEtat(0);  
+        $em->flush();  
+        
+        return $this->redirectToRoute('viewformateurs');
+    }
+
+
+
+
+     /**
+     * @Route("bloquerparticipant/{id}", name="bloquerparticipant")
+     */
+    public function bloquerParticipant($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $participant = $em->getRepository(Participants::class)->find($id);       
+        $participant->setCertificatsobtenus(1);  
+        $em->flush();  
+        return $this->redirectToRoute('viewparticipants');
+    }
+
+
+    /**
+     * @Route("activerparticipant/{id}", name="activerparticipant")
+     */
+    public function activerParticipant($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $participant = $em->getRepository(Participants::class)->find($id);       
+        $participant->setCertificatsobtenus(0);  
+        $em->flush();  
+        return $this->redirectToRoute('viewparticipants');
+    }
+
+
+     /**
+     * @Route("/cat85a2d8d", name="searchformateur")
+     */
+    public function search(Request $request): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $input = "119";
+        $tab = $em->getRepository(Formateurs::class)->search($input);
+        
+        return $this->render('panier_commande/achatback.html.twig', [
+
+            'result' => $tab,
         ]);
     }
 

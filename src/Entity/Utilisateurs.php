@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LengthValidator;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
 
@@ -18,13 +19,14 @@ use Symfony\Component\Validator\Constraints\LengthValidator;
  *
  * @ORM\Table(name="utilisateurs")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\UtilisateursRepository")
  * 
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="idp", type="string")
  * @DiscriminatorMap({"utilisateurs"="Utilisateurs","participants"="Participants","formateurs"="Formateurs"})
 
  */
-class Utilisateurs
+class Utilisateurs implements UserInterface
 {
     /**
      * @var int
@@ -65,6 +67,8 @@ class Utilisateurs
      * @var \DateTime
      *
      * @ORM\Column(name="dateNaissance", type="date", nullable=false)
+     * @Assert\NotBlank(message="Date de naissance est obligatoire")
+     * @Assert\Date
      */
     private $datenaissance;
 
@@ -153,6 +157,8 @@ class Utilisateurs
      * @ORM\Column(name="image", type="string", length=8, nullable=true)
      */
     private $image;
+
+    
 
     public function getId(): ?int
     {
@@ -268,5 +274,48 @@ class Utilisateurs
         return $this;
     }
 
+    public function getPassword(): ?string
+    {
+        return $this->pwd;
+    }
+
+    public function setPassword(string $pwd): self
+    {
+        $this->pwd = $pwd;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->login;
+    }
+
+    public function setUsername(string $login): self
+    {
+        $this->login = $login;
+
+        return $this;
+    }
+
+    public function eraseCredentials() {}
+
+    public function getSalt() {}
+
+    public function getRoles(){
+
+        return ['idp'];
+    }
+
+    public function getTypeUser(): ?string
+    {
+
+        return $typeUser;
+
+    }
+
+    
+
+    
 
 }

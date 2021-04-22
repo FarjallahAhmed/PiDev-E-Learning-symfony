@@ -69,44 +69,48 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-xl-6 col-lg-5">
+                            
                                 <div class="side-option">
                                     <div class="item">
+                                     {% if not app.user %}
                                         <div class="language">
                                             <a href="#language" id="languageButton" class="btn-secondary">
-                                                Language <i class='bx bxs-chevron-down'></i>
+                                                Register <i class='bx bxs-chevron-down'></i>
                                             </a>
                                             <ul class="menu">
                                                 <li class="menu-item">
-                                                    <a href="#" class="menu-link">
-                                                        <img src="{{asset('img/flag-uk.png')}} " alt="flag">
-                                                        English
+                                                    <a href="{{ path('addparticipant') }}" class="menu-link">
+                                                        Participant
                                                     </a>
                                                 </li>
-                                                <li class="menu-item"><a href="#" class="menu-link">
-                                                        <img src="assets/img/flag-germany.png" alt="flag">
-                                                        Deutsch</a>
+                                                <li class="menu-item"><a href="{{ path('addformateur') }}" class="menu-link">
+                                                        Formateur</a>
                                                 </li>
-                                                <li class="menu-item">
-                                                    <a href="#" class="menu-link">
-                                                        <img src="assets/img/flag-jordan.png" alt="flag">
-                                                        العربية
-                                                    </a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="#" class="menu-link">
-                                                        <img src="assets/img/flag-china.png" alt="flag">
-                                                        中文
-                                                    </a>
-                                                </li>
+                                                
                                             </ul>
+                                              
                                         </div>
+                                        {% endif %}
                                     </div>
+                                  
+                                    {% if not app.user %}
                                     <div class="item">
-                                        <a href="#" class="btn-secondary">
+                                        <a href="{{ path('app_login') }}" class="btn-secondary">
                                             Login <i class='bx bx-log-in-circle'></i>
                                         </a>
                                     </div>
+                                    {% endif %}
+
+                                   {% if app.user %}
+                                    <div class="item">
+                                        <a href="{{ path('app_logout') }}" class="btn-secondary">
+                                            Logout <i class='bx bx-log-in-circle'></i>
+                                        </a>
+                                    </div>
+                                    {% endif %}
+
                                     <div class="item">
                                         <a href="#searchBox" id="searchButton" class="btn-search" data-effect="mfp-zoom-in">
                                             <i class='bx bx-search-alt'></i>
@@ -153,100 +157,35 @@
                                 <div class="collapse navbar-collapse mean-menu">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link active toggle">Home<i class='bx bxs-chevron-down'></i></a>
+                                            <a href="{{ path('home')}}" class="nav-link active toggle">Home<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="index.html" class="nav-link">Home Demo - 1</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="index-2.html" class="nav-link">Home Demo - 2</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="index-3.html" class="nav-link active">Home Demo - 3</a>
+                                                    <a href="{{ path('home')}}" class="nav-link">Home</a>
                                                 </li>
                                             </ul>
                                         </li>
+                                        
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link toggle">Pages<i class='bx bxs-chevron-down'></i></a>
+                                            <a href="#" class="nav-link toggle">Courses<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="team.html" class="nav-link">Team</a>
+                                                    <a href="destinations.html" class="nav-link">Courses</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="booking.html" class="nav-link">Booking</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="cart.html" class="nav-link">Cart</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="faq.html" class="nav-link">FAQ</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="error-404.html" class="nav-link">404 Error</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="login.html" class="nav-link">Login</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="register.html" class="nav-link">Register</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="forgot-password.html" class="nav-link">Forgot Password</a>
-                                                </li>
+                                               
                                             </ul>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link toggle">Destinations<i class='bx bxs-chevron-down'></i></a>
+                                        <li class="nav-item"><a href="#" class="nav-link toggle">Projects<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="destinations.html" class="nav-link">Destinations</a>
+                                                    <a href="tours.html" class="nav-link">Projects</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a href="destination-details.html" class="nav-link">Destinations Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a href="#" class="nav-link toggle">Tours<i class='bx bxs-chevron-down'></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="tours.html" class="nav-link">Tours</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="special-offers.html" class="nav-link">Trip Offers</a>
-                                                </li>
+                                               
                                             </ul>
                                         </li>
                                         <li class="nav-item">
                                             <a href="about-us.html" class="nav-link">About</a>
                                         </li>
-                                        <li class="nav-item"><a href="#" class="nav-link toggle">Blog<i class='bx bxs-chevron-down'></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="blog-style-1.html" class="nav-link">Blog Style One</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="blog-style-2.html" class="nav-link">Blog Style Two</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="blog-style-3.html" class="nav-link">Blog Style Three</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="blog-details.html" class="nav-link">Blog Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                       
                                         <li class="nav-item">
                                             <a href="contact.html" class="nav-link">Contact</a>
                                         </li>
@@ -256,6 +195,22 @@
                                             <span class="badge">0</span>
                                         </a>
                                     </div>
+                                    {% if app.user %}
+                                    <div class="cart">
+                                        {% if not app.user.image == null %}
+                                        <a href="{{ path('participant_edit',{'id': app.user.id}) }}">
+                                             <img class="img-profile rounded-circle" src="{{ asset('uploads/pictures/' ~ app.user.image) }}" style="max-height: 40px; max-width: 40px;">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if app.user.image == null %}
+                                        <a href="{{ path('participant_edit',{'id': app.user.id}) }}">
+                                             <img class="img-profile rounded-circle" src="{{ asset('uploads/pictures/user.png') }}" style="max-height: 40px; max-width: 40px;">
+                                        </a>
+                                        {% endif %}
+                                       
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </nav>
                         </div>
@@ -279,7 +234,7 @@
                                     <p>
                                         Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.
                                     </p>
-                                    <a href="destination-details.html" class="btn-primary">Destinations</a>
+                                    <a href="destination-details.html" class="btn-primary">Courses</a>
                                 </div>
                             </div>
                         </div>

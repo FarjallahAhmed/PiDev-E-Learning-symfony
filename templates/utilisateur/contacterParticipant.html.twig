@@ -1,6 +1,7 @@
 {% extends "baseBackU.html.twig" %}
 
 {% block body %}
+
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
@@ -10,48 +11,63 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        <li class="active">
+                        <li>
                             <a class="has-arrow" href="index.html">
 								   <span class="educate-icon educate-home icon-wrap"></span>
 								   <span class="mini-click-non">Education</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="All Courses" href="{{ path('homeformateur') }}"><span class="mini-sub-pro">Home</span></a></li>
+                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
+                                <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
+                                <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>
+                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
+                                <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
                             </ul>
                         </li>
                         <li>
                             <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
                         </li>
-                      
-                        
+                        <li>
+                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
+                                <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>
+                                <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
+                                <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
+                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
+                                <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>
+                                <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">All Courses</span></a></li>
                                 <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Add Course</span></a></li>
-                          
+                                <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
+                                <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a></li>
+                                <li><a title="course Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a></li>
                             </ul>
                         </li>
                        
-                       
+                        
                        
                       
-                     
-                      
-                        <li id="removable">
-                            <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap"></span> <span class="mini-click-non">Logout</span></a>
-                            <ul class="submenu-angle page-mini-nb-dp" aria-expanded="false">
-                                <li><a title="Login" href="{{ path('app_logout') }}"><span class="mini-sub-pro">Logout</span></a></li> 
-                            </ul>
-                        </li>
+                        
                     </ul>
                 </nav>
             </div>
         </nav>
     </div>
-
-
-<div class="all-content-wrapper">
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -61,9 +77,7 @@
                 </div>
             </div>
         </div>
-
-
-<div class="header-advance-area">
+        <div class="header-advance-area">
             <div class="header-top-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -227,16 +241,20 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<img src="img/product/pro4.jpg" alt="" />
-                                                            {% if app.user %}
-															<span class="admin-name">{{ app.user.nom }} {{app.user.prenom}} </span>
-                                                            {% endif %}
+															<span class="admin-name">Prof.Anderson</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        
-                                                        <li><a href="{{ path('editformateur',{'id': app.user.id}) }}"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
+                                                        <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
                                                         </li>
-                                                        
+                                                        <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>
@@ -703,8 +721,30 @@
                                             </ul>
                                         </li>
                                         <li><a href="events.html">Event</a></li>
-                                        
-                                        
+                                        <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demoevent" class="collapse dropdown-header-top">
+                                                <li><a href="all-professors.html">All Professors</a>
+                                                </li>
+                                                <li><a href="add-professor.html">Add Professor</a>
+                                                </li>
+                                                <li><a href="edit-professor.html">Edit Professor</a>
+                                                </li>
+                                                <li><a href="professor-profile.html">Professor Profile</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demopro" href="#">Students <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demopro" class="collapse dropdown-header-top">
+                                                <li><a href="all-students.html">All Students</a>
+                                                </li>
+                                                <li><a href="add-student.html">Add Student</a>
+                                                </li>
+                                                <li><a href="edit-student.html">Edit Student</a>
+                                                </li>
+                                                <li><a href="student-profile.html">Student Profile</a>
+                                                </li>
+                                            </ul>
+                                        </li>
                                         <li><a data-toggle="collapse" data-target="#democrou" href="#">Courses <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="democrou" class="collapse dropdown-header-top">
                                                 <li><a href="all-courses.html">All Courses</a>
@@ -713,7 +753,10 @@
                                                 </li>
                                                 <li><a href="edit-course.html">Edit Course</a>
                                                 </li>
-                                           
+                                                <li><a href="course-profile.html">Courses Info</a>
+                                                </li>
+                                                <li><a href="course-payment.html">Courses Payment</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li><a data-toggle="collapse" data-target="#demolibra" href="#">Library <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
@@ -736,8 +779,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#demomi" href="#">Mailbox <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demomi" class="collapse dropdown-header-top">
+                                        <li><a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demo" class="collapse dropdown-header-top">
                                                 <li><a href="mailbox.html">Inbox</a>
                                                 </li>
                                                 <li><a href="mailbox-view.html">View Mail</a>
@@ -850,7 +893,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
+                            <div class="breadcome-list single-page-breadcome">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="breadcome-heading">
@@ -860,13 +903,11 @@
                                             </form>
                                         </div>
                                     </div>
-
-                                    
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <ul class="breadcome-menu">
                                             <li><a href="#">Home</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">All Students</span>
+                                            <li><span class="bread-blod">Compose Mail</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -877,175 +918,58 @@
                 </div>
             </div>
         </div>
-  
-         <div class="content">
-                {% if message is not empty %}
-                    <div class="alert alert-success" >{{ message }}</div>
-                {% endif %}
-                </div>
-        <!-- Single pro tab review Start-->
-        <div class="single-pro-review-area mt-t-30 mg-b-15">
+        <div class="mailbox-compose-area mg-b-15">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="profile-info-inner">
-                            <div class="profile-img">
-                            {% if formateur.image == null %}
-                                <img src="{{ asset('uploads/pictures/user.png') }}" alt="" />
-                            {% endif %}
-
-                            {% if formateur.image != null %}
-                                <img src="{{ asset('uploads/pictures/' ~ formateur.image) }}" alt="" />
-                            {% endif %}
-                            </div>
-                            <div class="profile-details-hr">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Name</b><br /> {{formateur.nom}}  {{formateur.prenom}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Specialite</b><br /> {{formateur.specialite}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Email ID</b><br /> {{formateur.email}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Phone</b><br /> {{formateur.num}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <div class="address-hr">
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <h3>0</h3>
-                                        </div>
-                                    </div>
+                    
+                    <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="hpanel email-compose">
+                            <div class="panel-heading hbuilt">
+                                <div class="p-xs h4">
+                                    New message
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
-                            <ul id="myTabedu1" class="tab-review-design">
-                                <li ><a href="#description">Projects</a></li>
-                                <li><a href="#reviews"> Courses</a></li>
-                                <li class="active"><a href="#INFORMATION">Update Details</a></li>
-                            </ul>
-                            <div id="myTabContent" class="tab-content custom-product-edit">
-                                <div class="product-tab-list tab-pane fade active in" id="description">
+                            <div class="panel-heading hbuilt">
+                                <div class="p-xs">
                                     
-                                </div>
-                                <div class="product-tab-list tab-pane fade" id="reviews">
-                                    
-                                </div>
-                                <div class="product-tab-list tab-pane fade active in" id="INFORMATION">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="review-content-section">
-                                                <div class="row">
-                                                   {{ form_start(form,{'attr': {'class': 'form','novalidate': 'novalidate'}}) }}
-                                                    <div class="col-lg-6">
-                                                    <label> User Name </label>
-                                                        <div class="form-group">
-                                                         {{form_widget(form.login, {'attr': {'class': 'form-control','placeholder':"UserName"}}) }}
-                                                         <div class="content">
-                                                            {% if form_errors(form.login) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.login) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-
-                                                        <label> Email </label>
-                                                        <div class="form-group">
-                                                            {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.email) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.email) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        <label> Phone Number </label>
-                                                        <div class="form-group">
-                                                             {{form_widget(form.num, {'attr': {'class': 'form-control','placeholder':"Number"}}) }}
-                                                             <div class="content">
-                                                            {% if form_errors(form.num) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.num) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                       
-                                                        
-                                                        
-                                                    </div>
-
-                                                    <div class="col-lg-6">
-                                                    <label> Specialite </label>
-                                                        <div class="form-group sm-res-mg-15 tbpf-res-mg-15">
-                                                            {{form_widget(form.specialite, {'attr': {'class': 'form-control','placeholder':"Specialite"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.specialite) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.specialite) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        
-                                                       <label> Password </label>
-                                                        <div class="form-group">
-                                                            {{form_widget(form.pwd, {'attr': {'class': 'form-control','value':formateur.pwd ,'placeholder':"Password"}}) }}
-                                                            <div class="content">
-                                                            {% if form_errors(form.pwd) is not empty %}
-                                                                <div class="alert alert-danger" >{{ form_errors(form.pwd) }}</div>
-                                                            {% endif %}
-                                                            </div>
-                                                        </div>
-                                                        <label> Change Profile Image </label>    
-                                                        <div class="form-group">
-                                                             {{form_widget(form.imageFile,{'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
-                                                        </div>
-
-
-                                                       
-                                                       
-                                                    </div>
-                                                  
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="payment-adress mg-t-15">
-                                                        {{  form_widget(form.Submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light mg-b-15'}}) }}
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {{ form_end(form) }}
+                                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label text-left">To:</label>
+                                            <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                                            
+                                                {{form_widget(form.email, {'attr': {'class': 'form-control input-sm','value':participant.email,'placeholder':"example@email.com"}}) }}
                                             </div>
                                         </div>
-                                    </div>
+                                       
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label text-left">Subject:</label>
+                                            <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                                                 {{form_widget(form.object, {'attr': {'class': 'form-control input-sm','placeholder':"Subject"}}) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label text-left">Body:</label>
+                                            <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                                               {{form_widget(form.contenu, {'attr': {'class': 'form-control input-sm','placeholder':"Body"}}) }} 
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                          
+                                            <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                                            <center>  
+                                              {{form_widget(form.Send, {'attr': {'class': 'btn btn-primary ft-compse','placeholder':"Body"}}) }} 
+                                             </center>
+                                            </div>
+                                        </div>
+                                        
+                                   {{ form_end(form) }}
                                 </div>
                             </div>
+                           
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -1063,6 +987,7 @@
             </div>
         </div>
     </div>
+
 
 
 

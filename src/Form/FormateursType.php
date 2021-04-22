@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class FormateursType extends AbstractType
 {
@@ -32,6 +33,7 @@ class FormateursType extends AbstractType
 
             ->add('specialite')
             ->add('justificatif', FileType::class)
+            ->add('captcha', CaptchaType::class)
       
         ;
     }

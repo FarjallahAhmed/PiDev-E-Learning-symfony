@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints\LengthValidator;
  *
  * @ORM\Table(name="formateurs")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\FormateursRepository")
  */
 class Formateurs extends Utilisateurs
 {

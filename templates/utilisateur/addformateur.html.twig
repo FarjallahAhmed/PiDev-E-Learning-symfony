@@ -6,7 +6,8 @@
 		<div class="error-page-int">
         <div class="content">
 {% if message is not empty %}
-    <div class="alert alert-success" >{{ message }}</div>
+    <div class="alert alert-success" >{{ message }} <a href="{{ path('app_login') }}"> You Can Login In From Here </a></div>
+    
 {% endif %}
 </div>
 			<div class="text-center custom-login">
@@ -115,6 +116,16 @@
                                     <div class="content">
                                     {% if form_errors(form.justificatif) is not empty %}
                                          <div class="alert alert-danger" >{{ form_errors(form.justificatif) }}</div>
+                                    {% endif %}
+                                </div>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label>Captcha</label>
+                                    {{form_widget(form.captcha, {'attr': {'class': 'form-control','placeholder':"Captcha"}}) }}
+                                    <div class="content">
+                                    {% if form_errors(form.captcha) is not empty %}
+                                         <div class="alert alert-danger" >{{ form_errors(form.captcha) }}</div>
                                     {% endif %}
                                 </div>
                                 </div>

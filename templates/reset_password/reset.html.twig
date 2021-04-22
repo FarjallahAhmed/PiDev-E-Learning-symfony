@@ -1,0 +1,52 @@
+{% extends 'baseU.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+
+{{ block("header", "baseU.html.twig") }}
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+<div class="page-title-area ptb-100">
+<div class="container">
+<div class="page-title-content">
+<h1>Reset Password</h1>
+<ul>
+<li class="item"><a href="index.html">Home</a></li>
+<li class="item"><a href="login.html"><i class='bx bx-chevrons-right'></i>Reset Password</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-image">
+<img src="assets/img/page-title-area/login.jpg" alt="Demo Image">
+</div>
+</div>
+
+    
+        <div class="authentication-section">
+<div class="container">
+<div class="main-form ptb-100">
+ {{ form_start(resetForm) }}
+<div class="content">
+<h3>Reset Your Password !</h3>
+<p>Please Enter Your Email</p>
+</div>
+<div class="form-group">
+<div class="input-icon"><i class='bx bx-user'></i></div>
+{{ form_row(resetForm.plainPassword,{'attr': {'class': 'form-control','placeholder':"New Password"}}) }}
+</div>
+<button class="btn btn-primary">Reset Password</button>
+</button>
+ {{ form_end(resetForm) }}
+</div>
+</div>
+
+
+
+
+   
+        
+        
+   
+{% endblock %}

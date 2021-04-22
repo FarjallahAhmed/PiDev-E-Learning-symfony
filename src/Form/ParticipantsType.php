@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 
+
 class ParticipantsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -41,6 +42,8 @@ class ParticipantsType extends AbstractType
                 ],
             ])    
             ->add('interessepar')
+
+            ->add('captcha', CaptchaType::class)
            
             
         ;
