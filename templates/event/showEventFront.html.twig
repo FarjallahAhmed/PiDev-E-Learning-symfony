@@ -9,60 +9,62 @@
                 <h1>Evenement</h1>
                 <ul>
                     <li class="item"><a href="index.html">Home</a></li>
-                    <li class="item"><a href="destinations.html"><i class='bx bx-chevrons-right'></i>Evenement</a></li>
+                    <li class="item"><a href=""><i class='bx bx-chevrons-right'></i>Evenement</a></li>
                 </ul>
             </div>
         </div>
         <div class="bg-image">
             <img src="{{ asset('img/events.jpg') }}" alt="Demo Image">
         </div>
+
     </div>
-    <section id="top-destination" class="top-destination-section pt-100 pb-70 bg-light">
+    <div id="home" class="home-banner-area home-style-two" style="padding-top:40px;">
         <div class="container">
+            <div class="search-form">
+                <div class="col-xs1">
+                    <p>Filtrer</p>
+                    <form id="filters">
+                            <p><input type="checkbox" name="type[]" id="team" value="Team building"> <label for="team">Team building</label></p>
+                            <p><input type="checkbox" name="type[]" id="soft" value="Soft Skills"> <label for="soft">Soft Skills</label></p>
+                            <p><input type="checkbox" name="type[]" id="conf" value="Conference" > <label for="conf">Conference</label></p>
+                            <p><input type="checkbox" name="type[]" id="Sem" value="Seminaire" > <label for="Sem">Seminaire</label></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="top-destination" class="top-destination-section pt-100 pb-70 bg-light" >
+        <div class="container" id="content">
             <div class="section-title">
             </div>
 
-            <div class="row">
-                {% for event in events %}
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        {% if event.type == 'Soft Skills'  %}
-                            {% set class = 'img/softskills.jpg' %}
-                        {% elseif event.type == 'Team building' %}
-                            {% set class = 'img/teambuilding.jpg' %}
-                        {% elseif event.type == 'Conference' %}
-                            {% set class = 'img/conference.jpg' %}
-                        {% elseif event.type == 'Seminaire' %}
-                            {% set class = 'img/seminaire.png' %}
-                        {% endif %}
-                        <div class="image">
-                            <img src=" {{ asset( class ) }} " alt="Demo Image">
-                        </div>
-                        <div class="content">
-                            <span class="location"><i class='bx bx-map'></i>{{ event.lieu }}</span>
-                            <h3>
-                                <a href="destination-details.html">{{ event.nomevent }}</a>
-                            </h3>
-                            <div class="review">
-                                <i class='bx bx-smile'></i>
-                                <span>{{ event.nbparticipant }}</span>
-                                <span>{{ event.type }}</span>
-                            </div>
-                            <p>
-                                {{ event.description }}
-                            </p>
-                            <hr>
-                            <ul class="list">
-                                <li><i class='bx bx-time'></i>{{ event.datedebut |date("m/d/Y")  }}</li>
-                                <li><i class='bx bx-time'></i>{{ event.datefin |date("m/d/Y") }}</li>
-                                <li>{{ event.prix  }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+            <div class="row" id="content">
+
+                {% include "event/_contentFront.html.twig" %}
             </div>
 
         </div>
     </section>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/filtres.js') }}"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('.js-like-event').on('click', function(e) {
+                e.preventDefault();
+                var $link = $(e.currentTarget);
+                $link.toggleClass('far fa-heart').toggleClass('fas fa-heart ');
+                $.ajax({
+                    method: 'POST',
+                    url: $link.attr('href')
+                }).done(function(data) {
+                     $('.js-like-event-count').html(data.hearts);
+                    console.log(data.hearts);
+                })
+            });
+        });
+    </script>
 {% endblock %}
