@@ -25,14 +25,7 @@ class EventController extends AbstractController
 
     public function index(Request $request,WorkshopRepository $calendar): Response
     {
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> ba4b282dff3196d8956ce04187fa80162af65a7f
         $workshop = new Workshop();
         $form = $this->createForm(WorkshopType::class,$workshop);
         $form->handleRequest($request);
