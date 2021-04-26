@@ -172,6 +172,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "stripe/stripe-php": {
+        "version": "v7.77.0"
+    },
     "symfony/asset": {
         "version": "v4.4.20"
     },
@@ -555,5 +558,14 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "yamilovs/sms-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "f9ed790206295ea7da3f2d28f68fd0500509b813"
+        }
     }
 }

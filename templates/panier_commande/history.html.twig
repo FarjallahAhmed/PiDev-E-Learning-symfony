@@ -208,8 +208,8 @@
                                 </li>
                             </ul>
                             <div class="cart">
-                                <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
-                                    <span class="badge">{{ affichagepanier|length }}</span>
+                                <a href="{{ path('panier_commande') }}" class="cart-btn"><i class='bx bx-cart'></i>
+                                    <span class="badge"></span>
                                 </a>
                             </div>
                         </div>
@@ -247,11 +247,12 @@
                             <tr>
                                 <th class="product-col">Formation</th>
                                 <th class="price-col">Type</th>
-                                <th>prix</th>
+                                <th>Prix</th>
+                                <th>Date validation</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for x in affichagepanier %}
+                            {% for x in affichage %}
                                 <tr class="product-row">
                                     <td class="product-col">
                                         <figure class="product-image-container">
@@ -264,19 +265,8 @@
                                         </h3>
                                     </td>
                                     <td>{{ x.type }}</td>
-
                                     <td>{{ x.prix }}TND</td>
-                                </tr>
-                                <tr class="product-action-row">
-                                    <td colspan="4" class="clearfix">
-                                        <div class="float-left">
-                                            <a href="#" class="btn-move">Move to Wishlist</a>
-                                        </div>
-                                        <div class="float-right">
-
-                                            <a href="{{ path('supprimercommande',{id:x.id}) }}" class="btn-remove"><i class='bx bx-x'></i></a>
-                                        </div>
-                                    </td>
+                                    <td>{{ x.date | date("m/d/Y")}}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -286,51 +276,23 @@
                                     <div class="float-left">
                                         <a href="{{ path('formationfront') }}" class="btn btn-outline-secondary">Continue Shopping</a>
                                     </div>
-                                    <div class="float-right">
-                                        <a href="{{ path('viderpanier') }}" class="btn btn-outline-secondary btn-clear-cart">Clear Shopping Cart</a>
-                                        <a href="{{ path('history') }}" class="btn btn-outline-secondary btn-update-cart">history Shopping Cart</a>
-                                    </div>
+
                                 </td>
                             </tr>
                             </tfoot>
                         </table>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="cart-summary">
-                        <h3>Summary</h3>
-                        <table class="table table-totals">
-                            <tbody>
-                            <tr>
-                                <td>Subtotal</td>
-                                {% if panier.prixTotal is not defined %}
-                                    <td>0TND</td>
-                                {% else %}
-                                    <td>{{ panier.prixTotal}}TND</td>
-                                {% endif %}
-                            </tr>
-                            <tr>
-                                <td>Tax</td>
-                                <td>0.00TND</td>
-                            </tr>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td>Order Total</td>
-                                {% if panier.prixTotal is not defined %}
-                                    <td>0TND</td>
-                                {% else %}
-                                    <td>{{ panier.prixTotal}}TND</td>
-                                {% endif %}
-                            </tr>
-                            </tfoot>
-                        </table>
-                        <a href="{{ path('finaliser') }}">
-                            <button id="checkout-button"  class="btn btn-block btn-sm btn-primary">Checkout</button>
 
-
-
-                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination text-center">
+                    <span class="page-numbers current" aria-current="page">1</span>
+                    <a href="#" class="page-numbers">2</a>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">Next</a>
                 </div>
             </div>
         </div>
@@ -339,113 +301,23 @@
 
     <footer class="footer-area">
         <div class="container">
-            <div class="footer-top pt-100 pb-70">
-                <div class="row">
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <div class="navbar-brand">
-                                <a href="index.html">
-                                    <img src="assets/img/logo2.png" alt="Logo" />
-                                </a>
-                            </div>
-                            <p>You can dream, create, design, and build the most wonderful place.</p>
-                            <div class="contact-info">
-                                <div class="content">
-                                    <a href="tel:+0123456987"><i class='bx bx-phone'></i>+0123 456 987</a>
-                                </div>
-                                <div class="content">
-                                    <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#345c5158585b745e55415a401a575b59"><i class='bx bx-envelope'></i><span class="__cf_email__" data-cfemail="721a171e1e1d321813071c065c111d1f">[email&#160;protected]</span></a>
-                                </div>
-                                <div class="content">
-                                    <a href="#"><i class='bx bx-map'></i>Mon-Fri: 8 AM – 7 PM</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Latest News</h5>
-                            <ul class="footer-news">
-                                <li class="content">
-                                    <a href="blog-details.html">Surrounded by the peaceful waters of Lake Victoria.</a>
-                                    <span>October 05, 2020</span>
-                                    <hr>
-                                </li>
-                                <li class="content">
-                                    <a href="blog-details.html">Morning came very early today. The alarm went off at 4 am</a>
-                                    <span>October 05, 2020</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Quick Links</h5>
-                            <ul class="footer-links">
-                                <li>
-                                    <a href="about-us.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="destinations.html">Destinations</a>
-                                </li>
-                                <li>
-                                    <a href="blog-style-1.html">Latest Blog</a>
-                                </li>
-                                <li>
-                                    <a href="team.html">Our Team</a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-sm-6 col-12">
-                        <div class="footer-widget">
-                            <h5>Instagram Post</h5>
-                            <ul class="instagram-post">
-                                <li>
-                                    <img src="assets/img/instagram1.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram2.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram3.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram4.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram5.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                                <li>
-                                    <img src="assets/img/instagram6.jpg" alt="Demo Image">
-                                    <i class='bx bxl-instagram'></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
+
+        </div>
+        </div>
+        <hr>
+        <div class="copy-right-area">
+            <div class="container">
+                <div class="copy-right-content">
+                    <p>
+                        Copyright @2020 Jaunt. Designed By
+                        <a href="https://hibootstrap.com/" target="_blank">
+                            HiBootstrap.com
+                        </a>
+                    </p>
                 </div>
             </div>
-            <hr>
-            <div class="copy-right-area">
-                <div class="container">
-                    <div class="copy-right-content">
-                        <p>
-                            Copyright @2020 Jaunt. Designed By
-                            <a href="https://hibootstrap.com/" target="_blank">
-                                HiBootstrap.com
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </footer>
 
