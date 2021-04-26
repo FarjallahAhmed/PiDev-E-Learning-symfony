@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Formation;
 use App\Entity\Promotion;
-use App\Entity\Workshop;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,22 +20,34 @@ class PromotionRepository extends ServiceEntityRepository
         parent::__construct($registry, Promotion::class);
     }
 
-    // /**
-    //  * @return Calendar[] Returns an array of Calendar objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Calendar[] Returns an array of Calendar objects
+      */
+
+    public function findByPrix($value)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->andWhere('c.prix = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            //->orderBy('c.id', 'ASC')
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    public function findByDatedebut($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.datedebut = :val')
+            ->setParameter('val', $value)
+            //->orderBy('c.id', 'ASC')
+            //->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Calendar
@@ -87,6 +98,23 @@ class PromotionRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
 
+    }
+
+    public function searchMulti($dateD = null,$pourc = null,$dateF = null){
+        $query = $this->createQueryBuilder('p')
+            ->select("u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.id ,p.prix,p.datedebut,p.datefin")
+            ->innerJoin(Formation::class,'u')
+            ->andWhere('u.id = p.idFormation ')
+        ;
+        // On filtre les données
+        if($dateD != null || $pourc != null || $dateF != null){
+            $query
+                ->andWhere('p.prix = :pourc OR p.datedebut =:dateD OR p.datefin = :dateF ')
+                ->setParameters(['dateD'=>(new \DateTime($dateD ))->format('Y-m-d') , 'dateF'=>(new \DateTime($dateF ))->format('Y-m-d'),'pourc'=>$pourc])
+
+                ;
+        }
+        return $query->getQuery()->getResult();
     }
 
 }

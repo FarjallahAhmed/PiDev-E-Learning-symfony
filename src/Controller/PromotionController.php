@@ -95,15 +95,33 @@ class PromotionController extends AbstractController
     /**
      * @Route("/promotion/promotionFront", name="promotionFront")
      */
-    public function Front(PromotionRepository $repo): Response
+    public function Front(PromotionRepository $repo,Request $request): Response
     {
-        $promotions = $repo->affectPromo();
-       // $total = $promotions[5] * $promotions[4];
-        //$resultat = $total * (100-$promotions)/100;
+//        $promotions = $repo->affectPromo();
+        $date = new \DateTime('now');
+        $promotionsSearch = $repo->searchMulti(null,null,null);
+        $promotionslast = [];
+
+        $pourc = $request->get("pourcentage");
+        $dateD = $request->get("dateD");
+        $dateF = $request->get("dateF");
+
+        $promotions = $repo->searchMulti($dateD,$pourc,$dateF);
+
+
+
+        foreach($promotionsSearch as $promo){
+            $diff = date_diff($date,$promo["datefin"] );
+            if ($diff->d<3){
+                $promotionslast[] = $promo ;
+
+            }
+        }
 
         return $this->render('promotion/showPromoFront.html.twig', [
             'controller_name' => 'PromotionController',
             'promotions' => $promotions,
+            'promolast' =>  $promotionslast
         ]);
     }
 

@@ -1,0 +1,120 @@
+{% extends 'baseBack.html.twig' %}
+{% block content %}
+
+    <style>
+
+        #cont{
+            padding-top: 30px;
+
+        }
+
+    </style>
+    <div class="breadcome-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcome-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcome-heading">
+                                    <form role="search" class="sr-input-func">
+                                        <input id="search" type="text" placeholder="Search..." class="search-int form-control">
+                                        <a href="#"><i class="fa fa-search"></i></a>
+                                        <button id="sort" style="border: none;color: #fff;padding: 8px 30px;font-size: 18px;background: #0070a5;border-radius: 8px;outline:none;float:right;">Tri</button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="product-status mg-b-15" id="cont">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+                        <h4>Achat List</h4>
+
+
+                        <div  id="table">
+
+                            <table class="table">
+                                <tr>
+
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Pays</th>
+                                    <th>Email </th>
+                                    <th>Numero de telephone</th>
+                                    <th>Adresse</th>
+                                    <th>PrixTotal</th>
+                                    <th>nombre d'article</th>
+
+                                </tr>
+                                {% for x in result  %}
+                                    <tr>
+                                        <td>{{ x.nom }}</td>
+                                        <td>{{ x.prenom }}</td>
+                                        <td>{{ x.country }}</td>
+                                        <td>{{ x.email }}</td>
+                                        <td>{{ x.phone }}</td>
+                                        <td>{{ x.adresse }}</td>
+                                        <td>{{ x.prixtotal }}TND</td>
+                                        <td>{{ x.nbarticle }}</td>
+
+                                    </tr>
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(function() {
+            $("#search").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchachat') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+
+            $( "#sort" ).click(function() {
+                $.ajax({
+                    url : "{{ path('triachat') }}",
+                    type: "get"
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+        })
+    </script>
+{% endblock %}

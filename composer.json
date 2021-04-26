@@ -1,4 +1,5 @@
 {
+
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -10,9 +11,12 @@
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.8",
+        "endroid/qr-code-bundle": "^4.0",
         "gregwar/captcha-bundle": "^2.0",
+        "knplabs/knp-paginator-bundle": "^5.4",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
+        "stripe/stripe-php": "^7.77",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
@@ -39,7 +43,9 @@
         "symfony/yaml": "4.4.*",
         "symfonycasts/reset-password-bundle": "^1.7",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "twilio/sdk": "^6.22",
+        "yamilovs/sms-bundle": "1.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.4",
