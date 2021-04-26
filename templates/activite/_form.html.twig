@@ -1,0 +1,100 @@
+{#  {{ form_start(formEvent) }}
+    {{ form_row(formEvent.nomevent, {
+        'label': 'Event Name',
+        'label_attr': {'class': 'login2'},
+        'attr':{
+            'class':'form-group-inner ',
+            'placeholder' : 'Ex: Lear Java'
+        }
+    }) }}
+    {{ form_row(formEvent,{'attr':{'class':'form-group-inner '}}) }}
+
+<button class="btn btn-sm btn-primary login-submit-cs" >{{ button_label|default('Save') }}</button>
+{{ form_end(formEvent) }}
+#}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="basic-login-inner modal-basic-inner">
+            <h3 style="color: #0a6aa1">Create Activite </h3>
+
+            {{ form_start(formActivite,{'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formActivite.nom,'nom Activite',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formActivite.nom,{
+                            'attr' : { 'placeholder' : 'Ex: Ali',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formActivite.nom) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formActivite.responsable ,'responsable ',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formActivite.responsable,{
+                            'attr' : { 'placeholder' : 'Ex: Ali ben ALI',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formActivite.responsable) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formActivite.periode,'periode',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formActivite.periode,{
+                            'attr':{
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formActivite.periode) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="login-horizental">
+                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">{{ button_label|default('Save') }}</button>
+                    </div>
+                </div>
+            </div>
+
+            {{ form_end(formActivite) }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+{% extends 'baseBack.html.twig' %}
+{% block content %}
+    <style>
+
+        #cont{
+            padding-top: 60px;
+
+        }
+
+    </style>
+    <div class="breadcome-area" id="cont">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcome-list single-page-breadcome">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcome-heading">
+                                    <form role="search" class="sr-input-func">
+                                        <input type="text" placeholder="Search..." class="search-int form-control" name="search">
+                                        <a href="#"><i class="fa fa-search"></i></a>
+
+                                    </form>
+                                    <a href="{{  path('imprimerRes') }}">
+                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed">PDF<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </a>
+                                    <div class="add-product">
+                                        <a href="{{  path('tri') }}">Trier par date</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                                <ul class="breadcome-menu">
+                                    <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                    </li>
+                                    <li><span class="bread-blod">Promotions</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-status mg-b-15" id="cont">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="product-status-wrap">
+
+                        <h4>Event List</h4>
+                        <div class="add-product">
+                            <a href="{{  path('newProjet') }}">Add Activite</a>
+
+                        </div>
+
+                        <div class="asset-inner">
+
+                            <table>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Sujet</th>
+                                    <th>Description</th>
+                                    <th>Date Creation</th>
+
+                                    <th>Setting</th>
+                                </tr>
+                                {% for projet in projets  %}
+                                    <tr>
+                                        <td>{{ projet.idProjet }}</td>
+                                        <td>{{ projet.nom }}</td>
+                                        <td>{{ projet.sujet }}</td>
+                                        <td>{{ projet.description }}</td>
+                                        <td>{{ projet.datec |date('m/d/Y') }}</td>
+                                        <td>
+                                            <a href="{{  path('editProjet', {id: projet.idProjet }) }}">
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            </a>
+                                            <a href="{{  path('deleteProjet', {id: projet.idProjet}) }}">
+                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            </a>
+
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('js/notification.js') }}"></script>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Activite
@@ -32,6 +33,12 @@ class Activite
      * @var string
      *
      * @ORM\Column(name="responsable", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      */
     private $responsable;
 
@@ -39,6 +46,12 @@ class Activite
      * @var string
      *
      * @ORM\Column(name="periode", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      */
     private $periode;
 
@@ -46,6 +59,12 @@ class Activite
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Must be filled")
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      */
     private $nom;
 

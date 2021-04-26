@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div id="home" class="home-banner-area home-style-two" style="padding-top:40px;">
+        <div class="container">
+            <div class="search-form">
+                <div class="col-xs1">
+                    <p>Notification</p>
+                    <div >
+                        {{ notification }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="top-destination" class="top-destination-section pt-100 pb-70 bg-light" >
+        <div class="container" id="content">
+            <div class="section-title">
+            </div>
+
+            <div class="row" id="content">
+
+                {% include "projet/_content.html.twig" %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+
+            function ShowUnreadNotifications(option = ''){
+                $.ajax({
+                    url: "{{ path('projetfront') }}",
+                    method: 'GET',
+                    data: {option : option},
+                    dataType: 'json',
+                    success: function (data){
+                        console.log(data);
+                    }
+
+                })
+            }
+
+            ShowUnreadNotifications();
+
+
+
+            $('#annuler_form').on('submit',  function (event) {
+               // event.preventDefault();
+                console.log('submitted');
+                var Data = $(this).serialize();
+                $.ajax({
+                    url: "{{ path('projetfront') }}",
+                    method: 'GET',
+                    data: Data,
+                    success: function (data) {
+                        console.log(data);
+                        console.log("ezaeae");
+
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
