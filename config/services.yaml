@@ -30,3 +30,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    twilio.client:
+        class: Twilio\Rest\Client
+        arguments: [ 'ACa439aa4513c9b71266e608b59f6861ea', '2d97619f83db2f6b429c8688b5df7231' ]
+
+        # Add an alias for the twilio.client service
+    Twilio\Rest\Client: '@twilio.client'

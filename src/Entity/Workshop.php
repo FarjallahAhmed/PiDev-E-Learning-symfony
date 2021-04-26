@@ -91,8 +91,8 @@ class Workshop
      * @ORM\Column(name="lieu", type="string", length=30, nullable=false)
      * @Assert\NotBlank(message="Must be filled")
      *  @Assert\Regex(
-     *     pattern     = "/^[a-z]+$/i",
-     *     htmlPattern = "^[a-zA-Z]+$",
+     *     pattern     = "/^[a-z\s]+$/i",
+     *     htmlPattern = "^[a-zA-Z\s]+$",
      *      message="{{ value }} must be String "
      * )
      */

@@ -21,8 +21,8 @@ class WorkshopRepository extends ServiceEntityRepository
 
     public function countByDate(){
         $query = $this->createQueryBuilder('a')
-            ->select('SUBSTRING(a.datedebut,1,10) as dateD , count(a) as count' )
-            ->groupBy('dateD')
+            ->select('SUBSTRING(a.datedebut,1,10) as dateD , count(a) as count,a.type as type' )
+            ->groupBy('type')
             ;
         return $query->getQuery()->getResult();
 
@@ -30,7 +30,7 @@ class WorkshopRepository extends ServiceEntityRepository
 
     public function countByLike(){
         $query = $this->createQueryBuilder('a')
-            ->select('a.type as typeW , count(a) as count' )
+            ->select('a.type as typeW , SUM(a.hearts) as count' )
             ->groupBy('typeW')
         ;
         return $query->getQuery()->getResult();
@@ -62,6 +62,19 @@ class WorkshopRepository extends ServiceEntityRepository
         }
 
         return $query->getQuery()->getResult();
+    }
+
+    public function pagination($filters = null){
+        $query = $this->createQueryBuilder('a')
+            ->select("a")
+        ;
+        // On filtre les données
+        if($filters != null){
+            $query->andWhere('a.type IN(:type)')
+                ->setParameter(':type', array_values($filters));
+        }
+
+        return $query->getQuery();
     }
 
     // /**
