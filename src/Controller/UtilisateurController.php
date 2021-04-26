@@ -225,7 +225,7 @@ class UtilisateurController extends AbstractController
         $formateurs = $em->getRepository(Formateurs::class)->find($id);       
         $formateurs->setEtat(1);  
         $em->flush();  
-        
+        $this->addFlash('success', 'Account Activated!');
         return $this->redirectToRoute('viewformateurs');
     }
 
@@ -355,7 +355,7 @@ class UtilisateurController extends AbstractController
         $formateurs = $em->getRepository(Formateurs::class)->find($id);       
         $formateurs->setEtat(0);  
         $em->flush();  
-        
+        $this->addFlash('success', 'Account Blocked!');
         return $this->redirectToRoute('viewformateurs');
     }
 
@@ -371,6 +371,7 @@ class UtilisateurController extends AbstractController
         $participant = $em->getRepository(Participants::class)->find($id);       
         $participant->setCertificatsobtenus(1);  
         $em->flush();  
+        $this->addFlash('success', 'Account Blocked!');
         return $this->redirectToRoute('viewparticipants');
     }
 
@@ -384,10 +385,11 @@ class UtilisateurController extends AbstractController
         $participant = $em->getRepository(Participants::class)->find($id);       
         $participant->setCertificatsobtenus(0);  
         $em->flush();  
+        $this->addFlash('success', 'Account Activated!');
         return $this->redirectToRoute('viewparticipants');
     }
 
-
+                                    // MANQUE Implementation
      /**
      * @Route("/cat85a2d8d", name="searchformateur")
      */
@@ -397,7 +399,7 @@ class UtilisateurController extends AbstractController
         $input = "119";
         $tab = $em->getRepository(Formateurs::class)->search($input);
         
-        return $this->render('panier_commande/achatback.html.twig', [
+        return $this->render('utilisateurs/listformateurs.html.twig', [
 
             'result' => $tab,
         ]);

@@ -20,7 +20,15 @@
                 </div>
             </div>
         </div>
+
+         
         {{ block("header", "baseBackU.html.twig") }}
+
+         {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+                 {% endfor %}
         <div class="contacts-area mg-b-15">
             <div class="container-fluid">
                 <div class="row">

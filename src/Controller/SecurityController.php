@@ -47,6 +47,7 @@ class SecurityController extends AbstractController
                             $formateurs = $emCheck->getRepository(Formateurs::class)->find($this->getUser()->getId());
                             if ($formateurs->getEtat()==0)
                                 {
+                                 
                                     return $this->redirectToRoute('app_logout'); 
                                 }
                                 else
