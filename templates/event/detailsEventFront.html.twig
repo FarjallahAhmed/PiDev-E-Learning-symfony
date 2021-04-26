@@ -1,0 +1,229 @@
+{% extends 'base.html.twig' %}
+    {% block title %}
+        Evenement
+    {% endblock %}
+{% block content %}
+<div class="page-title-area ptb-100">
+    <div class="container">
+        <div class="page-title-content">
+            <h1>Our Events</h1>
+            <ul>
+                <li class="item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="item">
+                    <a href="destination-details.html">
+                        <i class='bx bx-chevrons-right'></i>Evenement Details</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="bg-image">
+        <img src="{{ asset('img/page-title-area/destination-details.jpg') }}" alt="Demo Image">
+    </div>
+</div>
+
+
+<section class="destinations-details-section pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>{{ event.nomevent }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="destination-details-desc mb-30">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-sm-12">
+
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+
+                        </div>
+                    </div>
+                    <div class="content mb-20">
+                        <h3>{{ event.nomevent }}  </h3>
+                            <a href="{{ path('event_heart',{id: event.id}) }}"  class="far fa-heart js-like-event"></a>
+                            <span class="js-like-event-count">{{ event.hearts }}</span>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-sm-12">
+                            {% if event.type == 'Soft Skills'  %}
+                                {% set class = 'img/softskills.jpg' %}
+                            {% elseif event.type == 'Team building' %}
+                                {% set class = 'img/teambuilding.jpg' %}
+                            {% elseif event.type == 'Conference' %}
+                                {% set class = 'img/conference.jpg' %}
+                            {% elseif event.type == 'Seminaire' %}
+                                {% set class = 'img/seminaire.png' %}
+                            {% endif %}
+                            <div class="image mb-30">
+                                <img src=" {{ asset( class ) }} " alt="Demo Image">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <p class="mb-30">
+                                {{ event.description }}
+                            </p>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="info-content">
+                        <h3 class="sub-title">Some Information</h3>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class='bx bx-book-reader'></i>
+                                    <h6>
+                                        <span>Type :</span>
+                                        {{ event.type }}</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class="far fa-calendar-plus"></i>
+                                    <h6>
+                                        <span>Start Date</span>
+                                        {{ event.datedebut ? event.datedebut|date('Y-m-d') : '' }}</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class="far fa-calendar-times"></i>
+                                    <h6>
+                                        <span>End Date</span>
+                                        {{ event.datefin ? event.datefin|date('Y-m-d') : '' }}</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="content-list">
+                                    <i class="fas fa-coins"></i>
+                                    <h6>
+                                        <span>Prix:</span>
+                                        {{ event.prix }}dt</h6>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="image mb-30">
+                                {% if qrCode %}
+                                    <img src="{{ qrCode }}" alt="qr-code">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {#  % if app.user %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="{{ path('envoyerMail', {'id': festival.id}) }}" class="btn-primary">Participer</a>
+                            </div>
+                            <div class="col-lg-6" >
+                                <a   href="{{ path('addSponsor',{'id':festival.id} )}}" class="btn-primary">Ajouter un sponsor</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                    #}
+                    <hr>
+                    <div class="comments-area mb-30">
+                        <h3 class="sub-title">Comments</h3>
+                        {% for comment in event.comments %}
+                        <ol class="comment-list">
+                            <li class="comment">
+                                <div class="comment-body">
+                                    <div class="comment-author">
+                                        <img src="{{ asset('img/blog/author1.jpg') }}" alt="image" />
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-metadata">
+                                            <h4 class="name">{{ comment.authorName }}</h4>
+                                        </div>
+                                        <p>
+                                            {{ comment.content }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                        {% endfor %}
+                    </div>
+                    <div class="comment-reply">
+                        {{ form_start(formComment,{'attr': {'novalidate': 'novalidate'}}) }}
+                        <h3 class="sub-title">Post comment</h3>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-xs-12">
+                                    <div class="input-group">
+                                        <div class="input-icon"><i class='bx bx-user'></i>
+                                        </div>
+                                        {{ form_widget(formComment.authorName,{
+                                            'attr' : { 'placeholder' : 'Name',
+                                                'class' : 'form-control'
+                                            }
+                                        })
+                                        }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-xs-12">
+                                    <div class="input-group">
+                                        <div class="input-icon textarea"><i class='bx bx-envelope'></i>
+                                        </div>
+                                        {{ form_widget(formComment.content,{
+                                            'attr' : { 'placeholder' : 'Write Comment',
+                                                'class' : 'form-control'
+                                            }
+                                        })
+                                        }}
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                Post comment
+                            </button>
+                        {{ form_end(formComment) }}
+                    </div>
+                </div>
+
+                </div>
+            <div class="col-lg-4 col-md-12">
+                <aside class="widget-area">
+
+                    <iframe height="700px" width="400px" src="https://maps.google.com/maps?q={{ event.lieu }}&t=&z=12&ie=UTF8&iwloc=&output=embed" ></iframe>
+
+                </aside>
+            </div>
+
+            </div>
+
+
+
+    </div>
+
+
+</section>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+
+        $(document).ready(function() {
+            $('.js-like-event').on('click', function(e) {
+                e.preventDefault();
+                var $link = $(e.currentTarget);
+                $link.toggleClass('far fa-heart').toggleClass('fas fa-heart ');
+                $.ajax({
+                    method: 'POST',
+                    url: $link.attr('href')
+                }).done(function(data) {
+                    $('.js-like-event-count').html(data.hearts);
+                    console.log(data.hearts);
+                })
+            });
+        });
+    </script>
+{% endblock %}

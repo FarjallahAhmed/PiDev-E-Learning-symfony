@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -89,8 +91,8 @@ class Workshop
      * @ORM\Column(name="lieu", type="string", length=30, nullable=false)
      * @Assert\NotBlank(message="Must be filled")
      *  @Assert\Regex(
-     *     pattern     = "/^[a-z]+$/i",
-     *     htmlPattern = "^[a-zA-Z]+$",
+     *     pattern     = "/^[a-z\s]+$/i",
+     *     htmlPattern = "^[a-zA-Z\s]+$",
      *      message="{{ value }} must be String "
      * )
      */
@@ -142,6 +144,21 @@ class Workshop
      * )
      */
     private $prix;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="workshop")
+     */
+    private $comments;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $hearts = 0;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -276,6 +293,48 @@ class Workshop
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setWorkshop($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getWorkshop() === $this) {
+                $comment->setWorkshop(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getHearts(): ?int
+    {
+        return $this->hearts;
+    }
+
+    public function setHearts(?int $hearts): self
+    {
+        $this->hearts = $hearts;
 
         return $this;
     }

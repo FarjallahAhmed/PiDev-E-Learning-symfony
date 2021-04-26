@@ -1,0 +1,73 @@
+{% extends 'baseBack.html.twig' %}
+{% block content %}
+    <style>
+
+        #cont{
+            padding-top: 60px;
+
+        }
+
+    </style>
+
+    <div class="product-status mg-b-15" id="cont">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-status-wrap">
+                        <h4>Command List</h4>
+
+
+                        <div class="asset-inner">
+
+                            <table>
+                                <tr>
+                                    <th>idClient</th>
+                                    <th>Formation Name</th>
+                                    <th>Etat Commande</th>
+                                    <th>Date de validation </th>
+                                    <th>Prix</th>
+
+                                </tr>
+                                {% for x in result  %}
+                                    <tr>
+                                        <td>{{ x.idClient }}</td>
+                                        <td>{{ x.idFormation.objet }}</td>
+                                        <td>{{ x.etat }}</td>
+                                        {% if x.date is null  %}
+                                        <td>-------------------</td>
+                                        {% else %}
+                                        <td>{{ x.date | date("m/d/Y") }}</td>
+                                        {% endif%}
+                                        <td>{{ x.prix }}</td>
+
+                                        <td>
+                                            <a href="#">
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            </a>
+                                            <a href="#">
+                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            </a>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+
+                        <div class="custom-pagination">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

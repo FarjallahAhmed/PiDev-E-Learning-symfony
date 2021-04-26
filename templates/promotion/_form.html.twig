@@ -1,0 +1,105 @@
+{#  {{ form_start(formEvent) }}
+    {{ form_row(formEvent.nomevent, {
+        'label': 'Event Name',
+        'label_attr': {'class': 'login2'},
+        'attr':{
+            'class':'form-group-inner ',
+            'placeholder' : 'Ex: Lear Java'
+        }
+    }) }}
+    {{ form_row(formEvent,{'attr':{'class':'form-group-inner '}}) }}
+
+<button class="btn btn-sm btn-primary login-submit-cs" >{{ button_label|default('Save') }}</button>
+{{ form_end(formEvent) }}
+#}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="basic-login-inner modal-basic-inner">
+            <h3 style="color: #0a6aa1">Create Promotion </h3>
+
+            {{ form_start(formPromo,{'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formPromo.prix,'Pourcentage',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formPromo.prix,{
+                            'attr' : { 'placeholder' : 'Ex: 10',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formPromo.prix) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        {{ form_label(formPromo.Formation ,'Formations ',{
+                            'label_attr': {'class': 'login2'}
+                        })
+                        }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        {{ form_widget(formPromo.Formation,{
+                            'attr' : { 'placeholder' : 'choose Formation to be promoted',
+                                'class' : 'form-control'
+                            }
+                        })
+                        }}
+                        <div style="color: red; size: 15px; font-family: bold;">
+                            {{ form_errors(formPromo.Formation) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group-inner">
+                <div class="date-picker-inner">
+                    <div class="form-group data-custon-pick data-custom-mg" id="data_5">
+                        <label class="login2">Date range</label>
+                        <div class="input-daterange input-group" id="datepicker">
+                            {{ form_widget(formPromo.datedebut,{
+                                'attr' : {
+                                    'class' : 'form-control',
+
+                                }
+                            })
+                            }}
+                            <span class="input-group-addon">to</span>
+                            {{ form_widget(formPromo.datefin,{
+                                'attr' : {
+                                    'class' : 'form-control'
+                                }
+                            })
+                            }}
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="login-horizental">
+                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit">{{ button_label|default('Save') }}</button>
+                    </div>
+                </div>
+            </div>
+
+            {{ form_end(formPromo) }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+    {% block title %}
+        Promotions
+    {% endblock %}
+{% block content %}
+
+    <div class="page-title-area ptb-100">
+        <div class="container">
+            <div class="page-title-content">
+                <h1>Promotions</h1>
+                <ul>
+                    <li class="item"><a href="index.html">Home</a></li>
+                    <li class="item"><a href=""><i class='bx bx-chevrons-right'></i>Promotions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-image">
+            <img src="{{ asset('img/promotion.jpg') }}" alt="Demo Image">
+        </div>
+
+    </div>
+
+
+    <div id="home" class="home-banner-area home-style-two" style="padding-top:40px;">
+        <div class="container">
+            <div class="search-form" novalidation>
+            <form id="searchForm">
+                <div class="row align-items-center">
+                    <div class="col-lg-11">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="select-box">
+                                    <i class='bx bx-map-alt'></i>
+                                    <select name="pourcentage" class="form-control">
+                                        <option data-display='Pourcentage'>Nothing</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                        <option value="60">60</option>
+                                        <option value="70">70</option>
+                                        <option value="80">80</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="select-box">
+                                    <i class='bx bx-calendar'></i>
+                                    <input name="dateD" type="text" class="date-select form-control" placeholder="Start Date" required="required" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="select-box">
+                                    <i class='bx bx-calendar'></i>
+                                    <input name="dateF" type="text" class="date-select form-control" placeholder="End Date" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+
+                            <i class='bx bx-search-alt'> <input type="submit"></i>
+
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <section id="top-destination" class="top-destination-section pt-100 pb-70 bg-light">
+
+        <div class="container">
+
+            <div class="section-title">
+            </div>
+
+            <div class="row">
+                {% for p in promotions %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="item-single mb-30">
+                            {% if p.prix == 10  %}
+                                {% set class = 'img/pourcentage/10.png' %}
+                            {% elseif p.prix == 20 %}
+                                {% set class = 'img/pourcentage/20.png' %}
+                            {% elseif p.prix == 30 %}
+                                {% set class = 'img/pourcentage/30.png' %}
+                            {% elseif p.prix == 40 %}
+                                {% set class = 'img/pourcentage/40.png' %}
+                            {% elseif p.prix == 50 %}
+                                {% set class = 'img/pourcentage/50.png' %}
+                            {% elseif p.prix == 60 %}
+                                {% set class = 'img/pourcentage/60.png' %}
+                            {% elseif p.prix == 70 %}
+                                {% set class = 'img/pourcentage/70.png' %}
+                            {% elseif p.prix == 80 %}
+                                {% set class = 'img/pourcentage/80.png' %}
+                            {% else %}
+                                {% set class = 'img/pourcentage/80.png' %}
+                            {% endif %}
+                            <div class="image">
+                                <img src=" {{ asset( class ) }} " alt="Demo Image">
+                            </div>
+                            <div class="content">
+                                <span class="location"><i class='bx bx-smile'></i> objet : {{ p.objet }}</span>
+                                <h3>
+                                    <a href="destination-details.html">Type : {{ p.type }}</a>
+                                </h3>
+                                <div class="review">
+                                    <i class='bx bx-smile'></i>
+                                    <span>{{ p.nbParticipants }}</span>
+                                    <span>Nombre de jour : {{ p.nbJour }}</span>
+                                </div>
+                                <p>
+                                    cout H/J : {{ p.coutHj }}
+                                </p>
+                                <hr>
+                                <ul class="list">
+                                    <li><i class='bx bx-time'></i>Start : {{ p.datedebut |date("m/d/Y")  }}</li>
+                                  <li><i class='bx bx-time'></i>End : {{ p.datefin |date("m/d/Y")  }}</li>
+
+                                    <li>Solde : {{ (p.coutHj * p.nbJour )* (100-p.prix/100)  }}</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+<section id="lastOffer" class="last-offer-section pt-100 pb-70 bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Last Minute Offer</h2>
+            <p>e-learninig has helped us to improve our self and it has helped us to know new things. </p>
+        </div>
+
+
+        <div class="row">
+            {% for plast in promolast %}
+            <div class="col-lg-4 col-md-6 filtr-item">
+                <div class="item-single mb-30">
+                    <div class="image">
+                        <img src="{{ asset('img/promo.jpg') }}" alt="Demo Image">
+                    </div>
+                    <div class="content">
+                        <span class="location"><i class='bx bx-map'></i>objet : {{ plast.objet }}</span>
+                        <h3>
+                            <a href="destination-details.html">{{ plast.type }}</a>
+                        </h3>
+                        <div class="review">
+                            <i class='bx bx-smile'></i>
+                            <span>{{ plast.coutHj }} </span>
+                            <span>Superb</span>
+                        </div>
+                        <p>
+                            A wonderful little cottage right on the seashore - perfect for exploring.
+                        </p>
+                        <hr>
+                        <ul class="list">
+                            <li><i class='bx bx-time'></i>{{ plast.nbJour}} Days</li>
+                            <li><i class='bx bx-group'></i>{{ plast.nbParticipants }}</li>
+
+                        </ul>
+                        <div class="discount">
+                            <span>Discount</span>
+                            <span>{{ plast.prix }}</span>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+{% endblock %}

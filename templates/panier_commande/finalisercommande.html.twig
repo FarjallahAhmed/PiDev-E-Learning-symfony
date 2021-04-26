@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <section class="booking-section ptb-100 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="booking-form">
+                        {{ form_start(form, {'attr': {'class': '','id':'','novalidate':'novalidate'}}) }}
+                        <div class="content">
+                            <h3>Personal Information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        {{form_widget(form.nom, {'attr': {'class': 'form-control','placeholder':"nom"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.nom) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        {{form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder':"prenom"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.prenom) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{form_widget(form.country, {'attr': {'class': 'form-control','placeholder':"country"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.country) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{form_widget(form.email, {'attr': {'class': 'form-control','placeholder':"Email"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.email) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {{form_widget(form.phone, {'attr': {'class': 'form-control','placeholder':"phone number"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.phone) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        {{form_widget(form.adresse, {'attr': {'class': 'form-control','placeholder':"Adresse"}}) }}
+                                    </div>
+                                    <div style="color: red; size: 15px; font-family: bold;">
+                                        {{ form_errors(form.adresse) }}
+                                    </div>
+                                </div>
+                                <div class="row align-items-start mb-30">
+                                    <div class="col-lg-12">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="agreement">
+                                            <label for="agreement">I agreed Jaunt <a href="terms-of-service.html">Terms of Services</a> and <a href="privacy-policy.html">Privacy Policy</a></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{form_widget(form.Confirmer, {'attr': {'class': 'btn-primary'}}) }}
+
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
