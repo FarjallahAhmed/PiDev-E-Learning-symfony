@@ -88,6 +88,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "dompdf/dompdf": {
+        "version": "v1.0.2"
+    },
     "egulias/email-validator": {
         "version": "3.1.1"
     },
@@ -103,14 +106,12 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
-
     "gregwar/captcha": {
         "version": "v1.1.9"
     },
     "gregwar/captcha-bundle": {
         "version": "v2.0.6"
     },
-
     "guzzlehttp/guzzle": {
         "version": "6.5.5"
     },
@@ -125,7 +126,6 @@
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.4.2"
-
     },
     "laminas/laminas-code": {
         "version": "4.1.0"
@@ -141,6 +141,12 @@
     },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "phenx/php-font-lib": {
+        "version": "0.5.2"
+    },
+    "phenx/php-svg-lib": {
+        "version": "v0.3.3"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -169,6 +175,9 @@
     "ralouphie/getallheaders": {
         "version": "3.0.3"
     },
+    "sabberworm/php-css-parser": {
+        "version": "8.3.1"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -181,14 +190,11 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
-
-    "swiftmailer/swiftmailer": {
-        "version": "v6.2.7"
-    },
     "stripe/stripe-php": {
         "version": "v7.77.0"
-    
-
+    },
+    "swiftmailer/swiftmailer": {
+        "version": "v6.2.7"
     },
     "symfony/asset": {
         "version": "v4.4.20"

@@ -156,8 +156,11 @@
                                 </a>
                                 <div class="collapse navbar-collapse mean-menu">
                                     <ul class="navbar-nav ml-auto">
+
+
+
                                         <li class="nav-item">
-                                            <a href="{{ path('home')}}" class="nav-link active toggle">Home<i class='bx bxs-chevron-down'></i></a>
+                                            <a href="{{ path('home')}}" class="nav-link toggle">Home<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
                                                     <a href="{{ path('home')}}" class="nav-link">Home</a>
@@ -177,11 +180,33 @@
                                         <li class="nav-item"><a href="#" class="nav-link toggle">Projects<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="tours.html" class="nav-link">Projects</a>
+                                                    <a href="{{ path('projetfront')}}" class="nav-link">Projects</a>
                                                 </li>
                                                
                                             </ul>
                                         </li>
+
+
+                                         <li class="nav-item"><a href="#" class="nav-link toggle">Events<i class='bx bxs-chevron-down'></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item">
+                                                    <a href="{{ path('showEventFront')}}" class="nav-link">Events</a>
+                                                </li>
+                                               
+                                            </ul>
+                                        </li>
+
+
+                                         <li class="nav-item"><a href="#" class="nav-link toggle">Promotions<i class='bx bxs-chevron-down'></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item">
+                                                    <a href="{{ path('promotionFront')}}" class="nav-link">Promotions</a>
+                                                </li>
+                                               
+                                            </ul>
+                                        </li>
+
+
                                         <li class="nav-item">
                                             <a href="about-us.html" class="nav-link">About</a>
                                         </li>
@@ -189,12 +214,17 @@
                                         <li class="nav-item">
                                             <a href="contact.html" class="nav-link">Contact</a>
                                         </li>
+
+
                                     </ul>
+                                     {% if  app.user %}
                                     <div class="cart">
-                                        <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
+                                        <a href="{{ path('panier_commande') }}" class="cart-btn"><i class='bx bx-cart'></i>
                                             <span class="badge">0</span>
                                         </a>
                                     </div>
+                                     {% endif %}
+
                                     {% if app.user %}
                                     <div class="cart">
                                         {% if not app.user.image == null %}

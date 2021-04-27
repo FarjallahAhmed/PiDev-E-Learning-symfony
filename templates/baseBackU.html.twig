@@ -98,27 +98,32 @@
                                
                             </ul>
                         </li>
+
                         <li>
                             <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
+                             <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Professors" href="{{ path('viewformateurs') }}"><span class="mini-sub-pro">All Professors</span></a></li>
+                            </ul>
                         </li>
+
                         <li>
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                         
                                 <li><a title="All Professors" href="{{ path('viewformateurs') }}"><span class="mini-sub-pro">All Professors</span></a></li>
-                                
-                      
-                              
                             </ul>
                         </li>
+
                         <li class="active">
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Students" href="{{ path('viewparticipants') }}"><span class="mini-sub-pro">All Students</span></a></li>
-                               
-                               
                             </ul>
                         </li>
+
+
+
+                        <!-- HERE STARTS NAV BAR FORMATEURS -->
+
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -127,8 +132,37 @@
                           
                             </ul>
                         </li>
+
+
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap"></span> <span class="mini-click-non">Events</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">Calendrier</span></a></li>
+                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">List Events</span></a></li>
+                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Stats</span></a></li>
+                          
+                            </ul>
+                        </li>
+
+
+                         <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Promotions</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">List Promotions</span></a></li>
+                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Stats</span></a></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Projects</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">Project</span></a></li>
+                                <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Activite</span></a></li>
+                            </ul>
+                        </li>
                        
-                       
+                            <!-- END NAV BAR FORMATEURS -->
                        
                       
                      
@@ -804,7 +838,21 @@
                                                 <li><a href="widgets.html">Widgets</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="events.html">Event</a></li>
+                                        <li><a href="events.html">Event</a>
+                                        
+                                        <ul id="demoevent" class="collapse dropdown-header-top">
+                                                <li><a href="all-professors.html">All Professors</a>
+                                                </li>
+                                                <li><a href="add-professor.html">Add Professor</a>
+                                                </li>
+                                                <li><a href="edit-professor.html">Edit Professor</a>
+                                                </li>
+                                                <li><a href="professor-profile.html">Professor Profile</a>
+                                                </li>
+                                            </ul>
+                                        
+                                        
+                                        </li>
                                         <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="demoevent" class="collapse dropdown-header-top">
                                                 <li><a href="all-professors.html">All Professors</a>

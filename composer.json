@@ -1,5 +1,5 @@
 {
-
+    
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.8",
+        "dompdf/dompdf": "^1.0",
         "endroid/qr-code-bundle": "^4.0",
         "gregwar/captcha-bundle": "^2.0",
         "knplabs/knp-paginator-bundle": "^5.4",
