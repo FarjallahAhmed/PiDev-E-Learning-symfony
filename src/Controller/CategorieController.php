@@ -24,6 +24,21 @@ class CategorieController extends AbstractController
     }
 
     /**
+
+     * @Route("/categorie/liste", name="listeCategorie")
+     */
+    public function liste(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tab = $em->getRepository(Categorie::class)->findAll();
+        return $this->render('categorie/liste.html.twig', [
+            'controller_name' => 'CategorieController',
+            'categorie' => $tab,
+        ]);
+    }
+
+    /**
+
      * @Route("/categorie/ajouter", name="ajouterCategorie")
      */
     public function ajouter(Request $request): Response

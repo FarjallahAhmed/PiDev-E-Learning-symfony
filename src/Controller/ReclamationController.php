@@ -29,6 +29,8 @@ class ReclamationController extends AbstractController
     {
         $em = $this->getDoctrine();
         $tab = $em->getRepository(Reclamation::class)->findAll();
+        //dd($tab);
+
         return $this->render('reclamation/index.html.twig', [
             'controller_name' => 'ReclamationController',
             'reclamation' => $tab,
@@ -44,8 +46,12 @@ class ReclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
 
             $rec = new Reclamation();
-            $user = $em->getRepository(Utilisateurs::class)->find('43');
+
+            // app.user.id
+            $user = $em->getRepository(Utilisateurs::class)->find('115');
+            
             $rec->setIdUser($user);
+            
             $rec->setObjet($request->get('objet'));
             $msg = new Message();
             $msg->setContenu($request->get('message'));
