@@ -1,0 +1,77 @@
+{% extends 'baseReclamation.html.twig' %}
+{% block recalamationActive %} class="active" {% endblock %}
+ {% block content %}
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="sparkline8-list">
+                        <div class="sparkline8-hd">
+                            <div class="main-sparkline8-hd">
+                                <h1>List Reclamation</h1>
+                                <input id="search" type="text" placeholder="Search">
+                            </div>
+                        </div>
+                        <div class="sparkline8-graph">
+                            <div class="static-table-list">
+                                <div id="table">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User</th>
+                                            <th>Objet</th>
+                                            <th>Message</th>
+                                            <th>Date</th>
+                                            <th>Modifer</th>
+                                            <th>Supprimer</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for r in reclamation %}
+                                            <tr>
+                                                <td>{{ r.id_reclamation }}</td>
+                                                {% for user in users %}
+                                                    {% if user.id == r.id_user %}
+                                                        <td>{{ user.nom }}</td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <td>{{ r.objet }}</td>
+                                                {% for msg in msgs %}
+                                                    {% if r.id_message == msg.idMessage %}
+                                                        <td>{{ msg.contenu }}</td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <td>{{ r.date | date }}</td>
+                                                <td><a href="{{ path('modifierReclamation', {'id': r.id_reclamation}) }}"><button style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #933EC5;border-radius: 3px;outline:none;" class="ps-setting">Modifier</button></a></td>
+                                                <td><a href="{{ path('supprimerReclamation', {'id': r.id_reclamation}) }}"><button style="border: none;color: #fff;padding: 5px 15px;font-size: 15px;background: #D80027;border-radius: 3px;outline:none;" class="ds-setting">Supprimer</button></a></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(function() {
+            $("#search").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchReaclamation') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+        })
+    </script>
+{% endblock %}

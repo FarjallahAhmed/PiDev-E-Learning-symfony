@@ -5,12 +5,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Reclamation
+ * Archive
  *
- * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="FK_PersonOrder", columns={"id_user"}), @ORM\Index(name="fk_reclamation_message", columns={"id_message"})})
- * @ORM\Entity(repositoryClass="App\Repository\ReclamationRepository")
+ * @ORM\Table(name="archive", indexes={@ORM\Index(name="FK_Ped8ad8a8da", columns={"id_message"}), @ORM\Index(name="FK_Pdasdad8a8da", columns={"id_user"})})
+ * @ORM\Entity
  */
-class Reclamation
+class Archive
 {
     /**
      * @var int
@@ -24,14 +24,14 @@ class Reclamation
     /**
      * @var string
      *
-     * @ORM\Column(name="objet", type="string", length=255, nullable=false)
+     * @ORM\Column(name="objet", type="string", length=50, nullable=false)
      */
     private $objet;
 
     /**
-     * @var \DateTime|null
+     * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date", nullable=true)
+     * @ORM\Column(name="date", type="date", nullable=false)
      */
     private $date;
 
@@ -77,7 +77,7 @@ class Reclamation
         return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
+    public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 
