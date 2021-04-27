@@ -15,9 +15,12 @@ class PromotionController extends AbstractController
     /**
      * @Route("/promotion", name="promotion")
      */
-    public function index(PromotionRepository $repo): Response
+    public function index(PromotionRepository $repo,Request $request): Response
     {
-        $promotions = $repo->findAll();
+        //$promotions = $repo->findAll();
+
+        $q = $request->query->get('search');
+        $promotions = $repo->findAllWithSearch($q);
         return $this->render('promotion/index.html.twig', [
             'controller_name' => 'PromotionController',
             'promotions' => $promotions,
@@ -92,15 +95,57 @@ class PromotionController extends AbstractController
     /**
      * @Route("/promotion/promotionFront", name="promotionFront")
      */
-    public function Front(PromotionRepository $repo): Response
+    public function Front(PromotionRepository $repo,Request $request): Response
     {
-        $promotions = $repo->affectPromo();
-       // $total = $promotions[5] * $promotions[4];
-        //$resultat = $total * (100-$promotions)/100;
+//        $promotions = $repo->affectPromo();
+        $date = new \DateTime('now');
+        $promotionsSearch = $repo->searchMulti(null,null,null);
+        $promotionslast = [];
+
+        $pourc = $request->get("pourcentage");
+        $dateD = $request->get("dateD");
+        $dateF = $request->get("dateF");
+
+        $promotions = $repo->searchMulti($dateD,$pourc,$dateF);
+
+
+
+        foreach($promotionsSearch as $promo){
+            $diff = date_diff($date,$promo["datedebut"] );
+            if ($diff->d<3){
+                $promotionslast[] = $promo ;
+
+            }
+        }
 
         return $this->render('promotion/showPromoFront.html.twig', [
             'controller_name' => 'PromotionController',
             'promotions' => $promotions,
+            'promolast' =>  $promotionslast
         ]);
+    }
+
+    /**
+     * @Route("/promotion/stats",name="statsPromo")
+     */
+    public function stats(PromotionRepository $repo){
+
+        $promotions = $repo->statisPromo();
+        $promotionsMoy = [];
+        $formationType = [];
+        $maxPourcentage = [];
+        foreach ($promotions as $event){
+            $formationType[] = $event['type'];
+            $promotionsMoy[] = $event['moy'];
+            $maxPourcentage[] = $event['maxPourcentage'];
+        }
+
+
+        return $this->render('promotion/stats.html.twig',[
+            'formationType' => json_encode($formationType),
+            'promotionsMoy' => json_encode($promotionsMoy),
+            'maxPourcentage' => json_encode($maxPourcentage),
+        ]);
+
     }
 }

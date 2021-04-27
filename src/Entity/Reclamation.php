@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reclamation
  *
- * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="fk_reclamation_message", columns={"id_message"})})
- * @ORM\Entity
+ * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="FK_PersonOrder", columns={"id_user"}), @ORM\Index(name="fk_reclamation_message", columns={"id_message"})})
+ * @ORM\Entity(repositoryClass="App\Repository\ReclamationRepository")
  */
 class Reclamation
 {
@@ -22,18 +22,28 @@ class Reclamation
     private $idReclamation;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer", nullable=false)
-     */
-    private $idUser;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="objet", type="string", length=255, nullable=false)
      */
     private $objet;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="date", type="date", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var \Utilisateurs
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateurs")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * })
+     */
+    private $idUser;
 
     /**
      * @var \Message
@@ -50,18 +60,6 @@ class Reclamation
         return $this->idReclamation;
     }
 
-    public function getIdUser(): ?int
-    {
-        return $this->idUser;
-    }
-
-    public function setIdUser(int $idUser): self
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
     public function getObjet(): ?string
     {
         return $this->objet;
@@ -70,6 +68,30 @@ class Reclamation
     public function setObjet(string $objet): self
     {
         $this->objet = $objet;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?Utilisateurs
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?Utilisateurs $idUser): self
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Projet
@@ -23,21 +25,33 @@ class Projet
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      * @ORM\Column(name="sujet", type="string", length=255, nullable=false)
      */
     private $sujet;
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *     message="{{ value }} must be String "
+     * )
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     private $description;

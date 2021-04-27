@@ -41,7 +41,9 @@
                         </div>
                     </div>
                     <div class="content mb-20">
-                        <h3>{{ event.nomevent }}</h3>
+                        <h3>{{ event.nomevent }}  </h3>
+                            <a href="{{ path('event_heart',{id: event.id}) }}"  class="far fa-heart js-like-event"></a>
+                            <span class="js-like-event-count">{{ event.hearts }}</span>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-4 col-sm-12">
@@ -63,6 +65,9 @@
                                 {{ event.description }}
                             </p>
                         </div>
+
+
+
                     </div>
 
                     <div class="info-content">
@@ -103,6 +108,14 @@
                                 </div>
                             </div>
 
+
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="image mb-30">
+                                {% if qrCode %}
+                                    <img src="{{ qrCode }}" alt="qr-code">
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     {#  % if app.user %}
@@ -192,4 +205,25 @@
 
 
 </section>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+
+        $(document).ready(function() {
+            $('.js-like-event').on('click', function(e) {
+                e.preventDefault();
+                var $link = $(e.currentTarget);
+                $link.toggleClass('far fa-heart').toggleClass('fas fa-heart ');
+                $.ajax({
+                    method: 'POST',
+                    url: $link.attr('href')
+                }).done(function(data) {
+                    $('.js-like-event-count').html(data.hearts);
+                    console.log(data.hearts);
+                })
+            });
+        });
+    </script>
 {% endblock %}

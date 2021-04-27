@@ -5,36 +5,41 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Workshop;
 use App\Form\CommentType;
+use App\Services\QrcodeService;
 use DateTime;
+use Knp\Component\Pager\PaginatorInterface;
 
 use App\Form\WorkshopType;
 use App\Repository\WorkshopRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use \Twilio\Rest\Client;
+
 class EventController extends AbstractController
 {
+    private $twilio;
+
+    public function __construct(Client $twilio) {
+       $this->twilio = $twilio;
+
+     }
     /**
      * @Route("/event", name="event")
      */
 
     public function index(Request $request,WorkshopRepository $calendar): Response
     {
-
-
-
-
-
         $workshop = new Workshop();
         $form = $this->createForm(WorkshopType::class,$workshop);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($workshop);
             $em->flush();
             $this->addFlash('success', 'Event Ajouter avec sucess!');
@@ -97,10 +102,37 @@ class EventController extends AbstractController
     /**
      * @Route("/event/showEvent", name="showEvent")
      */
-    public function showAllEvent(WorkshopRepository $calendar)
+    public function showAllEvent(WorkshopRepository $calendar,Request $request)
     {
-        $events = $calendar->findAll();
+        $search = $request->query->get("search");
+        $events = $calendar->findAllWithSearch($search);
+
+
+
         return $this->render('event/showEvent.html.twig', [
+            'events' => $events,
+        ]);
+    }
+
+    /**
+     * @Route("/event/pagination", name="pagination")
+     */
+    public function pagination(WorkshopRepository $calendar, PaginatorInterface $paginator,Request $request)
+    {
+        //$search = $request->query->get("search");
+        $eventall = $calendar->pagination();
+
+        $events = $paginator->paginate(
+        // Doctrine Query, not results
+            $eventall,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            5
+        );
+
+
+        return $this->render('event/showEventFront.html.twig', [
             'events' => $events,
         ]);
     }
@@ -108,9 +140,42 @@ class EventController extends AbstractController
     /**
      * @Route("/event/showEventFront", name="showEventFront")
      */
-    public function showAllEventFront(WorkshopRepository $calendar)
+    public function showAllEventFront(WorkshopRepository $calendar,Request $request,PaginatorInterface $paginator)
     {
-        $events = $calendar->findAll();
+        //$events = $calendar->findAll();
+
+        $filters = $request->get("type");
+
+
+
+        //dd($qrCode);
+
+        // On récupère les annonces de la page en fonction du filtre
+
+        // On récupère le nombre total d'annonces
+        //$events = $calendar->getTotalEvent($filters);
+
+        $event = $calendar->pagination($filters);
+
+        $events = $paginator->paginate(
+        // Doctrine Query, not results
+            $event,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            5
+        );
+
+
+
+
+        //dd($events);
+        // On vérifie si on a une requête Ajax
+        if($request->get('ajax')){
+            return new JsonResponse([
+                'content' => $this->renderView('event/_contentFront.html.twig', compact('events'))
+            ]);
+        }
 
         return $this->render('event/showEventFront.html.twig', [
             'events' => $events,
@@ -131,6 +196,15 @@ class EventController extends AbstractController
             $em->persist($workshop);
             $em->flush();
             $this->addFlash('success', 'Event Ajouter avec sucess!');
+
+            $message = $this->twilio->messages->create(
+                '+21623277171', // Send text to this number
+                array(
+                    'from' => '+17814262448', // My Twilio phone number
+                    'body' => 'Hello from High Rises. A new Event is Here  '.$workshop->getNomevent() .' we begin at '.$workshop->getDatedebut()->format('Y-M-D')  . ' for any questions visit our site web www.hightises.com .'
+                )
+            );
+            $this->addFlash('success', $message);
 
             return $this->redirectToRoute('showEvent');
         }
@@ -215,11 +289,11 @@ class EventController extends AbstractController
      */
     public function delete(Request $request,WorkshopRepository $repo): Response
     {
-            $donnees = json_decode($request->getContent());
-            $entityManager = $this->getDoctrine()->getManager();
-            $calendar = $repo->find($donnees->id);
-            $entityManager->remove($calendar);
-            $entityManager->flush();
+        $donnees = json_decode($request->getContent());
+        $entityManager = $this->getDoctrine()->getManager();
+        $calendar = $repo->find($donnees->id);
+        $entityManager->remove($calendar);
+        $entityManager->flush();
 
 
         return $this->redirectToRoute('event');
@@ -254,9 +328,12 @@ class EventController extends AbstractController
     /**
      * @Route("/event/{id}/showDetailsEventFront", name="showDetailsEventFront")
      */
-    public function detailsEvent(WorkshopRepository $calendar,$id,Request $request)
+    public function detailsEvent(WorkshopRepository $calendar,$id,Request $request, QrcodeService $qrcodeService)
     {
         $event = $calendar->find($id);
+        $qrCode[] = null;
+
+        $qrCode = $qrcodeService->qrcode($event->getNomevent());
         $comment = new Comment();
 
         $form = $this->createForm(CommentType::class,$comment);
@@ -274,7 +351,76 @@ class EventController extends AbstractController
         return $this->render('event/detailsEventFront.html.twig', [
             'event' => $event,
             'formComment' => $form->createView(),
+            'qrCode' => $qrCode,
 
         ]);
     }
+
+    /**
+     * @Route("/event/stats",name="statsEvent")
+     */
+    public function stats(WorkshopRepository $repo){
+
+        $events = $repo->findAll();
+        $eventByDate = $repo->countByDate();
+
+        $eventType = [];
+        $eventCount = [];
+        $eventCountHearts = [];
+        $eventColor = [];
+
+        foreach ($eventByDate as $event){
+            //$eventType[] = $event->getType();
+            $eventCount[] = $event['count'];
+           if ($event['type'] == 'Soft Skills')
+               $eventColor[] = '#933EC5' ;
+             elseif ($event['type'] == 'Team building')
+             $eventColor[] = '#FF5722';
+             elseif ($event['type'] == 'Conference')
+             $eventColor[] = '#f3c30b';
+            elseif ($event['type'] == 'Seminaire')
+            $eventColor[] = '#00BCD4';
+
+        }
+
+
+
+        $eventByLike = $repo->countByLike();
+        foreach ($eventByLike as $event){
+            $eventType[] = $event['typeW'];
+            $eventCountHearts[] = $event['count'];
+        }
+
+
+        return $this->render('event/stats.html.twig',[
+            'eventType' => json_encode($eventType),
+            'eventCount' => json_encode($eventCount),
+            'eventColor' => json_encode($eventColor),
+            'like' => json_encode($eventCountHearts),
+        ]);
+
+    }
+
+
+    /**
+     * @Route("/event/sms",name="sendSms")
+     */
+    public function sendSMS()
+    {
+        $message = $this->twilio->messages->create(
+            '+21623277171', // Send text to this number
+            array(
+                'from' => '+17814262448', // My Twilio phone number
+                'body' => 'Hello from Awesome Massages. A reminder that your massage appointment is for today at '  . ' for any questions.'
+            )
+        );
+        $this->addFlash('success', $message);
+
+
+        return $this->redirectToRoute('showEvent');
+    }
+
+
+
+
 }

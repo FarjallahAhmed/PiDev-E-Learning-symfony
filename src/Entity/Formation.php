@@ -219,6 +219,10 @@ class Formation
      * @ORM\Column(name="id_formateur", type="integer", length=255, nullable=true)
      */
     private  $id_formateur;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0ab7714ad34c16569563cb326c159e527125a197
 
     public function getId(): ?int
     {

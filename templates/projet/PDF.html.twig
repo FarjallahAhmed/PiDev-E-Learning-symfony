@@ -1,0 +1,27 @@
+<table bgcolor="#deb887" , border="3" , align="center" ,  style="width:80%"  >
+    <thead>
+    <tr>
+        <td>Projet </td>
+        <td>Nom </td>
+        <td>Sujet </td>
+        <td>Description </td>
+        <td>Date Creation </td>
+
+    </tr>
+    </thead>
+
+    <tbody id ="myTable">
+    {% for c in projet %}
+    <tbody id ="myTable">
+    <tr>
+        <td>{{ c.idProjet }}</td>
+        <td>{{ c.nom }}</td>
+        <td>{{ c.sujet }}</td>
+        <td>{{ c.description }}</td>
+        <td>{{ c.datec |date('m/d/Y') }}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>

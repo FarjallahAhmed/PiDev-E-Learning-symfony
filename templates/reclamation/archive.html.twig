@@ -1,0 +1,50 @@
+{% extends 'baseReclamation.html.twig' %}
+
+{% block title %}Hello ReclamationController!{% endblock %}
+{% block recalamationActive %} class="active" {% endblock %}
+{% block content %}
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="sparkline8-list">
+                        <div class="sparkline8-hd">
+                            <div class="main-sparkline8-hd">
+                                <h1>List Reclamation Archive</h1>
+                            </div>
+                        </div>
+                        <div class="sparkline8-graph">
+                            <div class="static-table-list">
+                                <div id="table">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User</th>
+                                            <th>Objet</th>
+                                            <th>Message</th>
+                                            <th>Date</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for r in reclamation %}
+                                            <tr>
+                                                <td>{{ r.idReclamation }}</td>
+                                                <td>{{ r.idUser.nom }}</td>
+                                                <td>{{ r.objet }}</td>
+                                                <td>{{ r.idMessage.contenu }}</td>
+                                                <td>{{ r.date | date }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
