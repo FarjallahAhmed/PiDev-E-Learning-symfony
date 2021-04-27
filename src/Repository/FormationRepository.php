@@ -50,7 +50,7 @@ class FormationRepository extends ServiceEntityRepository
     public function getformationeval()
     {
         $em=$this->getEntityManager();
-        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.id,AVG(p.note) as moy ,p.rapport 
+        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.id,AVG(p.note) as moy ,p.rapport 
               FROM App\Entity\Formation u INNER JOIN App\Entity\Evaluation p with u.id=p.idFormation GROUP BY p.idFormation';
 
 
@@ -58,5 +58,52 @@ class FormationRepository extends ServiceEntityRepository
         $result = $query->getResult();
 
         return $result;
+    }
+    public function getformationwithreviews()
+    {
+        $em=$this->getEntityManager();
+        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.categorie,u.id,(select count (o.id) from App\Entity\Evaluation o where o.idFormation=u.id  ) as nb
+              FROM App\Entity\Formation u ';
+
+        $query=$em->createQuery($commande);
+        $result = $query->getResult();
+
+        return $result;
+    }
+    public function search($input) {
+        $em=$this->getEntityManager();
+        $sql = "SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.categorie,u.id,(select count (o.id) from App\Entity\Evaluation o where o.idFormation=u.id  ) as nb FROM App\Entity\Formation u where u.objet 
+        like :cex";
+
+        $query=$em->createQuery($sql)->setParameter('cex',"%".$input."%");
+
+        $result = $query->getResult();
+
+        return $result;
+
+    }
+    public function Filtrage($input) {
+        $em=$this->getEntityManager();
+        $sql = "SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.categorie,u.id,(select count (o.id) from App\Entity\Evaluation o where o.idFormation=u.id  ) as nb FROM App\Entity\Formation u where u.categorie 
+        = :cex";
+
+        $query=$em->createQuery($sql)->setParameter('cex',$input);
+
+        $result = $query->getResult();
+
+        return $result;
+
+    }
+    public function Filtrage_reviewsdesc() {
+        $em=$this->getEntityManager();
+        $sql = "SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.categorie,u.id,(select count (o.id) from App\Entity\Evaluation o where o.idFormation=u.id  ) as nb FROM App\Entity\Formation u  
+         order by nb desc";
+
+        $query=$em->createQuery($sql);
+
+        $result = $query->getResult();
+
+        return $result;
+
     }
 }

@@ -9,11 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Fonts
     ============================================ -->
-  
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
     {% block stylesheet %}
-<<<<<<< HEAD
         <!-- favicon
             ============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
@@ -41,37 +39,6 @@
         <!-- main CSS
             ============================================ -->
         <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
-=======
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backAssets/img/favicon.ico') }}">
-    
-
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/bootstrap.min.css') }}">
- 
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('backAssets/css/owl.transitions.css') }}">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/animate.css') }}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/normalize.css') }}">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/meanmenu.min.css') }}">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('backAssets/css/main.css') }}">
->>>>>>> fdadc94c4ca0a7aab3f6f938cbc6af2e700e802f
         <!-- dropzone CSS
 		============================================ -->
         <link rel="stylesheet" href="{{ asset('backAssets/css/dropzone/dropzone.css') }}">
@@ -136,17 +103,15 @@
                             </ul>
                         </li>
                         <li>
-                            <a  class="has-arrow" title="Landing Page" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Calendrier" href="{{ path('event') }}"><span class="mini-sub-pro">Calendrier</span></a></li>
-                                <li><a title="All Event" href="{{ path('showEvent') }}"><span class="mini-sub-pro">List Evenement</span></a></li>
-
-                            </ul>
+                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Promotions</span></a>
+                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professors</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Professors" href="{{ path('promotion') }}"><span class="mini-sub-pro">list promotion</span></a></li>
+                                <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
+                                <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>
+                                <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
+                                <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -900,189 +865,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-        <!-- Mobile Menu start -->
-        <div class="mobile-menu-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="mobile-menu">
-                            <nav id="dropdown">
-                                <ul class="mobile-menu-nav">
-                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul class="collapse dropdown-header-top">
-                                            <li><a href="index.html">Dashboard v.1</a></li>
-                                            <li><a href="index-1.html">Dashboard v.2</a></li>
-                                            <li><a href="index-3.html">Dashboard v.3</a></li>
-                                            <li><a href="analytics.html">Analytics</a></li>
-                                            <li><a href="widgets.html">Widgets</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="events.html">Event</a></li>
-                                    <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demoevent" class="collapse dropdown-header-top">
-                                            <li><a href="all-professors.html">All Professors</a>
-                                            </li>
-                                            <li><a href="add-professor.html">Add Professor</a>
-                                            </li>
-                                            <li><a href="edit-professor.html">Edit Professor</a>
-                                            </li>
-                                            <li><a href="professor-profile.html">Professor Profile</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demopro" href="#">Students <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demopro" class="collapse dropdown-header-top">
-                                            <li><a href="all-students.html">All Students</a>
-                                            </li>
-                                            <li><a href="add-student.html">Add Student</a>
-                                            </li>
-                                            <li><a href="edit-student.html">Edit Student</a>
-                                            </li>
-                                            <li><a href="student-profile.html">Student Profile</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#democrou" href="#">Courses <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="democrou" class="collapse dropdown-header-top">
-                                            <li><a href="all-courses.html">All Courses</a>
-                                            </li>
-                                            <li><a href="add-course.html">Add Course</a>
-                                            </li>
-                                            <li><a href="edit-course.html">Edit Course</a>
-                                            </li>
-                                            <li><a href="course-profile.html">Courses Info</a>
-                                            </li>
-                                            <li><a href="course-payment.html">Courses Payment</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demolibra" href="#">Library <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demolibra" class="collapse dropdown-header-top">
-                                            <li><a href="library-assets.html">Library Assets</a>
-                                            </li>
-                                            <li><a href="add-library-assets.html">Add Library Asset</a>
-                                            </li>
-                                            <li><a href="edit-library-assets.html">Edit Library Asset</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demodepart" href="#">Departments <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demodepart" class="collapse dropdown-header-top">
-                                            <li><a href="departments.html">Departments List</a>
-                                            </li>
-                                            <li><a href="add-department.html">Add Departments</a>
-                                            </li>
-                                            <li><a href="edit-department.html">Edit Departments</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="demo" class="collapse dropdown-header-top">
-                                            <li><a href="mailbox.html">Inbox</a>
-                                            </li>
-                                            <li><a href="mailbox-view.html">View Mail</a>
-                                            </li>
-                                            <li><a href="mailbox-compose.html">Compose Mail</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                            <li><a href="google-map.html">Google Map</a>
-                                            </li>
-                                            <li><a href="data-maps.html">Data Maps</a>
-                                            </li>
-                                            <li><a href="pdf-viewer.html">Pdf Viewer</a>
-                                            </li>
-                                            <li><a href="x-editable.html">X-Editable</a>
-                                            </li>
-                                            <li><a href="code-editor.html">Code Editor</a>
-                                            </li>
-                                            <li><a href="tree-view.html">Tree View</a>
-                                            </li>
-                                            <li><a href="preloader.html">Preloader</a>
-                                            </li>
-                                            <li><a href="images-cropper.html">Images Cropper</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                            <li><a href="bar-charts.html">Bar Charts</a>
-                                            </li>
-                                            <li><a href="line-charts.html">Line Charts</a>
-                                            </li>
-                                            <li><a href="area-charts.html">Area Charts</a>
-                                            </li>
-                                            <li><a href="rounded-chart.html">Rounded Charts</a>
-                                            </li>
-                                            <li><a href="c3.html">C3 Charts</a>
-                                            </li>
-                                            <li><a href="sparkline.html">Sparkline Charts</a>
-                                            </li>
-                                            <li><a href="peity.html">Peity Charts</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                            <li><a href="static-table.html">Static Table</a>
-                                            </li>
-                                            <li><a href="data-table.html">Data Table</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="formsmob" class="collapse dropdown-header-top">
-                                            <li><a href="basic-form-element.html">Basic Form Elements</a>
-                                            </li>
-                                            <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                            </li>
-                                            <li><a href="password-meter.html">Password Meter</a>
-                                            </li>
-                                            <li><a href="multi-upload.html">Multi Upload</a>
-                                            </li>
-                                            <li><a href="tinymc.html">Text Editor</a>
-                                            </li>
-                                            <li><a href="dual-list-box.html">Dual List Box</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Appviewsmob" class="collapse dropdown-header-top">
-                                            <li><a href="basic-form-element.html">Basic Form Elements</a>
-                                            </li>
-                                            <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                            </li>
-                                            <li><a href="password-meter.html">Password Meter</a>
-                                            </li>
-                                            <li><a href="multi-upload.html">Multi Upload</a>
-                                            </li>
-                                            <li><a href="tinymc.html">Text Editor</a>
-                                            </li>
-                                            <li><a href="dual-list-box.html">Dual List Box</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                        <ul id="Pagemob" class="collapse dropdown-header-top">
-                                            <li><a href="login.html">Login</a>
-                                            </li>
-                                            <li><a href="register.html">Register</a>
-                                            </li>
-                                            <li><a href="lock.html">Lock</a>
-                                            </li>
-                                            <li><a href="password-recovery.html">Password Recovery</a>
-                                            </li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                            <li><a href="500.html">500 Page</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-=======
             <!-- Mobile Menu start -->
             <div class="mobile-menu-area">
                 <div class="container">
@@ -1264,50 +1046,40 @@
                                     </ul>
                                 </nav>
                             </div>
->>>>>>> 61a8818408ae6c055ec4e83f41fd987b80919f99
                         </div>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-        {% block content %}
-
-
-        {% endblock %}
-
-        <!-- Mobile Menu end -->
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <div class="footer-copyright-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-copy-right">
-                        <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
-                    </div>
-                </div>
-            </div>
-=======
             {% block content %}
 
 
             {% endblock %}
 
             <!-- Mobile Menu end -->
->>>>>>> 61a8818408ae6c055ec4e83f41fd987b80919f99
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1316,98 +1088,160 @@
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 61a8818408ae6c055ec4e83f41fd987b80919f99
 
 
 
-<!-- jquery
-    ============================================ -->
-<<<<<<< HEAD
-    {% block jsall %}
-=======
-   
-
-{% block jsCalendar %}
-{% endblock %}
-
- {% block js %}
->>>>>>> 61a8818408ae6c055ec4e83f41fd987b80919f99
-<script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<!-- bootstrap JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
-<!-- wow JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
-<!-- meanmenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
-<!-- sticky JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
-<!-- counterup JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
-<!-- mCustomScrollbar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-<!-- metisMenu JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
-<script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-<script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
-<!-- calendar JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/plugins.js') }}"></script>
-<!-- main JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/main.js') }}"></script>
-<!-- tawk chat JS
-    ============================================ -->
-<script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
+    <!-- jquery
+        ============================================ -->
+{% block jsall %}
+    <script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/plugins.js') }}"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/main.js') }}"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
 {% endblock %}
 {% endblock %}
-<<<<<<< HEAD
 {% block jsCalendar %}
 
 {% endblock %}
-=======
-
->>>>>>> 61a8818408ae6c055ec4e83f41fd987b80919f99
 </body>
-
-</body>
-
+{% block js %}
+    <script src="{{ asset('backAssets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/bootstrap.min.js') }}"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/wow.min.js') }}"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery-price-slider.js') }}"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.meanmenu.js') }}"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/owl.carousel.min.js') }}"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.sticky.js') }}"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.scrollUp.min.js') }}"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/waypoints.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/counterup/counterup-active.js') }}"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/metisMenu/metisMenu-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/morrisjs/raphael-min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris.js') }}"></script>
+    <script src="{{ asset('backAssets/js/morrisjs/morris-active.js') }}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/jquery.charts-sparkline.js') }}"></script>
+    <script src="{{ asset('backAssets/js/sparkline/sparkline-active.js') }}"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <!-- maskedinput JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/jquery.maskedinput.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/masking-active.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/calendar/fullcalendar-active.js') }}"></script>
+    <!-- datepicker JS
+		============================================ -->
+    <script src="{{ asset('backAssets/js/datepicker/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('backAssets/js/datepicker/datepicker-active.js') }}"></script>
+    <!-- form validate JS
+		============================================ -->
+    <!-- form validate JS
+            ============================================ -->
+    <!-- dropzone JS
+       ============================================ -->
+    <script src="{{ asset('backAssets/js/dropzone/dropzone.js') }}"></script>
+    <!-- pdf JS
+		============================================ -->
+    <script src={{ asset('backAssets/js/pdf/jquery.media.js')}}></script>
+    <script src={{ asset('backAssets/js/pdf/pdf-active.js')}}></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="{{ asset('backAssets/js/tab.js') }}"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/plugins.js') }}"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/main.js') }}"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <script src="{{ asset('backAssets/js/tawk-chat.js') }}"></script>
+{% endblock %}
 
 </html>
