@@ -1,0 +1,82 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 28 avr. 2021 à 00:33
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.4.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `pidev`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formation`
+--
+
+CREATE TABLE `formation` (
+  `Id` int(11) NOT NULL,
+  `Objet` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `Type` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `Objectif` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `nb_participants` int(11) DEFAULT NULL,
+  `cout_hj` float DEFAULT NULL,
+  `nb_jour` int(11) DEFAULT NULL,
+  `cout_fin` float DEFAULT NULL,
+  `date_reelle` date DEFAULT NULL,
+  `date_prevu` date DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `categorie` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_formateur` int(11) DEFAULT NULL,
+  `image_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `formation`
+--
+
+INSERT INTO `formation` (`Id`, `Objet`, `Type`, `Objectif`, `nb_participants`, `cout_hj`, `nb_jour`, `cout_fin`, `date_reelle`, `date_prevu`, `path`, `categorie`, `id_formateur`, `image_name`, `updated_at`) VALUES
+(159, 'testestupload', 't', 'aaa', 5, 5, 5, 5, '2020-04-20', '2030-04-20', '222b84834c43292074f6bab5ce4875ba.pdf', 'Webdesign', 1, 'WHAT-IS-WEB-DESIGN.jpg', '2021-04-20 03:52:41'),
+(161, 'aaa', 'gg', 'ccc', 5, 5, 5, 5, '2020-04-21', '2030-04-21', '4aeeae2f9dbe21eaafb7f24a101c5d56.pdf', 'Webdesign', 1, 'téléchargement.jfif', '2021-04-21 15:41:07'),
+(162, 'testtest', 'aaa', 'ccc', 5, 5, 5, 5, '2020-04-22', '2030-04-22', 'a39c1ef1217d8d48832c1df10334ea5c.pdf', 'web2', 1, 'round.png', '2021-04-22 07:06:45'),
+(163, 'testttttttt', 'aa', 'aaaaa', 5, 5, 5, 5, '2020-04-22', '2030-04-22', 'ec2f09e31c9f007a0abfcb01b4edadb7.pdf', NULL, 1, 'bcc32c-101-Berlin-screenshot.png', '2021-04-22 09:43:00'),
+(164, 'bbbb', 'ccc', 'aaa', 5, 5, 55, 5, '2020-04-22', '2030-04-22', '70626f7e3265ad1212bc02106931fd69.pdf', 'Webdesign', 1, 'téléchargement.jfif', '2021-04-22 09:44:09');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `formation`
+--
+ALTER TABLE `formation`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `formation`
+--
+ALTER TABLE `formation`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

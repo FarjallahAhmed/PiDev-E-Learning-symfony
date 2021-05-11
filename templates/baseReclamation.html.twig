@@ -88,18 +88,47 @@
                             <span class="educate-icon educate-home icon-wrap"></span>
                             <span class="mini-click-non">Education</span>
                         </a>
-                        <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                            <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
-                            <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                            <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-                            <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
-                        </ul>
+                       
                     </li>
 
 
                                 <!-- reclamation + categories -->
+                        <li>
+                            <a  class="has-arrow" title="Landing Page" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Calendrier" href="{{ path('event') }}"><span class="mini-sub-pro">Calendrier</span></a></li>
+                                <li><a title="All Event" href="{{ path('showEvent') }}"><span class="mini-sub-pro">List Evenement</span></a></li>
+                                <li><a title="All Event" href="{{ path('statsEvent') }}"><span class="mini-sub-pro">Statistique</span></a></li>
 
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Promotions</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Professors" href="{{ path('promotion') }}"><span class="mini-sub-pro">list promotion</span></a></li>
+                                <li><a title="All Professors" href="{{ path('statsPromo') }}"><span class="mini-sub-pro">Statistique</span></a></li>
+
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{ path('allformations') }}"><span class="mini-sub-pro">All Courses</span></a></li>
+                                <li><a title="Add Courses" href="{{ path('formation_new') }}"><span class="mini-sub-pro">Add Course</span></a></li>
+                            </ul>
+                        </li>
+
+                          <li>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projects</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Courses" href="{{ path('projet') }}"><span class="mini-sub-pro">Projects</span></a></li>
+                                <li><a title="Add Courses" href="{{ path('activite') }}"><span class="mini-sub-pro">Activity</span></a></li>
+                            </ul>
+                        </li>
+
+
+                   
                 
                     <li {% block categorieActive %} {% endblock %}>
                         <a class="has-arrow" href="{{ path('categorie') }}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Categorie</span></a>
@@ -110,18 +139,25 @@
                     </li>
 
 
-
-
+                    
+                {% if app.user.nom == "admin" %}
                     <li {% block recalamationActive %} {% endblock %}>
                         <a class="has-arrow" href="{{ path('reclamation') }}" aria-expanded="false"><span class="educate-icon educate-message icon-wrap"></span> <span class="mini-click-non">Reclamation</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="Reclamation" href="{{ path('reclamation') }}"><span class="mini-sub-pro">List Reclamation</span></a></li>
-                            <li><a title="AddReclamation" href="{{ path('ajouterReclamation') }}"><span class="mini-sub-pro">Add Reclamation</span></a></li>
+                         
                             <li><a title="ArchiveReclamation" href="{{ path('archiveReclamation') }}"><span class="mini-sub-pro">Archive</span></a></li>
                             <li><a title="StatisticsReclamation" href="{{ path('statisticsReclamation') }}"><span class="mini-sub-pro">Statistics</span></a></li>
                         </ul>
                     </li>
+                 {% endif %}
 
+                 <li id="removable">
+                            <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap"></span> <span class="mini-click-non">Logout</span></a>
+                            <ul class="submenu-angle page-mini-nb-dp" aria-expanded="false">
+                                <li><a title="Login" href="{{ path('app_logout') }}"><span class="mini-sub-pro">Logout</span></a></li> 
+                            </ul>
+                        </li>
                         <!-- END-->
 
 

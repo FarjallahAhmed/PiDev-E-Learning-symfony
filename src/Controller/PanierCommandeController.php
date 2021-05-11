@@ -23,7 +23,7 @@ class PanierCommandeController extends AbstractController
     public function index(): Response
     {
         $em=$this->getDoctrine()->getManager();
-        $commande=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>1]);
+        $commande=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>$this->getUser()->getId()]);
         //$test=$commande->getIdFormation()->getObjet();
         $test=[];
         foreach ($commande as $x){
@@ -36,7 +36,7 @@ class PanierCommandeController extends AbstractController
             ];
 
         }
-        $panier=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $panier=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
         return $this->render('panier_commande/panier.html.twig', [
             'controller_name' => 'PanierCommandeController',
             'affichagepanier'=>$test,
@@ -51,17 +51,17 @@ class PanierCommandeController extends AbstractController
     {
         $em=$this->getDoctrine()->getManager();
         $result=$em->getRepository(Formation::class)->find($id);
-        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
         $panier=new Panier();
         if (!$exist){
-            $panier->setIdClient(1);
+            $panier->setIdClient($this->getUser()->getId());
             $panier->setNombre(1);
             $panier->setPrixTotal($result->getCoutFin());
             $commande=new Commande();
             $commande->setPrix($result->getCoutFin());
             $commande->setEtat('non valider');
             $commande->setIdFormation($result);
-            $commande->setIdClient(1);
+            $commande->setIdClient($this->getUser()->getId());
             $em->persist($panier);
             $em->persist($commande);
             $em->flush();
@@ -70,7 +70,7 @@ class PanierCommandeController extends AbstractController
             $commande->setPrix($result->getCoutFin());
             $commande->setEtat('non valider');
             $commande->setIdFormation($result);
-            $commande->setIdClient(1);
+            $commande->setIdClient($this->getUser()->getId());
             $exist->setNombre($exist->getNombre()+1);
             $exist->setPrixTotal($exist->getPrixTotal()+$result->getCoutFin());
             $em->persist($commande);
@@ -85,7 +85,7 @@ class PanierCommandeController extends AbstractController
     {
         $em=$this->getDoctrine()->getManager();
         $result=$em->getRepository(Commande::class)->find($id);
-        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
         $exist->setPrixTotal($exist->getPrixTotal()-$result->getPrix());
         $exist->setNombre($exist->getNombre()-1);
         $em->remove($result);
@@ -98,12 +98,12 @@ class PanierCommandeController extends AbstractController
     public function viderpanier(): Response
     {
         $em=$this->getDoctrine()->getManager();
-        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>1]);
+        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>$this->getUser()->getId()]);
         foreach ($result as $x){
             $em->remove($x);
             $em->flush();
         }
-        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $exist=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
         $exist->setPrixTotal(0);
         $exist->setNombre(0);
         $em->flush();
@@ -126,7 +126,7 @@ class PanierCommandeController extends AbstractController
     public function checkout(Request $request): Response
     {
         $em=$this->getDoctrine()->getManager();
-        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>1]);
+        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>$this->getUser()->getId()]);
         $test=[];
         foreach ($result as $x) {
             $test[] =
@@ -167,8 +167,8 @@ class PanierCommandeController extends AbstractController
         $form = $this->createForm(AchatType::class, $achat);
         $form->handleRequest($request);
         $em=$this->getDoctrine()->getManager();
-        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>1]);
-        $result2=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>$this->getUser()->getId()]);
+        $result2=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
         if ($form->isSubmitted() && $form->isValid()) {
 
 
@@ -192,7 +192,7 @@ class PanierCommandeController extends AbstractController
     public function archive(): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $commande = $em->getRepository(Commande::class)->findBy(['etat' => 'valider', 'idClient' => 1]);
+        $commande = $em->getRepository(Commande::class)->findBy(['etat' => 'valider', 'idClient' => $this->getUser()->getId()]);
 
         $test = [];
         foreach ($commande as $x) {
@@ -255,8 +255,8 @@ class PanierCommandeController extends AbstractController
     public function valider(): Response
     {
         $em=$this->getDoctrine()->getManager();
-        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>1]);
-        $result2=$em->getRepository(Panier::class)->findOneBy(['idClient'=>1]);
+        $result=$em->getRepository(Commande::class)->findBy(['etat'=>'non valider','idClient'=>$this->getUser()->getId()]);
+        $result2=$em->getRepository(Panier::class)->findOneBy(['idClient'=>$this->getUser()->getId()]);
 
         foreach ($result as $x){
             $x->setEtat('valider');

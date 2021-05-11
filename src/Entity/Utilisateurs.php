@@ -11,6 +11,8 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LengthValidator;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 
 
@@ -34,6 +36,7 @@ class Utilisateurs implements UserInterface
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -47,6 +50,7 @@ class Utilisateurs implements UserInterface
      *     htmlPattern = "^[a-zA-Z]+$",
      *     message="Your name must contain only letter"
      * )
+     * @Groups("post:read")
      */
     private $nom;
 
@@ -60,6 +64,7 @@ class Utilisateurs implements UserInterface
      *     htmlPattern = "^[a-zA-Z]+$",
      *     message="Your name must contain only letter"
      * )
+     * @Groups("post:read")
      */
     private $prenom;
 
@@ -69,6 +74,7 @@ class Utilisateurs implements UserInterface
      * @ORM\Column(name="dateNaissance", type="date", nullable=false)
      * @Assert\NotBlank(message="Date de naissance est obligatoire")
      * @Assert\Date
+     * @Groups("post:read")
      */
     private $datenaissance;
 
@@ -88,6 +94,7 @@ class Utilisateurs implements UserInterface
      *      minMessage = "Your CIN Must Have Only 8 Numbers",
      *      maxMessage = "Your CIN Must Have Only 8 Numbers",
      * )
+     * @Groups("post:read")
      */
     private $cin;
 
@@ -97,6 +104,7 @@ class Utilisateurs implements UserInterface
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Email Is Required")
      * @Assert\Email(message="The email '{{ value }}' is not Valid")
+     * @Groups("post:read")
      */
     private $email;
 
@@ -110,6 +118,7 @@ class Utilisateurs implements UserInterface
      *     htmlPattern = "^[a-z1-9]+$",
      *     message="Your Login must contain only Number and Letters"
      * ) 
+     * @Groups("post:read")
      */
     private $login;
 
@@ -129,6 +138,7 @@ class Utilisateurs implements UserInterface
      *      minMessage = "Your CIN Must Have Only 8 Characteres",
      *      maxMessage = "Your CIN Must Have Only 8 Characteres",
      * ) 
+     * @Groups("post:read")
      */
     private $pwd;
 
@@ -148,6 +158,7 @@ class Utilisateurs implements UserInterface
      *      minMessage = "Your Phone Number Must Have Only 8 Numbers",
      *      maxMessage = "Your Phone Number Must Have Only 8 Numbers",
      * ) 
+     * @Groups("post:read")
      */
     private $num;
 
@@ -155,6 +166,7 @@ class Utilisateurs implements UserInterface
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=8, nullable=true)
+     * @Groups("post:read")
      */
     private $image;
 

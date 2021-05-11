@@ -51,7 +51,8 @@ class SecurityController extends AbstractController
                                     return $this->redirectToRoute('app_logout'); 
                                 }
                                 else
-                                    return $this->redirectToRoute('homeformateur');   
+                                    return $this->redirectToRoute('allformations');  
+                                   
                         }   
          }
 

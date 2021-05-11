@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<section id="tours" class="tours-section tours-style-two ptb-100 bg-light">
+
+<div class="container">
+    <div class="col-lg-4 col-md-12">
+        <aside class="widget-area">
+
+            <div class="widget widget-search mb-30">
+                <form class="search-form search-top">
+                    <input type="text" class="form-control" placeholder="Search..." id="search" name="search" />
+
+
+
+                </form>
+            </div>
+            <br>
+            <div class="col-lg-6 col-sm-6">
+                <div class="select-box">
+                    <i class='bx bx-package'></i>
+                    <form method="post" action="{{path('formationonglet') }}">
+                    <select class="form-control" name="selectcateg" onchange="this.form.submit();">
+                        <option  value="default" data-display='Filtrer par'>Filtrer Par</option>
+                        {% for x in result2 %}
+                            <option   value={{ x.nom }}>{{ x.nom }}</option>
+                        {% endfor %}
+                        <option value="reviews">reviews</option>
+                        <option value="all">All</option>
+                    </select>
+                    </form>
+                </div>
+            </div>
+
+
+        </aside>
+    </div>
+    <div class="section-title">
+        <h2>Our Courses</h2>
+        <p>E-learning has helped us to understand the meaning of life and it has helped us become better people. Each time we study, we see the world with new eyes.</p>
+    </div>
+
+    <br>
+    <br>
+    <div class="row" id="table">
+        {%  for x in result %}
+        <div class="col-lg-4 col-md-6">
+            <div class="item-single mb-30">
+                <div class="image">
+                    <img src="{{asset('images/Formations/'~x.imageName)}}" alt="Demo Image" />
+                </div>
+                <div class="content">
+                    <div class="review">
+
+                        <span>{{ x.nb }} Reviews</span>
+                    </div>
+
+                    <div class="title">
+                        <h3>
+                            <a href="{{ path('formationdetails',{id:x.id}) }}">{{ x.objet }}</a>
+                        </h3>
+                    </div>
+                    <ul class="list">
+                        <li><i class='bx bx-time'></i>{{ x.datePrevu|date("m/d/Y") }}</li>
+                        <li><i class='bx bx-group'></i>{{ x.nbParticipants }}+</li>
+                        <li>{{ x.coutFin }}Dt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+
+
+
+
+
+
+
+
+
+        <div class="col-lg-12 col-md-12">
+            <div class="pagination text-center">
+                <span class="page-numbers current" aria-current="page">1</span>
+                <a href="#" class="page-numbers">2</a>
+                <a href="#" class="page-numbers">3</a>
+                <a href="#" class="page-numbers">Next</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(function() {
+            $("#search").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchformation') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#table').empty();
+                    $('#table').append(tableau);
+                })
+            });
+        })
+    </script>
+
+{% endblock %}

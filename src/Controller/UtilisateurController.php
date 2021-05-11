@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Participants;
 use App\Entity\Formateurs;
+use App\Entity\Utilisateurs;
 
 use App\Form\ParticipantsType;
 use App\Form\FormateursType;
@@ -16,6 +17,11 @@ use App\Form\EditParticipantType;
 use App\Form\EditFormateurType;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Repository\ParticipantsRepository;
+use App\Repository\FormateursRepository;
+use Symfony\Component\Serializer\SerializerInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 
 class UtilisateurController extends AbstractController
@@ -404,6 +410,11 @@ class UtilisateurController extends AbstractController
             'result' => $tab,
         ]);
     }
+
+                                        
+    
+    
+
 
 
 

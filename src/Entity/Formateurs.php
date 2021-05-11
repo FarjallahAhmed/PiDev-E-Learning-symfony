@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LengthValidator;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Formateurs
@@ -26,6 +27,7 @@ class Formateurs extends Utilisateurs
      *     htmlPattern = "^[a-zA-Z]+$",
      *     message="Your Specialty must contain only letter"
      * )
+     * @Groups("post:read")
      */
     private $specialite;
 
@@ -34,6 +36,7 @@ class Formateurs extends Utilisateurs
      *
      * @ORM\Column(name="justificatif", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Justificatif Is Required")
+     * @Groups("post:read")
      */
     private $justificatif;
 
@@ -41,6 +44,7 @@ class Formateurs extends Utilisateurs
      * @var bool|null
      *
      * @ORM\Column(name="etat", type="boolean", nullable=true)
+     * @Groups("post:read")
      */
     private $etat = '0';
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vangrg\ProfanityBundle\Validator\Constraints as ProfanityAssert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Evaluation
@@ -30,7 +32,9 @@ class Evaluation
 
     /**
      * @var string|null
-     *
+     * @ProfanityAssert\ProfanityCheck(
+     * message="You cannot use this type of words"
+     * )
      * @ORM\Column(name="Rapport", type="string", length=255, nullable=true)
      */
     private $rapport;

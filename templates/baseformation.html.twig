@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="{{  asset('css/responsive.css')}}" />
 
 <link rel="icon" href="{{  asset('img/favicon.png" type="image/png')}}" />
+
+
     {% endblock %}-
 
 
@@ -66,41 +68,42 @@
                     <div class="col-xl-6 col-lg-5">
                         <div class="side-option">
                             <div class="item">
-                                <div class="language">
-                                    <a href="#language" id="languageButton" class="btn-secondary">
-                                        Language <i class='bx bxs-chevron-down'></i>
-                                    </a>
-                                    <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-uk.png" alt="flag">
-                                                English
+                             {% if not app.user %}
+                                        <div class="language">
+                                            <a href="#language" id="languageButton" class="btn-secondary">
+                                                Register <i class='bx bxs-chevron-down'></i>
                                             </a>
-                                        </li>
-                                        <li class="menu-item"><a href="#" class="menu-link">
-                                                <img src="assets/img/flag-germany.png" alt="flag">
-                                                Deutsch</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-jordan.png" alt="flag">
-                                                العربية
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <img src="assets/img/flag-china.png" alt="flag">
-                                                中文
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="btn-secondary">
-                                    Login <i class='bx bx-log-in-circle'></i>
-                                </a>
-                            </div>
+                                            <ul class="menu">
+                                                <li class="menu-item">
+                                                    <a href="{{ path('addparticipant') }}" class="menu-link">
+                                                        Participant
+                                                    </a>
+                                                </li>
+                                                <li class="menu-item"><a href="{{ path('addformateur') }}" class="menu-link">
+                                                        Formateur</a>
+                                                </li>
+                                                
+                                            </ul>
+                                              
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                  
+                                    {% if not app.user %}
+                                    <div class="item">
+                                        <a href="{{ path('app_login') }}" class="btn-secondary">
+                                            Login <i class='bx bx-log-in-circle'></i>
+                                        </a>
+                                    </div>
+                                    {% endif %}
+
+                                   {% if app.user %}
+                                    <div class="item">
+                                        <a href="{{ path('app_logout') }}" class="btn-secondary">
+                                            Logout <i class='bx bx-log-in-circle'></i>
+                                        </a>
+                                    </div>
+                                    {% endif %}
                             <div class="item">
                                 <a href="#searchBox" id="searchButton" class="btn-search" data-effect="mfp-zoom-in">
                                     <i class='bx bx-search-alt'></i>
@@ -139,6 +142,8 @@
 
                     </div>
                     <div class="cart responsive">
+
+                    
                         <a href="cart.html" class="cart-btn"><i class='bx bx-cart'></i>
                             <span class="badge">0</span>
                         </a>
@@ -171,7 +176,10 @@
                                             <a href="#" class="nav-link toggle">Courses<i class='bx bxs-chevron-down'></i></a>
                                             <ul class="dropdown-menu">
                                                 <li class="nav-item">
-                                                    <a href="destinations.html" class="nav-link">Courses</a>
+                                                    <a href="{{ path('formationfront')}}" class="nav-link">Courses</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="{{ path('formationonglet')}}" class="nav-link">Filter Courses</a>
                                                 </li>
                                                
                                             </ul>
@@ -206,6 +214,16 @@
                                         </li>
 
 
+                                        <li class="nav-item"><a href="#" class="nav-link toggle">Categories<i class='bx bxs-chevron-down'></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item">
+                                                    <a href="{{ path('listeCategorie')}}" class="nav-link">Categories</a>
+                                                </li>
+                                               
+                                            </ul>
+                                        </li>
+
+
                                         <li class="nav-item">
                                             <a href="about-us.html" class="nav-link">About</a>
                                         </li>
@@ -219,11 +237,30 @@
 
 
                         </ul>
-                        <div class="cart">
-                            <a href="{{ path('panier_commande') }}" class="cart-btn"><i class='bx bx-cart'></i>
-                                <span class="badge">0</span>
-                            </a>
-                        </div>
+                        {% if  app.user %}
+                                    <div class="cart">
+                                        <a href="{{ path('panier_commande') }}" class="cart-btn"><i class='bx bx-cart'></i>
+                                            <span class="badge">0</span>
+                                        </a>
+                                    </div>
+                                     {% endif %}
+
+                                     {% if app.user %}
+                                    <div class="cart">
+                                        {% if not app.user.image == null %}
+                                        <a href="{{ path('participant_edit',{'id': app.user.id}) }}">
+                                             <img class="img-profile rounded-circle" src="{{ asset('uploads/pictures/' ~ app.user.image) }}" style="max-height: 40px; max-width: 40px;">
+                                        </a>
+                                        {% endif %}
+
+                                        {% if app.user.image == null %}
+                                        <a href="{{ path('participant_edit',{'id': app.user.id}) }}">
+                                             <img class="img-profile rounded-circle" src="{{ asset('uploads/pictures/user.png') }}" style="max-height: 40px; max-width: 40px;">
+                                        </a>
+                                        {% endif %}
+                                       
+                                    </div>
+                                    {% endif %}
                     </div>
                 </nav>
             </div>
@@ -245,61 +282,18 @@
 
 
 
-    <section class="features-section pt-100 pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <i class='bx bx-calendar'></i>
-                        <h3><a href="#">Reservation</a></h3>
-                        <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="item-single mb-30">
-                        <i class='bx bxs-plane-take-off'></i>
-                        <h3><a href="#">Tour Pack</a></h3>
-                        <p>You can dream, create, design, and build the most wonder ful place in the world. But it requires people.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 m-auto">
-                    <div class="item-single mb-30">
-                        <i class='bx bx-money'></i>
-                        <h3><a href="#">Payment</a></h3>
-                        <p>As compared with earlier times where a reservation personnel has to update its inventory every time.</p>
-                        <div class="cta-btn">
-                            <a href="#" class="btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
+    
 
 
     <section id="destination" class="destination-section ptb-100 bg-light">
         <div class="container">
-            <div class="section-title">
-                <h2>Destinations</h2>
-                <p>Travel has helped us to understand the meaning of life and it has helped us become better people. Each time we travel, we see the world with new eyes.</p>
-            </div>
             <div class="row">
                 <div class="col-md-8 m-auto">
                     <div class="filter-group">
 
                         <ul id="control" class="list-control">
                             <li class="active" data-filter="all">All</li>
-                            <li data-filter="1">Budget-Friendly</li>
-                            <li data-filter="2">Royal</li>
+                            
                             <li data-filter="3">Recommended</li>
                         </ul>
                     </div>
@@ -478,6 +472,9 @@
         <script src="{{  asset('js/jquery.ajaxchimp.min.js')}}"></script>
 
         <script src="{{  asset('js/script.js')}}"></script>
+
+
+        
     {% endblock %}
 
     </body>

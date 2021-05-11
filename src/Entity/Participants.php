@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Participants
  *
  * @ORM\Table(name="participants")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ParticipantsRepository")
  */
 class Participants extends Utilisateurs
 {
@@ -17,6 +19,7 @@ class Participants extends Utilisateurs
      * @var string
      *
      * @ORM\Column(name="niveauEtude", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $niveauetude;
 
@@ -24,6 +27,7 @@ class Participants extends Utilisateurs
      * @var int
      *
      * @ORM\Column(name="certificatsObtenus", type="integer", nullable=false)
+     * @Groups("post:read")
      */
     private $certificatsobtenus;
 
@@ -32,6 +36,7 @@ class Participants extends Utilisateurs
      *
      * @ORM\Column(name="interessePar", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="About Is Required")
+     * @Groups("post:read")
      */
     private $interessepar;
 
@@ -39,6 +44,7 @@ class Participants extends Utilisateurs
      * @var int
      *
      * @ORM\Column(name="nombreDeFormation", type="integer", nullable=false)
+     * @Groups("post:read")
      */
     private $nombredeformation;
 

@@ -77,7 +77,7 @@ class ReclamationController extends AbstractController
             $em->persist($rec);
             $em->flush();
 
-            return $this->redirectToRoute('reclamation');
+            return $this->redirectToRoute('formationfront');
         }
         return $this->render('reclamation/ajouter.html.twig', [
             'controller_name' => 'ReclamationController',
