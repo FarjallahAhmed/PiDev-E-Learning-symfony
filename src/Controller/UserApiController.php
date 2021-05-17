@@ -19,6 +19,7 @@ use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use App\Repository\ParticipantsRepository;
 use App\Repository\FormateursRepository;
+use App\Repository\UtilisateursRepository;
 use Symfony\Component\Serializer\SerializerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
@@ -101,7 +102,8 @@ class UserApiController extends AbstractController
 
         $participant->setNom($request->get('nom'));
         $participant->setPrenom($request->get('prenom'));
-       // $participant->setDatenaissance(date_create_from_format("format_string", $request->get('date')));
+        $participant->setDatenaissance(new \DateTime($request->get('date')));
+
         //$participant->setDatenaissance($request->get('date'));
         
         $participant->setCin($request->get('cin'));
@@ -134,7 +136,7 @@ class UserApiController extends AbstractController
 
         $formateur->setNom($request->get('nom'));
         $formateur->setPrenom($request->get('prenom'));
-       // $formateur->setDatenaissance(date_create_from_format("format_string", $request->get('date')));
+        $formateur->setDatenaissance(new \DateTime($request->get('date')));
         //$formateur->setDatenaissance($request->get('date'));
         
         $formateur->setCin($request->get('cin'));
@@ -298,28 +300,116 @@ class UserApiController extends AbstractController
     }   
 
 
+    
+
+
+
     /**
-     * @Route("/verifierUserJSON/{email}", name="verifieruserjson")
+     * @Route("/getFormateursByEmailJSON", name="getformateursbyemailjson")
      */
-    public function verifierUserJson(Request $request,FormateursRepository $repo ,EntityManagerInterface $em, NormalizerInterface $Normalizer,$email)
+    public function getFormateursByEmailJson(Request $request,FormateursRepository $repo ,NormalizerInterface $Normalizer)
+    {
+        $formateurs = $repo->findByEmail($request->get('email'));
+        $jsonContent = $Normalizer->normalize($formateurs,'json',['groups'=>'post:read']);
+            if ($jsonContent!=null)
+                return new Response(json_encode($jsonContent));
+            else
+                return new Response(json_encode(null)); 
+        
+    }
+
+
+
+    /**
+     * @Route("/getParticipantsByEmailJSON", name="getparticipantsbyemailjson")
+     */
+    public function getParticipantsByEmailJson(Request $request,ParticipantsRepository $repo ,NormalizerInterface $Normalizer)
+    {
+        $participants = $repo->findByEmail($request->get('email'));
+        $jsonContent = $Normalizer->normalize($participants,'json',['groups'=>'post:read']);
+            if ($jsonContent!=null)
+                return new Response(json_encode($jsonContent));
+            else
+                return new Response(json_encode(null)); 
+
+        
+        
+        
+    }
+
+
+     /**
+     * @Route("/verifierUserJSON", name="verifierUserjson")
+     */
+    public function verifierUserrJson(Request $request,UtilisateursRepository $repo ,NormalizerInterface $Normalizer)
+    {
+        $user = $repo->findByEmail($request->get('email'));
+        if ($user)
+        {
+           
+                if ($user[0]->getPassword()==$request->get('password'))
+                    return New Response ("Ok");
+                    else 
+                     return New Response ("Wrong");
+         
+        }
+        else 
+          return New Response ("No");   
+    }
+
+
+     /**
+     * @Route("/sendEmail", name="sendEmail")
+     */
+    public function SendEmail(Request $request,UtilisateursRepository $repo ,NormalizerInterface $Normalizer)
+    {
+        $user = $repo->findByEmail($request->get('email'));
+        if ($user)
+        {
+            
+            $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+            ->setUsername('highriseshighrises@gmail.com')
+            ->setPassword('highrises123');
+            $mailer = new \Swift_Mailer($transport);
+            $message = (new \Swift_Message("Reset Password Mobile"))
+            ->setFrom('highriseshighrises@gmail.com')
+            ->setTo($request->get('email'))
+            ->setBody($request->get('number'));
+            /* @var $mailer \Swift_Mailer */
+            $mailer->send($message);
+            return New Response ("Done"); 
+         
+        }
+        else 
+          return New Response ("No");   
+    }
+
+
+
+
+    /**
+     * @Route("/modifierPassword", name="modifierPasswordjson")
+     */
+    public function modifierPasswordJson(Request $request,UtilisateursRepository $repo ,EntityManagerInterface $em, NormalizerInterface $Normalizer)
     {
          
         $em = $this->getDoctrine()->getManager();
 
-        $utilisateurs = $em->getRepository(Utilisateurs::class)->findByEmail($email);
+        $utilisateurs = $em->getRepository(Utilisateurs::class)->findByEmail($request->get('email'));
        // dd($formateurs);
-            
+        
+              $utilisateurs[0]->setPassword($request->get('password'));
+
+
+
             $em->flush();
             $jsonContent = $Normalizer->normalize($utilisateurs,'json',['groups'=>'post:read']);
-            if ($jsonContent!=null)
-                return new Response(json_encode($jsonContent));
-            else
-                return new Response(json_encode(null));
-
-                
-
+            return new Response(json_encode($jsonContent));
         
     }   
+    
+    
+
 
 
 }
