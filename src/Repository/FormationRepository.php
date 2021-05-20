@@ -50,7 +50,7 @@ class FormationRepository extends ServiceEntityRepository
     public function getformationeval()
     {
         $em=$this->getEntityManager();
-        $commande='SELECT u.objet, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.id,AVG(p.note) as moy ,p.rapport 
+        $commande='SELECT u.objet,u.categorie, u.type, u.objectif, u.nbParticipants,u.coutHj,u.nbJour,u.datePrevu,u.coutFin,u.path,u.imageName,u.id,AVG(p.note) as moy ,p.rapport 
               FROM App\Entity\Formation u INNER JOIN App\Entity\Evaluation p with u.id=p.idFormation GROUP BY p.idFormation';
 
 

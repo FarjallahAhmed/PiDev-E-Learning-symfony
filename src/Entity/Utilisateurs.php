@@ -318,7 +318,7 @@ class Utilisateurs implements UserInterface
 
         return ['idp'];
     }
-
+/*
     public function getTypeUser(): ?string
     {
 
@@ -326,7 +326,7 @@ class Utilisateurs implements UserInterface
 
     }
 
-    
+    */
 
     
 

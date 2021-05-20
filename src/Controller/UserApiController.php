@@ -147,7 +147,7 @@ class UserApiController extends AbstractController
 
         $formateur->setSpecialite($request->get('spec'));
         $formateur->setJustificatif($request->get('just'));
-        $formateur->setEtat($request->get('etat'));
+        $formateur->setEtat(false);
 
         $em->persist($formateur);
         $em->flush();

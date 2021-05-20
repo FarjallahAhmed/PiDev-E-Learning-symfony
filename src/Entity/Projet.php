@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -20,6 +21,7 @@ class Projet
      * @ORM\Column(name="id_projet", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $idProjet;
 
@@ -31,6 +33,7 @@ class Projet
      *     message="{{ value }} must be String "
      * )
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $nom;
 
@@ -42,6 +45,7 @@ class Projet
      *     message="{{ value }} must be String "
      * )
      * @ORM\Column(name="sujet", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $sujet;
 
@@ -53,6 +57,7 @@ class Projet
      *     message="{{ value }} must be String "
      * )
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $description;
 
@@ -60,6 +65,7 @@ class Projet
      * @var \DateTime
      *
      * @ORM\Column(name="dateC", type="date", nullable=false)
+     * @Groups("post:read")
      */
     private $datec;
 

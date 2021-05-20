@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Vangrg\ProfanityBundle\Validator\Constraints as ProfanityAssert;
+
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Workshop
@@ -23,6 +24,7 @@ class Workshop
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -35,6 +37,7 @@ class Workshop
      *     message="{{ value }} must be String "
      * )
      * @ORM\Column(name="nameCalendar", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $namecalendar;
 
@@ -48,6 +51,7 @@ class Workshop
      *     htmlPattern = "^[a-zA-Z]+$",
      *     message="{{ value }} must be String "
      * )
+     * @Groups("post:read")
      */
     private $nomevent;
 
@@ -57,6 +61,7 @@ class Workshop
      * @ORM\Column(name="dateDebut", type="date", nullable=true)
      * @Assert\NotBlank(message="Must be filled")
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      *
      */
     private $datedebut;
@@ -66,6 +71,7 @@ class Workshop
      *
      * @ORM\Column(name="dateFin", type="date", nullable=true)
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      */
     private $datefin;
 
@@ -74,6 +80,7 @@ class Workshop
      *
      * @ORM\Column(name="hDebut", type="time", nullable=true)
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      */
     private $hdebut;
 
@@ -82,6 +89,7 @@ class Workshop
      *
      * @ORM\Column(name="hFin", type="time", nullable=true)
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      */
     private $hfin;
 
@@ -90,6 +98,7 @@ class Workshop
      *
      * @ORM\Column(name="lieu", type="string", length=30, nullable=false)
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      *  @Assert\Regex(
      *     pattern     = "/^[a-z\s]+$/i",
      *     htmlPattern = "^[a-zA-Z\s]+$",
@@ -108,6 +117,7 @@ class Workshop
      *      message="{{ value }} must be a Number"
      * )
      * @ORM\Column(name="nbParticipant", type="integer", nullable=false)
+     * @Groups("post:read")
      */
     private $nbparticipant;
 
@@ -116,6 +126,7 @@ class Workshop
      *
      * @ORM\Column(name="type", type="string", length=30, nullable=false)
      * @Assert\NotBlank(message="Must be filled")
+     * @Groups("post:read")
      */
     private $type;
 
@@ -129,6 +140,7 @@ class Workshop
      *     htmlPattern = "^[a-zA-Z]+$",
      *      message="{{ value }} must be String "
      * )
+     * @Groups("post:read")
      */
     private $description;
 
@@ -142,16 +154,19 @@ class Workshop
      *     htmlPattern = "^[0-9]",
      *     message="{{ value }} must be a Number"
      * )
+     * @Groups("post:read")
      */
     private $prix;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="workshop")
+     * @Groups("post:read")
      */
     private $comments;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $hearts = 0;
 

@@ -19,6 +19,9 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Serializer\SerializerInterface;
+use App\Repository\ReclamationRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ReclamationController extends AbstractController
 {
@@ -301,4 +304,67 @@ class ReclamationController extends AbstractController
         "Attachment" => false
     ]);
     }
+
+
+
+    
+
+
+
+
+    /**
+ * @Route("/reclamation/getReclamations", name="getReclamations")
+ */
+public function getReclamations(ReclamationRepository $repo,SerializerInterface $serializer)
+{
+    $Reclamations=$repo->findAll();
+    $json=$serializer->serialize($Reclamations,'json', ['groupes'=>'Reclamations']);
+    return new Response($json);
+
+}
+
+/**
+ * @Route("/reclamation/addReclamations" ,name="add_reclamation")
+ *
+ */
+public function addreclamation(Request $request, SerializerInterface $serializer,EntityManagerInterface $em)
+{
+    $content=$request->getContent();
+    $user = $em->getRepository(Utilisateurs::class)->find($request->get('id'));
+
+    
+   
+    //$data=$serializer->deserialize($content,Reclamation::class,'json');
+
+    $em = $this->getDoctrine()->getManager();
+
+    $rec = new Reclamation();
+    $user = $em->getRepository(Utilisateurs::class)->find($request->get('id'));
+    $rec->setIdUser($user);
+    $rec->setObjet($request->get('objet'));
+    $msg = new Message();
+    $msg->setContenu($request->get('msg'));
+    $rec->setIdMessage($msg);
+    $rec->setDate(new \DateTime());
+
+    //$data->setIdUser($user);
+    $em->persist($msg);
+    $em->persist($rec);
+    $em->flush();
+    return new Response('Reclamation added successfully');
+
+}
+
+/**
+ * @Route("/reclamation/deleteReclamation/{id}" ,name="delete_reclamation")
+ *
+ */
+public function deleteReclamation($id, EntityManagerInterface $em)
+{
+    $data= $em->getRepository(Reclamation::class)->find($id);
+    $em->remove($data);
+    $em->flush();
+    return new Response('Reclamation deleted successfully');
+
+}
 }

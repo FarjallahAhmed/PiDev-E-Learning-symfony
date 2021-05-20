@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Commande
  *
@@ -18,6 +18,7 @@ class Commande
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -25,6 +26,7 @@ class Commande
      * @var \DateTime|null
      *
      * @ORM\Column(name="date", type="date", nullable=true)
+     *
      */
     private $date;
 
@@ -32,6 +34,7 @@ class Commande
      * @var float
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
+     * @Groups("post:read")
      */
     private $prix;
 
@@ -39,6 +42,7 @@ class Commande
      * @var string|null
      *
      * @ORM\Column(name="etat", type="string", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private $etat;
 
@@ -46,6 +50,7 @@ class Commande
      * @var int|null
      *
      * @ORM\Column(name="id_client", type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $idClient;
 
@@ -56,6 +61,7 @@ class Commande
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_formation", referencedColumnName="Id")
      * })
+     * @Groups("post:read")
      */
     private $idFormation;
 

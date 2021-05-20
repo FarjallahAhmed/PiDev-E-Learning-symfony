@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Reclamation
@@ -22,6 +23,7 @@ class Reclamation
      * @ORM\Column(name="id_reclamation", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("reclamation")
      */
     private $idReclamation;
 
@@ -29,6 +31,7 @@ class Reclamation
      * @var string
      *
      * @ORM\Column(name="objet", type="string", length=255, nullable=false)
+     * @Groups("reclamation")
      */
     private $objet;
 
@@ -36,6 +39,7 @@ class Reclamation
      * @var \DateTime|null
      *
      * @ORM\Column(name="date", type="date", nullable=true)
+     * @Groups("reclamation")
      */
     private $date;
 
@@ -46,6 +50,7 @@ class Reclamation
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      * })
+     * @Groups("reclamation")
      */
     private $idUser;
 
@@ -56,6 +61,7 @@ class Reclamation
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_message", referencedColumnName="id_message")
      * })
+     * @Groups("reclamation")
      */
     private $idMessage;
 

@@ -6,10 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Formation
- *
+
  * @ORM\Table(name="formation")
  * @ORM\Entity(repositoryClass="App\Repository\FormationRepository")
  * @Vich\Uploadable
@@ -23,6 +24,7 @@ class Formation
      * @ORM\Column(name="Id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+    * @Groups("post:read")
      */
     private $id;
 
@@ -32,25 +34,29 @@ class Formation
      * @Vich\UploadableField(mapping="formations", fileNameProperty="imageName")
      *
      * @var File|null
+
      */
+
     private $imageFile;
 
     /**
      * @ORM\Column(type="string")
      *
      * @var string|null
+     * @Groups("post:read")
      */
     private $imageName;
     /**
      *
      * @var int
+     * @Groups("post:read")
      */
     private $nbreviews;
 
     /**
      * @return int
      */
-    public function getNbreviews(): int
+    public function getNbreviews(): ?int
     {
         return $this->nbreviews;
     }
@@ -68,6 +74,7 @@ class Formation
      * @ORM\Column(type="datetime")
      *
      * @var \DateTimeInterface|null
+
      */
     private $updatedAt;
 
@@ -121,6 +128,7 @@ class Formation
      *     message="{{ value }} n'est pas un caractere "
      * )
      * @ORM\Column(name="Objet", type="string", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private $objet;
 
@@ -133,6 +141,7 @@ class Formation
      *     htmlPattern = "^[a-zA-Z]+$",
      *     message="{{ value }} n'est pas un caractere "
      * )
+     * @Groups("post:read")
      */
     private $type;
 
@@ -140,6 +149,7 @@ class Formation
      * @var string|null
 
      * @ORM\Column(name="Objectif", type="string", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private $objectif;
 
@@ -147,6 +157,7 @@ class Formation
      * @var int|null
      *
      * @ORM\Column(name="nb_participants", type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $nbParticipants;
 
@@ -158,6 +169,7 @@ class Formation
      *     message="{{ value }} must be a Number"
      * )
      * @ORM\Column(name="cout_hj", type="float", precision=10, scale=0, nullable=true)
+     * @Groups("post:read")
      */
     private $coutHj;
 
@@ -165,6 +177,7 @@ class Formation
      * @var int|null
      *
      * @ORM\Column(name="nb_jour", type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $nbJour;
 
@@ -177,6 +190,7 @@ class Formation
      *     htmlPattern = "^[0-9]",
      *     message="{{ value }} must be a Number"
      * )
+     * @Groups("post:read")
      */
     private $coutFin;
 
@@ -188,6 +202,7 @@ class Formation
      *     "this.getDatePrevu() > this.getDateReelle()",
      *     message="La date fin ne doit pas être antérieure à la date début"
      * )
+     * @Groups("post:read")
      */
     private $dateReelle;
 
@@ -195,6 +210,7 @@ class Formation
      * @var \DateTime|null
      *
      * @ORM\Column(name="date_prevu", type="date", nullable=true)
+     * @Groups("post:read")
      */
     private $datePrevu;
 
@@ -202,6 +218,7 @@ class Formation
      * @var string|null
      *
      * @ORM\Column(name="path", type="string", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private $path;
 
@@ -209,6 +226,7 @@ class Formation
      * @var string|null
      *
      * @ORM\Column(name="categorie", type="string", length=255, nullable=true)
+     * @Groups("post:read")
 
      */
 
@@ -217,11 +235,9 @@ class Formation
      * @var int |null
      *
      * @ORM\Column(name="id_formateur", type="integer", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private  $id_formateur;
-
-
-
 
     public function getId(): ?int
     {

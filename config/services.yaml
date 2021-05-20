@@ -41,7 +41,7 @@ services:
     # please note that last definitions always *replace* previous ones
     twilio.client:
         class: Twilio\Rest\Client
-        arguments: [ 'ACa439aa4513c9b71266e608b59f6861ea', '7c31f4957327ce0fa9319777fca44540' ]
+        arguments: [ 'ACa439aa4513c9b71266e608b59f6861ea', 'b1dfa0ca8a383c1058b413865d66c572' ]
 
         # Add an alias for the twilio.client service
     Twilio\Rest\Client: '@twilio.client'

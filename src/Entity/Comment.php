@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
  */
@@ -13,23 +13,27 @@ class Comment
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
+     * @Groups("post:read")
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $authorName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity=Workshop::class, inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $workshop;
 
